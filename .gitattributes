@@ -1,0 +1,20 @@
+[attr]source_code	diff=cpp ident text=auto
+
+# Makefile, Doxyfile, etc.
+*file		text=auto
+
+# Code::Blocks property files (xml)
+*.cbp		text=auto
+*.layout	text=auto
+
+# PL/D files
+*.d		source_code
+*.di		text=auto
+
+# PL/C files
+*.c		source_code
+*.h		source_code
+
+# PL/C++ files
+*.cpp		source_code
+*.hpp		source_code
