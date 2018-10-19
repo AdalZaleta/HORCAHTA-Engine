@@ -1,6 +1,7 @@
 #pragma once
 
 #include "hoImages.h"
+#include <stdio.h>
 class RenderGL
 {
 	public:

@@ -16,6 +16,18 @@ hoImages::hoImages(const char* _dirImages)
 
 }
 
+bool hoImages::LoadImage(const char *_dirImages)
+{
+	const char* dirImage = ("../Resources/%s", _dirImages);
+	SDL_Surface *surface = IMG_Load(dirImage);
+
+	if (surface != nullptr)
+	{
+		return true;
+	}
+	return false;
+}
+
 void hoImages::DrawImage()
 {
 	GLuint textureID = 0;

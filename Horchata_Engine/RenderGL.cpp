@@ -50,7 +50,7 @@ void RenderGL::inicializar()
 
 	if (hoImages::LoadImage("GABO.jpg"))
 	{
-		std::cout << "Si lo puedo cargar" << std::endl;
+		//std::cout << "Si lo puedo cargar" << std::endl;
 	}
 }
 

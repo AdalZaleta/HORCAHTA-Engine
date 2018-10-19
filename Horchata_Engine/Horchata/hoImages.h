@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <SDL_opengl.h>
 #include <vector>
+#include <SDL_image.h>
 
 class hoImages
 {
@@ -12,6 +13,7 @@ public:
 	~hoImages();
 
 	void DrawImage();
+	static bool LoadImage(const char *_dirImages);
 
 private:
 	const char* dirImage;
