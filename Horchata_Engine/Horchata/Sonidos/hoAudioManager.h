@@ -27,6 +27,7 @@ class hoAudioManager
 		// Musica de Background
 		void PlayBackgroundMusic(const char* BackgroundMusic);
 		void StopBackgroundMusic();
+		void PauseBackgroundMusic();
 
 		// Ajuste de volumen
 		void SetVolume(int volumen);
