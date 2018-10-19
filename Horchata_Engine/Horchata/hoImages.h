@@ -4,8 +4,9 @@ class hoImages
 {
 public:
 	hoImages();
-	hoImages(const char* _dirImages);
 	~hoImages();
+
+	static bool LoadImage(const char *_dirImages);
 private:
-	const char* dirImage;
+	//const char* dirImage;
 };

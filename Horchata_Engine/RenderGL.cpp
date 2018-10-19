@@ -1,6 +1,7 @@
 #include "RenderGL.h"
 #include "SDL_opengl.h"
 #include <GL\GLU.h>
+#include "hoImages.h"
 
 RenderGL g_renderGL; //Singleton
 
@@ -46,6 +47,10 @@ void RenderGL::inicializar()
 	//Initialize clear color
 	glClearColor(0.f, 0.f, 0.f, 1.f);
 
+	if (hoImages::LoadImage("GABO.jpg"))
+	{
+		std::cout << "Si lo puedo cargar" << std::endl;
+	}
 }
 
 void RenderGL::liberar()
