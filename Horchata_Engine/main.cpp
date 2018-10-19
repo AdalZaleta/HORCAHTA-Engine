@@ -2,7 +2,9 @@
 #include "RenderGL.h"
 #include <stdio.h>
 #include <string>
-
+#include <iostream>
+#include "hoTime.h"
+using namespace std;
 //Dimensiones de la ventana
 const int SCREEN_WIDTH = 1500;
 const int SCREEN_HEIGHT = 1000;
@@ -21,6 +23,7 @@ void close();
 SDL_Window* gWindow = NULL;
 //Referencia a OpenGl con SDL
 SDL_GLContext gContext;
+
 
 //------CORE ------------------------------------------------------------------------------------
 
@@ -47,6 +50,7 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 
 bool init()
 {
+
 	//Initialization flag
 	bool success = true;
 
@@ -128,9 +132,12 @@ int main(int argc, char* args[])
 		//Se activa deteccion de teclado
 		SDL_StartTextInput();
 
+		float tiempo = 0;
+
 		//GameLoop
 		while (!GameLoop)
 		{
+			hoTime::CalcularDT();
 			//Handle events on queue
 			while (SDL_PollEvent(&e) != 0)
 			{
@@ -155,11 +162,22 @@ int main(int argc, char* args[])
 
 			//Update
 			g_renderGL.update();
+
+
+			
+
 			//Dibujamos
 			g_renderGL.render();
 			
 			//Actualizamos pantalla
 			SDL_GL_SwapWindow(gWindow);
+			
+			tiempo += hoTime::deltaTime;
+
+			cout << tiempo << endl;
+			
+			
+			hoTime::last = hoTime::now;
 		}
 
 		//Desactivamos detectar teclado
