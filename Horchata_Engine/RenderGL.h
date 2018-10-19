@@ -1,5 +1,6 @@
 #pragma once
 
+#include "hoImages.h"
 class RenderGL
 {
 	public:
@@ -22,6 +23,8 @@ class RenderGL
 		void update();
 		//Funcion encargado de dibujar
 		void render();
+
+		hoImages testImage;
 };
 
 extern RenderGL g_renderGL; //Singleton

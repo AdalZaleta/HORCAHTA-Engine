@@ -2,6 +2,7 @@
 #include "SDL_opengl.h"
 #include <GL\GLU.h>
 
+
 RenderGL g_renderGL; //Singleton
 
 RenderGL::RenderGL()
@@ -60,6 +61,10 @@ void RenderGL::update()
 
 void RenderGL::render()
 {
+
+	testImage.DrawImage();
+
+	
 	//Limpiamos pantalla
 	glClear(GL_COLOR_BUFFER_BIT);
 
