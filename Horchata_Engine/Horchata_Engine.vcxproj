@@ -125,10 +125,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Horchata\hoText.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderGL.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Horchata\hoText.h" />
     <ClInclude Include="RenderGL.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

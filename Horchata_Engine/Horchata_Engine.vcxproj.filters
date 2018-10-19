@@ -24,9 +24,15 @@
     <ClCompile Include="RenderGL.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="Horchata\hoText.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderGL.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\hoText.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
