@@ -38,71 +38,71 @@
     <ClInclude Include="RenderGL.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="irrKlang\irrKlang.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_vec3d.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_SAudioStreamFormat.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_IVirtualRefCounted.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_ISoundStopEventReceiver.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_ISoundSource.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_ISoundMixedOutputReceiver.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_ISoundEngine.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_ISoundEffectControl.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_ISoundDeviceList.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_ISound.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_irrKlangTypes.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_IRefCounted.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_IFileReader.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_IFileFactory.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_IAudioStreamLoader.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_IAudioStream.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_IAudioRecorder.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_EStreamModes.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_ESoundOutputDrivers.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="irrKlang\ik_ESoundEngineOptions.h">
-      <Filter>irrKlang</Filter>
-    </ClInclude>
     <ClInclude Include="Horchata\Sonidos\hoAudioManager.h">
       <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ESoundEngineOptions.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ESoundOutputDrivers.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_EStreamModes.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioRecorder.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioStream.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioStreamLoader.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IFileFactory.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IFileReader.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IRefCounted.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_irrKlangTypes.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISound.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundDeviceList.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundEffectControl.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundEngine.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundMixedOutputReceiver.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundSource.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundStopEventReceiver.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IVirtualRefCounted.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_SAudioStreamFormat.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_vec3d.h">
+      <Filter>irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\irrKlang.h">
+      <Filter>irrKlang</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
