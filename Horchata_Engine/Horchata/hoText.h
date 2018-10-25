@@ -5,6 +5,7 @@
 #include <GL\GLU.h>
 #include <stdio.h>
 #include "SDL_ttf.h"
+#include <iostream>
 
 class hoText {
 public:

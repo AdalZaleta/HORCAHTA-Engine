@@ -22,3 +22,12 @@
 */
 
 //Ejemplo libro 4
+int tryText()
+{
+	TTF_Font *fuente;
+	fuente = TTF_OpenFont("Fuentes/fuenteDeseada.ttf", 16);
+
+
+	//PAGINA 352 ULTIMO LIBRO
+	return 0;
+}
