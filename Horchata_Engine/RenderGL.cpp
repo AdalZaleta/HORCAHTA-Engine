@@ -2,6 +2,7 @@
 #include "SDL_opengl.h"
 #include <GL\GLU.h>
 #include "hoImages.h"
+#include <iostream>
 
 
 RenderGL g_renderGL; //Singleton
@@ -50,7 +51,7 @@ void RenderGL::inicializar()
 
 	if (hoImages::LoadImage("GABO.jpg"))
 	{
-		//std::cout << "Si lo puedo cargar" << std::endl;
+		std::cout << "Si lo puedo cargar" << std::endl;
 	}
 }
 
