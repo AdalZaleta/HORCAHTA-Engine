@@ -2,6 +2,7 @@
 #include "RenderGL.h"
 #include <stdio.h>
 #include <string>
+#include "Horchata\Sonidos\hoAudioManager.h"
 
 //Dimensiones de la ventana
 const int SCREEN_WIDTH = 800;

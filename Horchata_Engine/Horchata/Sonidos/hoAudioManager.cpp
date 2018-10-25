@@ -18,29 +18,43 @@ void hoAudioManager::InitEngine()
 }
 
 // Sonidos
-void hoAudioManager::Play(const char* clip)
+ISound* hoAudioManager::Play(const char* clip)
 {
-	ISoundSource* Sonido;
+	ISound* Sonido;
 
-	Sonido = EngineSonido->addSoundSourceFromFile(clip);
+	//Sonido = EngineSonido->addSoundSourceFromFile(clip);
 
 	// Reproducimos el clip recibido
-	EngineSonido->play2D(Sonido);
+	Sonido = EngineSonido->play2D(clip);
+
+	return Sonido;
 }
 
-void hoAudioManager::Stop()
+void hoAudioManager::Stop(ISound* clip)
 {
+	clip->stop();
+}
 
+void hoAudioManager::IsPause(ISound* clip, bool estado)
+{
+	clip->setIsPaused(estado);
 }
 
 // Musica Background
 void hoAudioManager::PlayBackgroundMusic(const char* BackgroundMusic)
 {
-	ISoundSource* Musica;
+	/*ISoundSource* Musica;
 
-	Musica = EngineSonido->addSoundSourceFromFile(BackgroundMusic);
-
-	Background = EngineSonido->play2D(Musica, true);
+	Musica = EngineSonido->addSoundSourceFromFile(BackgroundMusic);*/
+	if (Background == NULL)
+	{
+		Background = EngineSonido->play2D(BackgroundMusic, true);
+	}
+	else
+	{
+		Background->stop();
+		Background = EngineSonido->play2D(BackgroundMusic, true);
+	}
 }
 
 void hoAudioManager::StopBackgroundMusic()
@@ -48,7 +62,7 @@ void hoAudioManager::StopBackgroundMusic()
 	Background->stop();
 }
 
-void hoAudioManager::PauseBackgroundMusic()
+void hoAudioManager::PauseBackgroundMusic(bool estado)
 {
-	Background->setIsPaused(true);
+	Background->setIsPaused(estado);
 }
