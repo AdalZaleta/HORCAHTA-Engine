@@ -25,7 +25,30 @@
 int tryText()
 {
 	TTF_Font *fuente;
-	fuente = TTF_OpenFont("Fuentes/fuenteDeseada.ttf", 16);
+	fuente = TTF_OpenFont("Resources/Fonts/bgothm.ttf", 16);
+
+	int w, h;
+
+	TTF_SizeUTF8(fuente, "Hola Mundo", &w, &h);
+
+	SDL_Surface *texto;
+	SDL_Color color;
+
+	color.r = 0;
+	color.g = 0;
+	color.b = 0;
+
+	texto = TTF_RenderText_Blended(fuente, "Hola Mundo", color);
+
+	SDL_Rect dest;
+	dest.x = 150;
+	dest.y = 100;
+	dest.h = texto->h;
+	dest.w = texto->w;
+
+	SDL_BlitSurface(texto, NULL, pantalla, &dest);
+	SDL_RendererFlip(pantalla);
+	SDL_Delay(5000);
 
 
 	//PAGINA 352 ULTIMO LIBRO
