@@ -23,6 +23,8 @@ SDL_Window* gWindow = NULL;
 //Referencia a OpenGl con SDL
 SDL_GLContext gContext;
 
+hoAudioManager SonidosManager;
+
 //------CORE ------------------------------------------------------------------------------------
 
 //Teclado
@@ -31,6 +33,7 @@ void handleKeys(unsigned char _key, int _x, int _y)
 	//Toggle quad
 	if (_key == 'a')
 	{
+		SonidosManager.Play("Resources/smb_mariodie.wav");
 	}
 }
 
@@ -95,6 +98,10 @@ bool init()
 			}
 		}
 	}
+
+	SonidosManager.InitEngine();
+
+	SonidosManager.PlayBackgroundMusic("Resources/main-theme-overworld.wav");
 	
 	return success;
 }
