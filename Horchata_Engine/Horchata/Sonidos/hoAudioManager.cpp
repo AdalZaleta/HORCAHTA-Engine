@@ -66,3 +66,30 @@ void hoAudioManager::PauseBackgroundMusic(bool estado)
 {
 	Background->setIsPaused(estado);
 }
+
+//Todos Los Sonidos
+
+void hoAudioManager::StopAllSounds()
+{
+	EngineSonido->stopAllSounds();
+}
+
+void hoAudioManager::PauseAllSounds(bool _estado)
+{
+	EngineSonido->setAllSoundsPaused(_estado);
+}
+
+//Volumen
+void hoAudioManager::SetVolume(float volumen)
+{
+	float VolumenBackground;
+	EngineSonido->setSoundVolume(volumen);
+
+	VolumenBackground = Background->getVolume();
+	Background->setVolume(VolumenBackground);
+}
+
+void hoAudioManager::SetBackGroundVolume(float volumen)
+{
+	Background->setVolume(volumen);
+}

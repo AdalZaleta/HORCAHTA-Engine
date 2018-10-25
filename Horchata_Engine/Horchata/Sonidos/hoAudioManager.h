@@ -27,7 +27,12 @@ class hoAudioManager
 		void StopBackgroundMusic();
 		void PauseBackgroundMusic(bool estado);
 
+		
+		void StopAllSounds();
+		void PauseAllSounds(bool _estado);
+
 		// Ajuste de volumen
-		void SetVolume(int volumen);
+		void SetVolume(float volumen);
+		void SetBackGroundVolume(float Volumen);
 };
 
