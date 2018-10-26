@@ -63,7 +63,7 @@ void RenderGL::update()
 void RenderGL::render()
 {
 
-	testImage.DrawImage();
+	testImage.DrawImage(0, 0, 100, 100, "gatito.jpg");
 
 	
 	//Limpiamos pantalla

@@ -1,5 +1,6 @@
 #include "hoImages.h"
 #include "SDL_image.h"
+#include <iostream>
 
 hoImages::hoImages()
 {
@@ -20,21 +21,24 @@ hoImages::hoImages(const char* _dirImages)
 bool hoImages::LoadImage_(const char *_dirImages)
 {
 
-	const char *prefix = "../Resources/";
+	const char *prefix = "Resources/";
 	char result[100];
 
 	strcpy_s(result, prefix);
 	strcat_s(result, _dirImages);
 
 	const char* dirImage = result;
-	SDL_Surface *surface = IMG_Load(dirImage);
+	SDL_Surface *surface = IMG_Load(result);
+	std::cout << result << std::endl;
 
 	if (surface)
 	{
+		std::cout << "pitito" << std::endl;
 		imageSurface = surface;
 		return true;
 	}
-	imageSurface = NULL;
+	std::cout << "!pitito" << std::endl;
+	//imageSurface = NULL;
 	return false;
 }
 
