@@ -27,12 +27,24 @@
     <ClCompile Include="Horchata\Horchata.cpp">
       <Filter>Horchata</Filter>
     </ClCompile>
+    <ClCompile Include="Horchata\hoPrimitives.cpp">
+      <Filter>Horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\hoVector.cpp">
+      <Filter>Horchata</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderGL.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Horchata\Horchata.h">
+      <Filter>Horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\hoPrimitives.h">
+      <Filter>Horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\hoVector.h">
       <Filter>Horchata</Filter>
     </ClInclude>
   </ItemGroup>
