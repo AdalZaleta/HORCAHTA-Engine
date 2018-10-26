@@ -134,7 +134,7 @@ int main(int argc, char* args[])
 		//GameLoop
 		while (!GameLoop)
 		{
-			hoTime::CalcularDeltaTime();
+
 			//Handle events on queue
 			while (SDL_PollEvent(&e) != 0)
 			{
@@ -159,7 +159,8 @@ int main(int argc, char* args[])
 
 			//Update
 			g_renderGL.update();
-
+			//Calculamos el deltaTime
+			hoTime::CalcularDeltaTime();
 
 			
 
@@ -169,8 +170,8 @@ int main(int argc, char* args[])
 			//Actualizamos pantalla
 			SDL_GL_SwapWindow(gWindow);
 			
+			//PRUEBA PARA deltaTime
 			tiempo += hoTime::deltaTime;
-
 			cout << tiempo << endl;
 			
 			
