@@ -46,6 +46,8 @@ void RenderGL::inicializar()
 	}
 
 	gluOrtho2D(clipAreaXLeft, clipAreaXRightt, clipAreaYBottom, clipAreaYTop);
+
+	glEnable(GL_TEXTURE_2D);
 	//Initialize clear color
 	glClearColor(0.f, 0.f, 0.f, 1.f);
 	testImage.LoadImage_("GABO.jpg");
@@ -64,7 +66,7 @@ void RenderGL::update()
 void RenderGL::render()
 {
 
-	testImage.DrawImage(0, 0, 100, 100);
+	testImage.DrawImage(1, 1, 50, 50);
 
 	
 	//Limpiamos pantalla

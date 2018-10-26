@@ -5,8 +5,8 @@
 #include <string>
 
 //Dimensiones de la ventana
-const int SCREEN_WIDTH = 1500;
-const int SCREEN_HEIGHT = 1000;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
 
 //Inicializa SDL, crea ventana y lo liga a openGL
 bool init();
