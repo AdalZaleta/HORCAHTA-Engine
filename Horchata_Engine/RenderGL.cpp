@@ -48,6 +48,7 @@ void RenderGL::inicializar()
 	gluOrtho2D(clipAreaXLeft, clipAreaXRightt, clipAreaYBottom, clipAreaYTop);
 	//Initialize clear color
 	glClearColor(0.f, 0.f, 0.f, 1.f);
+	testImage.LoadImage_("GABO.jpg");
 }
 
 void RenderGL::liberar()
@@ -63,7 +64,7 @@ void RenderGL::update()
 void RenderGL::render()
 {
 
-	testImage.DrawImage(0, 0, 100, 100, "gatito.jpg");
+	testImage.DrawImage(0, 0, 100, 100);
 
 	
 	//Limpiamos pantalla

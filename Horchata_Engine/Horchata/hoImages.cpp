@@ -27,7 +27,6 @@ bool hoImages::LoadImage_(const char *_dirImages)
 	strcpy_s(result, prefix);
 	strcat_s(result, _dirImages);
 
-	const char* dirImage = result;
 	SDL_Surface *surface = IMG_Load(result);
 	std::cout << result << std::endl;
 
@@ -42,9 +41,8 @@ bool hoImages::LoadImage_(const char *_dirImages)
 	return false;
 }
 
-void hoImages::DrawImage(int _x, int _y, int _width, int _height, const char *_dirImages)
+void hoImages::DrawImage(int _x, int _y, int _width, int _height)
 {
-	LoadImage_(_dirImages);
 	GLuint textureID = 0;
 	glGenTextures(1, &textureID);
 	glBindTexture(GL_TEXTURE_2D, textureID);
