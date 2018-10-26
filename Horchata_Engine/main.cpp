@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <string>
 #include "Horchata\Sonidos\hoAudioManager.h"
+#include <iostream>
+#include <windows.h>
 
 using namespace std;
 using namespace irrklang;
@@ -104,7 +106,7 @@ bool init()
 
 	SonidosManager.InitEngine();
 
-	SonidosManager.PlayBackgroundMusic("Resources/main-theme-overworld.wav");
+	SonidosManager.PlayBackgroundMusic("Resources/main-theme-overworld.mp3");
 	
 	return success;
 }
