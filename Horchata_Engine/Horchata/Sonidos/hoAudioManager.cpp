@@ -1,4 +1,7 @@
 #include "hoAudioManager.h"
+#include <iostream>
+#include <windows.h>
+
 
 hoAudioManager::hoAudioManager()
 {
@@ -93,3 +96,4 @@ void hoAudioManager::SetBackGroundVolume(float volumen)
 {
 	Background->setVolume(volumen);
 }
+

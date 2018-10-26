@@ -4,6 +4,9 @@
 #include <string>
 #include "Horchata\Sonidos\hoAudioManager.h"
 
+using namespace std;
+using namespace irrklang;
+
 //Dimensiones de la ventana
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
