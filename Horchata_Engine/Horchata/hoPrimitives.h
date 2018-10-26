@@ -8,46 +8,18 @@ public:
 	hoDrawable() {}
 	~hoDrawable(){}
 
-	virtual void Draw();
+	virtual void Draw(float _pxw, float _pxh);
 
 	bool isActive = true;
 	float r, g, b, a;
 };
-
-/*
-template <class T>
-class SmartPtr2
-{
-	T *ptr;///Apuntador real
-public:
-	///Forzar constructor
-	explicit SmartPtr2(T *p = NULL)
-	{
-		ptr = p;
-	}
-	~SmartPtr2()
-	{
-		delete(ptr);
-	}
-
-	///Sobre cargamos operador de apuntador
-	T& operator *()
-	{
-		return *ptr;
-	}
-	///Sobrecargamos el operador -> para que se pueda usar con normalidad
-	T* operator -> ()
-	{
-		return ptr;
-	}
-};*/
 
 class hoPoint : public hoDrawable {
 public:
 	hoPoint() {}
 	~hoPoint() {}
 
-	virtual void Draw();
+	virtual void Draw(float _pxw, float _pxh);
 
 	hoVector2f position;
 };
@@ -61,7 +33,7 @@ public:
 	}
 	~hoLine() {}
 
-	virtual void Draw();
+	virtual void Draw(float _pxw, float _pxh);
 
 	hoVector2f point1, point2;
 };
@@ -71,7 +43,7 @@ public:
 	hoCircle() {}
 	~hoCircle() {}
 
-	virtual void Draw();
+	virtual void Draw(float _pxw, float _pxh);
 
 	hoVector2f center;
 	float radius;
@@ -82,7 +54,7 @@ public:
 	hoEllipse() {}
 	~hoEllipse() {}
 
-	virtual void Draw();
+	virtual void Draw(float _pxw, float _pxh);
 };
 
 enum DrawableType {
