@@ -46,8 +46,6 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 }
 
 //------ FIN CORE -------------------------------------------------------------------------------
-
-
 bool init()
 {
 
@@ -125,7 +123,6 @@ int main(int argc, char* args[])
 	{
 		//GameLoop
 		bool GameLoop = false;
-
 		//Manejador de evento
 		SDL_Event e;
 
@@ -137,7 +134,7 @@ int main(int argc, char* args[])
 		//GameLoop
 		while (!GameLoop)
 		{
-			hoTime::CalcularDT();
+			hoTime::CalcularDeltaTime();
 			//Handle events on queue
 			while (SDL_PollEvent(&e) != 0)
 			{
@@ -177,7 +174,7 @@ int main(int argc, char* args[])
 			cout << tiempo << endl;
 			
 			
-			hoTime::last = hoTime::now;
+		
 		}
 
 		//Desactivamos detectar teclado
