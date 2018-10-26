@@ -12,8 +12,8 @@ public:
 	hoImages(const char* _dirImages);
 	~hoImages();
 
-	void DrawImage();
-	static bool LoadImage(const char *_dirImages);
+	void DrawImage(const char *_dirImages);
+	bool LoadImage_(const char *_dirImages);
 
 private:
 	const char* dirImage;

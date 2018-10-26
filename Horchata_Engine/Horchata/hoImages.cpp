@@ -17,7 +17,7 @@ hoImages::hoImages(const char* _dirImages)
 
 }
 
-bool hoImages::LoadImage(const char *_dirImages)
+bool hoImages::LoadImage_(const char *_dirImages)
 {
 
 	const char *prefix = "../Resources/";
@@ -31,13 +31,16 @@ bool hoImages::LoadImage(const char *_dirImages)
 
 	if (surface)
 	{
+		imageSurface = surface;
 		return true;
 	}
+	imageSurface = NULL;
 	return false;
 }
 
-void hoImages::DrawImage()
+void hoImages::DrawImage(const char *_dirImages)
 {
+	LoadImage_(_dirImages);
 	GLuint textureID = 0;
 	glGenTextures(1, &textureID);
 	glBindTexture(GL_TEXTURE_2D, textureID);

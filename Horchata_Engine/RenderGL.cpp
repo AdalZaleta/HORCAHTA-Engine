@@ -48,11 +48,6 @@ void RenderGL::inicializar()
 	gluOrtho2D(clipAreaXLeft, clipAreaXRightt, clipAreaYBottom, clipAreaYTop);
 	//Initialize clear color
 	glClearColor(0.f, 0.f, 0.f, 1.f);
-
-	if (hoImages::LoadImage("GABO.jpg"))
-	{
-		std::cout << "Si lo puedo cargar" << std::endl;
-	}
 }
 
 void RenderGL::liberar()
