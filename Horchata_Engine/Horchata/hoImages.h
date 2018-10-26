@@ -12,7 +12,7 @@ public:
 	hoImages(const char* _dirImages);
 	~hoImages();
 
-	void DrawImage();
+	void DrawImage(int _x, int _y, int _width, int _height);
 	static bool LoadImage(const char *_dirImages);
 
 private:
