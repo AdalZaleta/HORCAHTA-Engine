@@ -10,8 +10,10 @@ class hoAudioManager
 		hoAudioManager();
 		~hoAudioManager();
 
+		// El engine que reproducira todos los sonidos
 		ISoundEngine* EngineSonido;
 		
+		// Musica de BackGround
 		ISound* Background;
 
 		// Inicializa el motor de los sonidos
@@ -27,7 +29,7 @@ class hoAudioManager
 		void StopBackgroundMusic();
 		void PauseBackgroundMusic(bool estado);
 
-		
+		// Detener y pausar todos los sonidos
 		void StopAllSounds();
 		void PauseAllSounds(bool _estado);
 
