@@ -51,7 +51,6 @@ bool hoImages::LoadImage_(const char *_dirImages)
 	SDL_FreeSurface(imageSurface);
 
 
-	//imageSurface = NULL;
 	return true;
 }
 
