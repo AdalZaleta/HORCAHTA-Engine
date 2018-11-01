@@ -20,20 +20,26 @@ hoImages::hoImages(const char* _dirImages)
 
 bool hoImages::LoadImage_(const char *_dirImages)
 {
-
+	//This const char will be the prefix of the image
 	const char *prefix = "Resources/";
+	//This char array will be concatenate the path
 	char result[100];
-
+	//This add a the array the prefix
 	strcpy_s(result, prefix);
+	//Then will be add the final path
 	strcat_s(result, _dirImages);
-
+	//This make a SDL_Surface from the function load with the final path
 	SDL_Surface *surface = IMG_Load(result);
-
+	//Verify if the surface is loaded
 	if (surface)
 	{
+		//Is assigned to the variable of the class
 		imageSurface = surface;
+		//No se que va aquí
 		SDL_LockSurface(imageSurface);
+	//if doesn't loaded
 	} else if(surface == nullptr){
+		//The function will be return false
 		return false;
 	}
 	glGenTextures(1, &textureID);
