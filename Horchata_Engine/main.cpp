@@ -2,6 +2,8 @@
 #include "RenderGL.h"
 #include <stdio.h>
 #include <string>
+#include "hoText.h"
+
 
 //Dimensiones de la ventana
 const int SCREEN_WIDTH = 1500;
@@ -58,6 +60,15 @@ bool init()
 	}
 	else
 	{
+		
+		if (TTF_Init() == -1)
+		{
+			printf("SDL could not initialize! SDL Error: %s\n", TTF_GetError());
+			success = false;
+			return success;
+		}
+		
+
 		//Indicamos que usaremos OPenGL
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
@@ -71,9 +82,15 @@ bool init()
 		}
 		else
 		{
+
+			
+
+
 			//SDL_GetRendererOutputSize(gWindow, &g_renderGL.w, &g_renderGL.h);
+			
 			g_renderGL.w= SDL_GetWindowSurface(gWindow)->w;
 			g_renderGL.h = SDL_GetWindowSurface(gWindow)->h;
+
 			//Creamos COntexto de OpenGL
 			gContext = SDL_GL_CreateContext(gWindow);
 			if (gContext == NULL)
@@ -83,6 +100,9 @@ bool init()
 			}
 			else
 			{
+				hoText::fuente = TTF_OpenFont("Resources/Fonts/bgothm.ttf", 16);
+				
+
 				//Activamos VSync
 				if (SDL_GL_SetSwapInterval(1) < 0)
 				{
@@ -128,6 +148,26 @@ int main(int argc, char* args[])
 		//Se activa deteccion de teclado
 		SDL_StartTextInput();
 
+
+		TTF_SizeUTF8(hoText::fuente, "Hola Mundo", &g_renderGL.w, &g_renderGL.h);
+
+		SDL_Surface *texto;
+		SDL_Color color;
+
+		color.r = 25;
+		color.g = 255;
+		color.b = 0;
+
+		texto = TTF_RenderText_Solid(hoText::fuente, "Hola Mundo", color);
+
+		SDL_Rect dest;
+		dest.x = 150;
+		dest.y = 100;
+		dest.h = texto->h;
+		dest.w = texto->w;
+
+		SDL_Surface* pantalla = SDL_GetWindowSurface(gWindow);
+
 		//GameLoop
 		while (!GameLoop)
 		{
@@ -157,6 +197,8 @@ int main(int argc, char* args[])
 			g_renderGL.update();
 			//Dibujamos
 			g_renderGL.render();
+
+			SDL_BlitSurface(texto, NULL, pantalla, &dest);
 			
 			//Actualizamos pantalla
 			SDL_GL_SwapWindow(gWindow);

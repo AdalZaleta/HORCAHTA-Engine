@@ -1,6 +1,8 @@
 #include "RenderGL.h"
 #include "SDL_opengl.h"
 #include <GL\GLU.h>
+#include "hoText.h"
+#include <iostream>
 
 RenderGL g_renderGL; //Singleton
 
@@ -46,6 +48,24 @@ void RenderGL::inicializar()
 	//Initialize clear color
 	glClearColor(0.f, 0.f, 0.f, 1.f);
 
+	GLint nbOfColors;
+	GLenum texture_format = 0;
+
+	glEnable(GL_TEXTURE_2D);
+	glGenTextures(1, &texture);
+
+	glBindTexture(GL_TEXTURE_2D, texture);
+
+	// Set the texture's stretching properties
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	// Edit the texture object's image data using the information SDL_Surface gives us
+	glTexImage2D(GL_TEXTURE_2D, 0, nbOfColors, surface->w, surface->h, 0, texture_format, GL_UNSIGNED_BYTE, surface->pixels);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	/*https://stackoverflow.com/questions/16583461/display-a-text-using-a-sdl-surface-converted-in-a-texture*/
 }
 
 void RenderGL::liberar()

@@ -22,6 +22,8 @@ class RenderGL
 		void update();
 		//Funcion encargado de dibujar
 		void render();
+
+		unsigned int texture;
 };
 
 extern RenderGL g_renderGL; //Singleton

@@ -9,10 +9,11 @@
 
 class hoText {
 public:
-	void glTextOut(long start_x, long start_y, char *string);
+	//void glTextOut(long start_x, long start_y, char *string);
 	
+	static TTF_Font *fuente;
 
-	TTF_Font *TTF_OpenFont(const char *file, int ptsize);
+	/*TTF_Font *TTF_OpenFont(const char *file, int ptsize);
 	TTF_Font *TTF_OpenFontIndex(const char *file, int ptsize, long index);
 	void TTF_Close(TTF_Font *font);
 
@@ -39,7 +40,7 @@ public:
 	SDL_Surface * TTF_RenderUTF8_Shaded(TTF_Font *font, const char *text, SDL_Color fg, SDL_Color bg);
 	SDL_Surface * TTF_RenderUNICODE_Shaded(TTF_Font *font, const Uint16 *text, SDL_Color fg, SDL_Color bg);
 	SDL_Surface * TTF_RenderUTF8_Blended(TTF_Font *font, const char *text, SDL_Color fg, SDL_Color bg);
-	SDL_Surface * TTF_RenderUNICODE_Blended(TTF_Font *font, const Uint16 *text, SDL_Color fg, SDL_Color bg);
+	SDL_Surface * TTF_RenderUNICODE_Blended(TTF_Font *font, const Uint16 *text, SDL_Color fg, SDL_Color bg);*/
 
 private:
 
