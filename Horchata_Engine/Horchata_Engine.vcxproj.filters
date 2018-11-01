@@ -24,7 +24,7 @@
     <ClCompile Include="RenderGL.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="hoTime.cpp">
+    <ClCompile Include="Horchata\hoTime.cpp">
       <Filter>Horchata</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,7 +32,7 @@
     <ClInclude Include="RenderGL.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="hoTime.h">
+    <ClInclude Include="Horchata\hoTime.h">
       <Filter>Horchata</Filter>
     </ClInclude>
   </ItemGroup>
