@@ -28,18 +28,14 @@ bool hoImages::LoadImage_(const char *_dirImages)
 	strcat_s(result, _dirImages);
 
 	SDL_Surface *surface = IMG_Load(result);
-	std::cout << result << std::endl;
 
 	if (surface)
 	{
-		std::cout << "pitito" << std::endl;
 		imageSurface = surface;
 		SDL_LockSurface(imageSurface);
 	} else if(surface == nullptr){
 		return false;
 	}
-
-	std::cout << "!pitito" << std::endl;
 	glGenTextures(1, &textureID);
 	glBindTexture(GL_TEXTURE_2D, textureID);
 
@@ -62,10 +58,10 @@ bool hoImages::LoadImage_(const char *_dirImages)
 void hoImages::DrawImage(int _x, int _y, int _width, int _height)
 {
 	glBindTexture(GL_TEXTURE_2D, textureID);
-		glBegin(GL_QUADS);
+	glBegin(GL_QUADS);
 		glTexCoord2f(0, 0); glVertex3f(_x, _y, 0);
 		glTexCoord2f(1, 0); glVertex3f(_x + _width, _y, 0);
 		glTexCoord2f(1, 1); glVertex3f(_x + _width, _y + _height, 0);
 		glTexCoord2f(0, 1); glVertex3f(_x,_y + _height, 0);
-		glEnd();
+	glEnd();
 }
