@@ -2,10 +2,16 @@
 #include "SDL_opengl.h"
 #include <GL\GLU.h>
 
+#include <windows.h>			// standard Windows app include
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
 RenderGL g_renderGL; //Singleton
 
 RenderGL::RenderGL()
 {
+
 }
 RenderGL::~RenderGL()
 {
@@ -44,13 +50,16 @@ void RenderGL::inicializar()
 
 	gluOrtho2D(clipAreaXLeft, clipAreaXRightt, clipAreaYBottom, clipAreaYTop);
 	//Initialize clear color
-	glClearColor(0.f, 0.f, 0.f, 1.f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
+	////myFont.TEMP_CreateBitmapFont("Arial", 48);
+	fontBoi.LoadFont();
 }
 
 void RenderGL::liberar()
 {
 	//delete this
+	//myFont.TEMP_ReleaseFont();
 }
 
 void RenderGL::update()
@@ -63,6 +72,12 @@ void RenderGL::render()
 	//Limpiamos pantalla
 	glClear(GL_COLOR_BUFFER_BIT);
 
+	glTranslatef(0.0f, 0.0f, -1.0f);
+	glColor3f(1.0, 1.0, 1.0);
+	glRasterPos2f(-0.35f, 0.0f);
+	//myFont.TEMP_DrawText("Hello, World!");
+	
+	fontBoi.RenderText("Sample Text", 25.0f, 25.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
 }
 
 

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "hoText2.h"
+
 class RenderGL
 {
 	public:
@@ -22,6 +24,10 @@ class RenderGL
 		void update();
 		//Funcion encargado de dibujar
 		void render();
+
+		hoText2 fontBoi;
+
+
 };
 
 extern RenderGL g_renderGL; //Singleton

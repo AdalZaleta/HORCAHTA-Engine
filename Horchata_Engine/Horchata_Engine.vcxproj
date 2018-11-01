@@ -83,7 +83,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;SDL2.lib;sdl2main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glew32.lib;opengl32.lib;glu32.lib;SDL2.lib;sdl2main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)Horchata_Engine\SDL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
     </Link>
@@ -125,10 +125,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Horchata\hoText.cpp" />
+    <ClCompile Include="Horchata\hoText2.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderGL.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Horchata\hoText.h" />
+    <ClInclude Include="Horchata\hoText2.h" />
+    <ClInclude Include="Horchata\Shader.h" />
     <ClInclude Include="RenderGL.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
