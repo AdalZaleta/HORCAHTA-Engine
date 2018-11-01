@@ -40,6 +40,11 @@ void handleKeys(unsigned char _key, int _x, int _y)
 	{
 		SonidosManager.Play("Resources/smb_mariodie.wav");
 	}
+
+	if (_key == 's')
+	{
+		SonidosManager.StopBackgroundMusic();
+	}
 }
 
 //Mouse

@@ -16,68 +16,74 @@ hoAudioManager::~hoAudioManager()
 void hoAudioManager::InitEngine()
 {
 	// Creamos el Engine
-	EngineSonido = createIrrKlangDevice();
+	engineSonido = createIrrKlangDevice();
 }
 
 // Sonidos
-ISound* hoAudioManager::Play(const char* clip)
+ISound* hoAudioManager::Play(const char* _clip)
 {
 	// Variable para guardar el sonido a reproducir
-	ISound* Sonido;
+	ISound* sonido;
 
 	//Sonido = EngineSonido->addSoundSourceFromFile(clip);
 
 	// Reproducimos el clip recibido y lo guardamos
-	Sonido = EngineSonido->play2D(clip);
+	sonido = engineSonido->play2D(_clip);
 
-	return Sonido;
+	return sonido;
 }
 
-void hoAudioManager::Stop(ISound* clip)
+void hoAudioManager::Stop(ISound* _clip)
 {
 	// Detiene el sonido recibido
-	clip->stop();
+	_clip->stop();
 }
 
-void hoAudioManager::IsPause(ISound* clip, bool estado)
+void hoAudioManager::IsPause(ISound* _clip, bool _estado)
 {
 	// Pausa o reanuda el sonido recibido
-	clip->setIsPaused(estado);
+	_clip->setIsPaused(_estado);
 }
 
 // Musica Background
-void hoAudioManager::PlayBackgroundMusic(const char* BackgroundMusic)
+void hoAudioManager::PlayBackgroundMusic(const char* _BackgroundMusic)
 {
 	/*ISoundSource* Musica;
 
 	Musica = EngineSonido->addSoundSourceFromFile(BackgroundMusic);*/
 
-
 	// Si no hay musica de background
-	if (Background == NULL)
+	if (background == NULL)
 	{
 		// Reproduciminos el nuevo
-		Background = EngineSonido->play2D(BackgroundMusic, true);
+		background = engineSonido->play2D(_BackgroundMusic, true);
 	}
 	else
 	{
 		// Detenemos el anterior
-		Background->stop();
+		background->stop();
 		// Reproducimos el nuevo sonido
-		Background = EngineSonido->play2D(BackgroundMusic, true);
+		background = engineSonido->play2D(_BackgroundMusic, true);
 	}
 }
 
 void hoAudioManager::StopBackgroundMusic()
 {
-	// Detiene la musica de BackGorund
-	Background->stop();
+	// Detiene la musica de BackGround
+	if(background == NULL)
+	{
+		printf("No hay ningun background reproduciendose");
+	}
+	else
+	{
+		background->stop();
+	}
 }
 
-void hoAudioManager::PauseBackgroundMusic(bool estado)
+void hoAudioManager::PauseBackgroundMusic(bool _estado)
 {
 	// Pausa o reanuda la musica de BackGround
-	Background->setIsPaused(estado);
+	background->setIsPaused(_estado);
 }
 
 //Todos Los Sonidos
@@ -85,32 +91,32 @@ void hoAudioManager::PauseBackgroundMusic(bool estado)
 void hoAudioManager::StopAllSounds()
 {
 	// Detiene todos los sonidos que se esten reproduciendo
-	EngineSonido->stopAllSounds();
+	engineSonido->stopAllSounds();
 }
 
 void hoAudioManager::PauseAllSounds(bool _estado)
 {
 	// Pausa o reanuda todos los sonidos que tenga el engine
-	EngineSonido->setAllSoundsPaused(_estado);
+	engineSonido->setAllSoundsPaused(_estado);
 }
 
 //Volumen
-void hoAudioManager::SetVolume(float volumen)
+void hoAudioManager::SetVolume(float _volumen)
 {
 	// Guardamos el volumen de BackGround
-	float VolumenBackground;
-	VolumenBackground = Background->getVolume();
+	float volumenBackground;
+	volumenBackground = background->getVolume();
 
 	// Seteamos el volumen de todos los sonidos
-	EngineSonido->setSoundVolume(volumen);
+	engineSonido->setSoundVolume(_volumen);
 	
 	// Mantenemos el volumen de BackGround
-	Background->setVolume(VolumenBackground);
+	background->setVolume(volumenBackground);
 }
 
-void hoAudioManager::SetBackGroundVolume(float volumen)
+void hoAudioManager::SetBackGroundVolume(float _volumen)
 {
 	// Cambiamos el volumen de BackGround
-	Background->setVolume(volumen);
+	background->setVolume(_volumen);
 }
 

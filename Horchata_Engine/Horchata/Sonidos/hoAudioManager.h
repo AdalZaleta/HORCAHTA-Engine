@@ -11,30 +11,30 @@ class hoAudioManager
 		~hoAudioManager();
 
 		// El engine que reproducira todos los sonidos
-		ISoundEngine* EngineSonido;
+		ISoundEngine* engineSonido;
 		
 		// Musica de BackGround
-		ISound* Background;
+		ISound* background;
 
 		// Inicializa el motor de los sonidos
 		void InitEngine();
 
 		// Reproduccion, Pausa y Detencion de sonidos
-		ISound* Play(const char* clip);
-		void Stop(ISound* clip);
-		void IsPause(ISound* clip, bool estado);
+		ISound* Play(const char* _clip);
+		void Stop(ISound* _clip);
+		void IsPause(ISound* _clip, bool _estado);
 
 		// Musica de Background
-		void PlayBackgroundMusic(const char* BackgroundMusic);
+		void PlayBackgroundMusic(const char* _BackgroundMusic);
 		void StopBackgroundMusic();
-		void PauseBackgroundMusic(bool estado);
+		void PauseBackgroundMusic(bool _estado);
 
 		// Detener y pausar todos los sonidos
 		void StopAllSounds();
 		void PauseAllSounds(bool _estado);
 
 		// Ajuste de volumen
-		void SetVolume(float volumen);
-		void SetBackGroundVolume(float Volumen);
+		void SetVolume(float _volumen);
+		void SetBackGroundVolume(float _Volumen);
 };
 
