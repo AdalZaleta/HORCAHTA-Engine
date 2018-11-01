@@ -34,10 +34,8 @@ ISound* hoAudioManager::Play(const char* _clip)
 	// Variable para guardar el sonido a reproducir
 	ISound* sonido;
 
-	//Sonido = EngineSonido->addSoundSourceFromFile(clip);
-
 	// Reproducimos el clip recibido y lo guardamos
-	sonido = engineSonido->play2D(_clip);
+	sonido = engineSonido->play2D(_clip, false, false, true);
 
 	return sonido;
 }
@@ -57,15 +55,11 @@ void hoAudioManager::IsPause(ISound* _clip, bool _estado)
 // Musica Background
 void hoAudioManager::PlayBackgroundMusic(const char* _BackgroundMusic)
 {
-	/*ISoundSource* Musica;
-
-	Musica = EngineSonido->addSoundSourceFromFile(BackgroundMusic);*/
-
 	// Si no hay musica de background
 	if (background == NULL)
 	{
 		// Reproduciminos el nuevo
-		background = engineSonido->play2D(_BackgroundMusic, true);
+		background = engineSonido->play2D(_BackgroundMusic, true, false, true);
 	}
 	else
 	{

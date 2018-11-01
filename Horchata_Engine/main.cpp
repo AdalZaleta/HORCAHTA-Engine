@@ -30,6 +30,8 @@ SDL_GLContext gContext;
 
 hoAudioManager SonidosManager;
 
+ISound* Sonido;
+
 //------CORE ------------------------------------------------------------------------------------
 
 //Teclado
@@ -38,7 +40,7 @@ void handleKeys(unsigned char _key, int _x, int _y)
 	//Toggle quad
 	if (_key == 'a')
 	{
-		SonidosManager.Play("Resources/smb_mariodie.wav");
+		Sonido = SonidosManager.Play("Resources/smb_mariodie.wav");
 	}
 
 	if (_key == 's')
