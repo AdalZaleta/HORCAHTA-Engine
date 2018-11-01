@@ -2,6 +2,8 @@
 #include <iostream>
 #include <windows.h>
 
+
+
 hoAudioManager::hoAudioManager()
 {
 
@@ -16,8 +18,15 @@ hoAudioManager::~hoAudioManager()
 void hoAudioManager::InitEngine()
 {
 	// Creamos el Engine
-	engineSonido = createIrrKlangDevice();
-}
+	try {
+		engineSonido = createIrrKlangDevice();
+	}
+
+	catch (int e)
+		{
+			std::cout << "no hay bocina " + e << std::endl;
+		}
+	}
 
 // Sonidos
 ISound* hoAudioManager::Play(const char* _clip)
