@@ -28,7 +28,7 @@ class RenderGL
 		hoText2 fontBoi;
 
 
+		unsigned int texture;
 };
 
 extern RenderGL g_renderGL; //Singleton
-
