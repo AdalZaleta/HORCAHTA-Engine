@@ -21,9 +21,7 @@ void RenderGL::inicializar()
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	//Model view Matrix
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+	
 	
 	float aspect =(float)w / (float)h;
 
@@ -43,6 +41,11 @@ void RenderGL::inicializar()
 	}
 
 	gluOrtho2D(clipAreaXLeft, clipAreaXRightt, clipAreaYBottom, clipAreaYTop);
+
+	//Model view Matrix
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
 	//Initialize clear color
 	glClearColor(0.f, 0.f, 0.f, 1.f);
 
