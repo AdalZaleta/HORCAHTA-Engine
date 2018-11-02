@@ -132,6 +132,7 @@
     <ClCompile Include="RenderGL.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="hoColor.h" />
     <ClInclude Include="Horchata\hoPrimitives.h" />
     <ClInclude Include="Horchata\Horchata.h" />
     <ClInclude Include="Horchata\hoVector.h" />

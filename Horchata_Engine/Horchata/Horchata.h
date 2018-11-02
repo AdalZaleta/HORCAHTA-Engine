@@ -1,5 +1,6 @@
 #pragma once
 #include "hoPrimitives.h"
+#include "hoColor.h"
 
 class Horchata {
 public:
@@ -7,6 +8,7 @@ public:
 	~Horchata();
 
 	hoPrimitives primitives;
+	hoColor colorchata;
 private:
 
 };
