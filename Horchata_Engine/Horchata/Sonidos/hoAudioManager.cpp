@@ -66,7 +66,7 @@ void hoAudioManager::PlayBackgroundMusic(const char* _BackgroundMusic)
 		// Detenemos el anterior
 		background->stop();
 		// Reproducimos el nuevo sonido
-		background = engineSonido->play2D(_BackgroundMusic, true);
+		background = engineSonido->play2D(_BackgroundMusic, true,false,true);
 	}
 }
 

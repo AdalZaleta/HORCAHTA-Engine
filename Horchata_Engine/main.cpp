@@ -32,6 +32,9 @@ hoAudioManager SonidosManager;
 
 ISound* Sonido;
 
+float contador = 1.0f;
+float contador2 = 0.0f;
+
 //------CORE ------------------------------------------------------------------------------------
 
 //Teclado
@@ -47,6 +50,36 @@ void handleKeys(unsigned char _key, int _x, int _y)
 	{
 		SonidosManager.StopBackgroundMusic();
 	}
+	
+	if (_key == 'p')
+	{
+		SonidosManager.PauseAllSounds(true);
+	}
+
+	if (_key == 'r')
+	{
+		SonidosManager.PauseAllSounds(false);
+	}
+
+	if (_key == 'c')
+	{
+		SonidosManager.PlayBackgroundMusic("Resources/RVLook.mp3");
+	}
+	
+	if (_key == '-')
+	{
+		contador -= 0.1f;
+		SonidosManager.SetVolume(contador);
+
+	}
+	if (_key == '+')
+	{
+		contador += 0.1f;
+		SonidosManager.SetVolume(contador);
+
+	}
+
+	
 }
 
 //Mouse
@@ -114,6 +147,7 @@ bool init()
 	SonidosManager.InitEngine();
 
 	SonidosManager.PlayBackgroundMusic("Resources/main-theme-overworld.mp3");
+	SonidosManager.SetBackGroundVolume(0.1f);
 	
 	return success;
 }
