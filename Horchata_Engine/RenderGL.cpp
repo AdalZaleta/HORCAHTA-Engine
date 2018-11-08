@@ -70,13 +70,13 @@ void RenderGL::render()
 	//------------ PRIMITIVAS EJEMPLOS ------------
 	//Esto puede estar en cualquier parte de codigo, no es necesario ponerlo entre glBegin ni glEnd
 	g_ho.primitives.DrawLine(hoVector2f(0, 1), hoVector2f(1, 1));
-	g_ho.primitives.DrawLine(hoVector2f(0, 0), hoVector2f(1, 1));
+	g_ho.primitives.DrawLine(hoVector2f(0, 0), hoVector2f(1, 1), g_ho.colorchata.adal);
 	g_ho.primitives.DrawCircle(hoVector2f(0, 0), 3, 64);
 	g_ho.primitives.DrawPoint(hoVector2f(2, 1), 1);
 	g_ho.primitives.DrawRect(hoVector2f(0, 0), hoVector2f(2, 4));
 	g_ho.primitives.DrawEllipse(hoVector2f(-3, 3), 3.0f, 6.0f, 64);
-	g_ho.primitives.FillCircle(hoVector2f(4, 4), 3, 16, g_ho.colorchata.adal);
-	g_ho.primitives.FillRect(hoVector2f(-2, 2), hoVector2f(2, 3));
+	g_ho.primitives.FillCircle(hoVector2f(4, 4), 3, 32, g_ho.colorchata.sepia);
+	g_ho.primitives.FillRect(hoVector2f(-2, 2), hoVector2f(2, 3))
 
 	//Esto tiene que estar siempre
 	g_ho.primitives.DrawAll();
