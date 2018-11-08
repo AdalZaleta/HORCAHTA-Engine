@@ -316,7 +316,7 @@ void hoPrimitives::FillEllipse(hoVector2f _pos, float _w, float _h, int _seg)
 
 //With color
 
-void hoPrimitives::DrawLine(float _x1, float _y1, float _x2, float _y2, int _rgba[4])
+void hoPrimitives::DrawLine(float _x1, float _y1, float _x2, float _y2, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_LINE);
 	if (index != -1) {
@@ -330,7 +330,7 @@ void hoPrimitives::DrawLine(float _x1, float _y1, float _x2, float _y2, int _rgb
 	}
 }
 
-void hoPrimitives::DrawLine(hoVector2f _pos1, hoVector2f _pos2, int _rgba[4])
+void hoPrimitives::DrawLine(hoVector2f _pos1, hoVector2f _pos2, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_LINE);
 	if (index != -1) {
@@ -344,7 +344,7 @@ void hoPrimitives::DrawLine(hoVector2f _pos1, hoVector2f _pos2, int _rgba[4])
 	}
 }
 
-void hoPrimitives::DrawCircle(float _x, float _y, float _r, int _seg, int _rgba[4])
+void hoPrimitives::DrawCircle(float _x, float _y, float _r, int _seg, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_CIRCLE);
 	if (index != -1) {
@@ -358,7 +358,7 @@ void hoPrimitives::DrawCircle(float _x, float _y, float _r, int _seg, int _rgba[
 	}
 }
 
-void hoPrimitives::DrawCircle(hoVector2f _pos, float _r, int _seg, int _rgba[4])
+void hoPrimitives::DrawCircle(hoVector2f _pos, float _r, int _seg, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_CIRCLE);
 	if (index != -1) {
@@ -372,7 +372,7 @@ void hoPrimitives::DrawCircle(hoVector2f _pos, float _r, int _seg, int _rgba[4])
 	}
 }
 
-void hoPrimitives::DrawPoint(float _x, float _y, float _size, int _rgba[4])
+void hoPrimitives::DrawPoint(float _x, float _y, float _size, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_POINT);
 	if (index != -1) {
@@ -386,7 +386,7 @@ void hoPrimitives::DrawPoint(float _x, float _y, float _size, int _rgba[4])
 	}
 }
 
-void hoPrimitives::DrawPoint(hoVector2f _pos, float _size, int _rgba[4])
+void hoPrimitives::DrawPoint(hoVector2f _pos, float _size, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_POINT);
 	if (index != -1) {
@@ -400,7 +400,7 @@ void hoPrimitives::DrawPoint(hoVector2f _pos, float _size, int _rgba[4])
 	}
 }
 
-void hoPrimitives::DrawRect(float _x, float _y, float _w, float _h, int _rgba[4])
+void hoPrimitives::DrawRect(float _x, float _y, float _w, float _h, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
@@ -414,7 +414,7 @@ void hoPrimitives::DrawRect(float _x, float _y, float _w, float _h, int _rgba[4]
 	}
 }
 
-void hoPrimitives::DrawRect(hoVector2f _pos, float _w, float _h, int _rgba[4])
+void hoPrimitives::DrawRect(hoVector2f _pos, float _w, float _h, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
@@ -428,7 +428,7 @@ void hoPrimitives::DrawRect(hoVector2f _pos, float _w, float _h, int _rgba[4])
 	}
 }
 
-void hoPrimitives::DrawRect(hoVector2f _pos, hoVector2f _sizes, int _rgba[4])
+void hoPrimitives::DrawRect(hoVector2f _pos, hoVector2f _sizes, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
@@ -442,7 +442,7 @@ void hoPrimitives::DrawRect(hoVector2f _pos, hoVector2f _sizes, int _rgba[4])
 	}
 }
 
-void hoPrimitives::DrawEllipse(float _x, float _y, float _w, float _h, int _seg, int _rgba[4])
+void hoPrimitives::DrawEllipse(float _x, float _y, float _w, float _h, int _seg, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_ELLIPSE);
 	if (index != -1) {
@@ -456,7 +456,7 @@ void hoPrimitives::DrawEllipse(float _x, float _y, float _w, float _h, int _seg,
 	}
 }
 
-void hoPrimitives::DrawEllipse(hoVector2f _pos, float _w, float _h, int _seg, int _rgba[4])
+void hoPrimitives::DrawEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_ELLIPSE);
 	if (index != -1) {
@@ -470,7 +470,7 @@ void hoPrimitives::DrawEllipse(hoVector2f _pos, float _w, float _h, int _seg, in
 	}
 }
 
-void hoPrimitives::FillCircle(float _x, float _y, float _r, int _seg, int _rgba[4])
+void hoPrimitives::FillCircle(float _x, float _y, float _r, int _seg, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_CIRCLE);
 	if (index != -1) {
@@ -486,7 +486,7 @@ void hoPrimitives::FillCircle(float _x, float _y, float _r, int _seg, int _rgba[
 	}
 }
 
-void hoPrimitives::FillCircle(hoVector2f _pos, float _r, int _seg, int _rgba[4])
+void hoPrimitives::FillCircle(hoVector2f _pos, float _r, int _seg, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_CIRCLE);
 	if (index != -1) {
@@ -502,7 +502,7 @@ void hoPrimitives::FillCircle(hoVector2f _pos, float _r, int _seg, int _rgba[4])
 	}
 }
 
-void hoPrimitives::FillRect(float _x, float _y, float _w, float _h, int _rgba[4])
+void hoPrimitives::FillRect(float _x, float _y, float _w, float _h, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
@@ -518,7 +518,7 @@ void hoPrimitives::FillRect(float _x, float _y, float _w, float _h, int _rgba[4]
 	}
 }
 
-void hoPrimitives::FillRect(hoVector2f _pos, float _w, float _h, int _rgba[4])
+void hoPrimitives::FillRect(hoVector2f _pos, float _w, float _h, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
@@ -534,7 +534,7 @@ void hoPrimitives::FillRect(hoVector2f _pos, float _w, float _h, int _rgba[4])
 	}
 }
 
-void hoPrimitives::FillRect(hoVector2f _pos, hoVector2f _sizes, int _rgba[4])
+void hoPrimitives::FillRect(hoVector2f _pos, hoVector2f _sizes, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
@@ -550,7 +550,7 @@ void hoPrimitives::FillRect(hoVector2f _pos, hoVector2f _sizes, int _rgba[4])
 	}
 }
 
-void hoPrimitives::FillEllipse(float _x, float _y, float _w, float _h, int _seg, int _rgba[4])
+void hoPrimitives::FillEllipse(float _x, float _y, float _w, float _h, int _seg, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_ELLIPSE);
 	if (index != -1) {
@@ -566,7 +566,7 @@ void hoPrimitives::FillEllipse(float _x, float _y, float _w, float _h, int _seg,
 	}
 }
 
-void hoPrimitives::FillEllipse(hoVector2f _pos, float _w, float _h, int _seg, int _rgba[4])
+void hoPrimitives::FillEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_ELLIPSE);
 	if (index != -1) {
@@ -667,7 +667,7 @@ void hoDrawable::Draw()
 	glColor4f(1, 1, 1, 1);
 }
 
-void hoDrawable::setColor(int _rgba[4])
+void hoDrawable::setColor(float _rgba[4])
 {
 	for (int i = 0; i < 4; i++) {
 		rgba[i] = _rgba[i];

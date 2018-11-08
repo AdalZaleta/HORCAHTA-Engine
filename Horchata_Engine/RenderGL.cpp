@@ -76,7 +76,7 @@ void RenderGL::render()
 	g_ho.primitives.DrawRect(hoVector2f(0, 0), hoVector2f(2, 4));
 	g_ho.primitives.DrawEllipse(hoVector2f(-3, 3), 3.0f, 6.0f, 64);
 	g_ho.primitives.FillCircle(hoVector2f(4, 4), 3, 16);
-	g_ho.primitives.FillRect(hoVector2f(-2, 2), hoVector2f(2, 3));
+	g_ho.primitives.FillRect(hoVector2f(-2, 2), hoVector2f(2, 3), g_ho.colorchata.);
 
 	//Esto tiene que estar siempre
 	g_ho.primitives.DrawAll();

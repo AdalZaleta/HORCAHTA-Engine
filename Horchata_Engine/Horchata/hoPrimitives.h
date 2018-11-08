@@ -45,7 +45,7 @@ public:
 		point1 = _point1;
 		point2 = _point2;
 	}
-	hoLine(hoVector2f _point1, hoVector2f _point2, int _rgba[4]) {
+	hoLine(hoVector2f _point1, hoVector2f _point2, float _rgba[4]) {
 		point1 = _point1;
 		point2 = _point2;
 		setColor(_rgba);
@@ -65,7 +65,7 @@ public:
 		radius = _r;
 		segments = _seg;
 	}
-	hoCircle(hoVector2f _pos, float _r, int _seg, int _rgba[4]) {
+	hoCircle(hoVector2f _pos, float _r, int _seg, float _rgba[4]) {
 		position = _pos;
 		radius = _r;
 		segments = _seg;
@@ -88,7 +88,7 @@ public:
 		sizes = _sizes;
 		segments = _seg;
 	}
-	hoEllipse(hoVector2f _pos, hoVector2f _sizes, int _seg, int _rgba[4]) {
+	hoEllipse(hoVector2f _pos, hoVector2f _sizes, int _seg, float _rgba[4]) {
 		position = _pos;
 		sizes = _sizes;
 		segments = _seg;
@@ -109,7 +109,7 @@ public:
 		position = _pos;
 		sizes = _sizes;
 	}
-	hoRect(hoVector2f _pos, hoVector2f _sizes, int _rgba[4]) {
+	hoRect(hoVector2f _pos, hoVector2f _sizes, float _rgba[4]) {
 		position = _pos;
 		sizes = _sizes;
 		setColor(_rgba);
@@ -161,16 +161,16 @@ public:
 	void FillEllipse(float _x, float _y, float _W, float _h, int _seg);
 	void FillEllipse(hoVector2f _pos, float _w, float _h, int _seg);
 	//Same but with color
-	void DrawLine(float _x1, float _y1, float _x2, float _y2, int _rgba[4]);
-	void DrawLine(hoVector2f _pos1, hoVector2f _pos2, int _rgba[4]);
-	void DrawCircle(float _x, float _y, float _r, int _seg, int _rgba[4]);
-	void DrawCircle(hoVector2f _pos, float _r, int _seg, int _rgba[4]);
-	void DrawPoint(float _x, float _y, float _size, int _rgba[4]);
-	void DrawPoint(hoVector2f _pos, float _size, int _rgba[4]);
-	void DrawRect(float _x, float _y, float _w, float _h, int _rgba[4]);
-	void DrawRect(hoVector2f _pos, float _w, float _h, int _rgba[4]);
-	void DrawRect(hoVector2f _pos, hoVector2f _sizes, int _rgba[4]);
-	void DrawEllipse(float _x, float _y, float _W, float _h, int _seg, int _rgba[4]);
+	void DrawLine(float _x1, float _y1, float _x2, float _y2, float _rgba[4]);
+	void DrawLine(hoVector2f _pos1, hoVector2f _pos2, float _rgba[4]);
+	void DrawCircle(float _x, float _y, float _r, int _seg, float _rgba[4]);
+	void DrawCircle(hoVector2f _pos, float _r, int _seg, float _rgba[4]);
+	void DrawPoint(float _x, float _y, float _size, float _rgba[4]);
+	void DrawPoint(hoVector2f _pos, float _size, float _rgba[4]);
+	void DrawRect(float _x, float _y, float _w, float _h, float _rgba[4]);
+	void DrawRect(hoVector2f _pos, float _w, float _h, float _rgba[4]);
+	void DrawRect(hoVector2f _pos, hoVector2f _sizes, float _rgba[4]);
+	void DrawEllipse(float _x, float _y, float _W, float _h, int _seg, float _rgba[4]);
 	void DrawEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rgba[4]);
 	//Fills with color
 	void FillCircle(float _x, float _y, float _r, int _seg, float _rgba[4]);
