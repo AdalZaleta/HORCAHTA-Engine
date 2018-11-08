@@ -502,7 +502,7 @@ void hoPrimitives::FillCircle(hoVector2f _pos, float _r, int _seg, float _rgba[4
 	}
 }
 
-void hoPrimitives::FillRect(float _x, float _y, float _w, float _h, float _rgba[4])
+void hoPrimitives::FillRectColor(float _x, float _y, float _w, float _h, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
@@ -518,7 +518,7 @@ void hoPrimitives::FillRect(float _x, float _y, float _w, float _h, float _rgba[
 	}
 }
 
-void hoPrimitives::FillRect(hoVector2f _pos, float _w, float _h, float _rgba[4])
+void hoPrimitives::FillRectColor(hoVector2f _pos, float _w, float _h, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
@@ -534,7 +534,7 @@ void hoPrimitives::FillRect(hoVector2f _pos, float _w, float _h, float _rgba[4])
 	}
 }
 
-void hoPrimitives::FillRect(hoVector2f _pos, hoVector2f _sizes, float _rgba[4])
+void hoPrimitives::FillRectColor(hoVector2f _pos, hoVector2f _sizes, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
@@ -664,7 +664,7 @@ void hoEllipse::Draw()
 
 void hoDrawable::Draw()
 {
-	glColor4f(1, 1, 1, 1);
+	glColor4f(rgba[0], rgba[1], rgba[2], rgba[3]);
 }
 
 void hoDrawable::setColor(float _rgba[4])

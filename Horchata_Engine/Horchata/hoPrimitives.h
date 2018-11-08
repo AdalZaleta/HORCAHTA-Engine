@@ -175,9 +175,9 @@ public:
 	//Fills with color
 	void FillCircle(float _x, float _y, float _r, int _seg, float _rgba[4]);
 	void FillCircle(hoVector2f _pos, float _r, int _seg, float _rgba[4]);
-	void FillRect(float _x, float _y, float _w, float _h, float _rgba[4]);
-	void FillRect(hoVector2f _pos, float _w, float _h, float _rgba[4]);
-	void FillRect(hoVector2f _pos, hoVector2f _sizes, float _rgba[4]);
+	void FillRectColor(float _x, float _y, float _w, float _h, float _rgba[4]);
+	void FillRectColor(hoVector2f _pos, float _w, float _h, float _rgba[4]);
+	void FillRectColor(hoVector2f _pos, hoVector2f _sizes, float _rgba[4]);
 	void FillEllipse(float _x, float _y, float _W, float _h, int _seg, float _rgba[4]);
 	void FillEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rgba[4]);
 

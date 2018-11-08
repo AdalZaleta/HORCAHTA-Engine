@@ -47,7 +47,7 @@
     <ClInclude Include="Horchata\hoVector.h">
       <Filter>Horchata</Filter>
     </ClInclude>
-    <ClInclude Include="hoColor.h">
+    <ClInclude Include="Horchata\hoColor.h">
       <Filter>Horchata</Filter>
     </ClInclude>
   </ItemGroup>
