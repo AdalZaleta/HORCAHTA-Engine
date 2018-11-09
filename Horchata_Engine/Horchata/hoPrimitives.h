@@ -5,20 +5,20 @@
 #include <math.h>
 #include"hoVector.h"
 
-class hoDrawable {
+class hoDrawable {		//Clase padre de un objeto que se puede dibujar
 public:
 	hoDrawable() {}
 	~hoDrawable(){}
 
 	virtual void Draw();
 
-	bool isActive = true, fill = false;
-	float rgba[4] = { 1, 1, 1, 1 };
+	bool isActive = true, fill = false;		//isActive es un booleano que indica si la primitiva deberia ser dibujada o no, fill indica si deberia de ser rellenada o no
+	float rgba[4] = { 1, 1, 1, 1 };			//Valor de color que cada quien guarda
 protected:
-	void setColor(float _rgba[4]);
+	void setColor(float _rgba[4]);			//Seteo el color
 };
 
-class hoPoint : public hoDrawable {
+class hoPoint : public hoDrawable {		//Para dibujar puntos
 public:
 	hoPoint() {}
 	hoPoint(hoVector2f _pos, int _size) {
@@ -34,11 +34,11 @@ public:
 
 	virtual void Draw();
 
-	hoVector2f position;
-	int size;
+	hoVector2f position;			//Posicion en (x,y) de el punto
+	int size;						//Tamaño del punto, en valores de OpenGl
 };
 
-class hoLine : public hoDrawable {
+class hoLine : public hoDrawable {		//Lineas
 public:
 	hoLine() {}
 	hoLine(hoVector2f _point1, hoVector2f _point2) {
@@ -54,10 +54,10 @@ public:
 
 	virtual void Draw();
 
-	hoVector2f point1, point2;
+	hoVector2f point1, point2;		//Punto A y B de la linea
 };
 
-class hoCircle : public hoDrawable {
+class hoCircle : public hoDrawable {	//Circulo
 public:
 	hoCircle() {}
 	hoCircle(hoVector2f _pos, float _r, int _seg) {
@@ -75,12 +75,12 @@ public:
 
 	virtual void Draw();
 
-	hoVector2f position;
-	int segments;
-	float radius;
+	hoVector2f position;		//Centro del circulo
+	int segments;				//Segmentos en los que se va a dibujar
+	float radius;				//Radio del circulo
 };
 
-class hoEllipse : public hoDrawable {
+class hoEllipse : public hoDrawable {	//Elipse
 public:
 	hoEllipse() {}
 	hoEllipse(hoVector2f _pos, hoVector2f _sizes, int _seg) {
@@ -98,11 +98,11 @@ public:
 
 	virtual void Draw();
 
-	int segments;
-	hoVector2f position, sizes;
+	int segments;				//Segmentos en los que se va a dibujar
+	hoVector2f position, sizes;	//Vector con posicion del centro de la elipse y vector con ancho y alto en X y Y respectivamente
 };
 
-class hoRect : public hoDrawable {
+class hoRect : public hoDrawable {	//Rectangulos o cuardados
 public:
 	hoRect() {}
 	hoRect(hoVector2f _pos, hoVector2f _sizes) {
@@ -118,10 +118,10 @@ public:
 
 	virtual void Draw();
 
-	hoVector2f position, sizes;
+	hoVector2f position, sizes;		//Vector con posicion del centro de el rect y vector con ancho y alto en X y Y respectivamente
 };
 
-enum DrawableType {
+enum DrawableType {		//Enumerator de tipos, lo uso para saber de que tipo es lo que tengo guardado en el vector drawables, si alguien sabe una mejor manera ahi me avisa
 	HO_POINT,
 	HO_LINE,
 	HO_RECT,
@@ -135,13 +135,21 @@ public:
 	hoPrimitives();
 	~hoPrimitives();
 
-	void DrawAll();
-	void SetPixelDimentions(float _w, float _h);
-	void SetWindowDimentions(float _w, float _h);
-	float GetWindowWidth();
-	float GetWindowHeight();
+	void DrawAll();									//Manda a dibujar todos los drawables guardados
+	void SetPixelDimentions(float _w, float _h);	//No lo uso, me dice el tamaño en unidades de opengl de un pixel en la pantalla
+	void SetWindowDimentions(float _w, float _h);	//No lo uso, para setear el tamaño de la pantalla
+	float GetWindowWidth();							//Regresa ancho de la pantalla
+	float GetWindowHeight();						//Regresa la altura de la pantalla
 	//Draws
-	void DrawLine(float _x1, float _y1, float _x2, float _y2);
+	/*
+		Funciones para llamar a dibujar una primitiva.
+			- Todas las primitivas tienen la función basica, que solo dibuja con GL_LINES
+			- Todas las primitivas tienen sobrecargas de la function base en las que pueden mandar tanto hoVector2f como dos valores flotantes
+			- Todas las funciones de draw basicas tienen una alternativa en donde le puedes mandar un array de floats de tamaño 4 representando el rgba con valores de 0 a 1
+			-Circulos, rectangulos y elipses tienen una function Fill para ser rellenadas, se dibujan con GL_TRIANGLES
+	*/
+
+	void DrawLine(float _x1, float _y1, float _x2, float _y2);			
 	void DrawLine(hoVector2f _pos1, hoVector2f _pos2);
 	void DrawCircle(float _x, float _y, float _r, int _seg);
 	void DrawCircle(hoVector2f _pos, float _r, int _seg);
@@ -183,31 +191,9 @@ public:
 
 
 private:
-	int GetFirstInactive(DrawableType _type);
-	float pixelWidth, pixelHeight;
-	std::vector<hoDrawable*> drawables;
-	std::vector<DrawableType> drawableTypes;
-	float windowWidth, windowHeight;
+	int GetFirstInactive(DrawableType _type);		//Busca el primer drawable inactivo en mi vector de drawables, para reutilizarlo como pool.
+	float pixelWidth, pixelHeight;					//Ancho y alto de un pixel en unidades de OpenGl
+	std::vector<hoDrawable*> drawables;				//Vector de punteros de drawables, aqui se guardan drawables del tipo que pidas usando las funciones de draw o de fill. Es puntero para poder llamar las funciones de draw de los hijos.
+	std::vector<DrawableType> drawableTypes;		//Guardo de que tipo es el drawable paralelo en el otro vector, esto es para poder reutilizarlos.
+	float windowWidth, windowHeight;				//Ancho y alto de la pantalla
 };
-
-
-/*
-TODO:
-	- Lines
-		- poin1, point2, width, color
-	- Squares
-		- pos, maybe rotation, maybe round edges, color
-	- Circles
-		- pos, height, width, color
-	- Fills
-		- Flood fill at point or something
-	- Point
-		- a point draw;
-
-	==
-	Ponerle su draw a cada uno
-	==
-
-
-*/
-
