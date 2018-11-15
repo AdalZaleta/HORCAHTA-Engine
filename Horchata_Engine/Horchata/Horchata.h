@@ -1,7 +1,7 @@
 #pragma once
 #include "hoPrimitives.h"
 #include "hoColor.h"
-//#include "Horchata\Sonidos\hoAudioManager.h"
+#include "hoImages.h"
 #include "hoAudioManager.h"
 
 

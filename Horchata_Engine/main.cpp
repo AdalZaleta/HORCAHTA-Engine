@@ -1,6 +1,5 @@
 #include "SDL.h"
 #include "RenderGL.h"
-#include "hoImages.h"
 #include <stdio.h>
 #include <string>
 #include <iostream>
