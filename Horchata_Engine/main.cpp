@@ -3,11 +3,16 @@
 #include <stdio.h>
 #include <string>
 #include <iostream>
-#include "hoTime.h"
+#include "Horchata/hoTime.h"
+
+
+#include <windows.h>
+
 using namespace std;
+
 //Dimensiones de la ventana
-const int SCREEN_WIDTH = 1500;
-const int SCREEN_HEIGHT = 1000;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
 
 //Inicializa SDL, crea ventana y lo liga a openGL
 bool init();
@@ -24,16 +29,12 @@ SDL_Window* gWindow = NULL;
 //Referencia a OpenGl con SDL
 SDL_GLContext gContext;
 
-
 //------CORE ------------------------------------------------------------------------------------
 
 //Teclado
 void handleKeys(unsigned char _key, int _x, int _y)
 {
-	//Toggle quad
-	if (_key == 'a')
-	{
-	}
+	
 }
 
 //Mouse
@@ -92,10 +93,14 @@ bool init()
 				}
 
 				//Inicializamos OpenGL
+				g_ho.Iniciar();
 				g_renderGL.inicializar();
 			}
 		}
 	}
+
+	
+	
 	
 	return success;
 }

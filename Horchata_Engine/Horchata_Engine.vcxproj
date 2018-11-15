@@ -79,12 +79,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Horchata_Engine\Horchata;$(SolutionDir)Horchata_Engine\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Horchata_Engine\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;SDL2.lib;sdl2main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Horchata_Engine\SDL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>irrKlang.lib;opengl32.lib;glu32.lib;SDL2.lib;sdl2main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Horchata_Engine\Horchata\Sonidos\irrKlang\lib;$(SolutionDir)Horchata_Engine\SDL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -125,6 +125,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Horchata\hoAudioManager.cpp" />
     <ClCompile Include="Horchata\hoPrimitives.cpp" />
     <ClCompile Include="Horchata\Horchata.cpp" />
     <ClCompile Include="Horchata\hoTime.cpp" />
@@ -133,11 +134,33 @@
     <ClCompile Include="RenderGL.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Horchata\hoAudioManager.h" />
     <ClInclude Include="Horchata\hoColor.h" />
     <ClInclude Include="Horchata\hoPrimitives.h" />
     <ClInclude Include="Horchata\Horchata.h" />
     <ClInclude Include="Horchata\hoTime.h" />
     <ClInclude Include="Horchata\hoVector.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ESoundEngineOptions.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ESoundOutputDrivers.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_EStreamModes.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioRecorder.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioStream.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioStreamLoader.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IFileFactory.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IFileReader.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IRefCounted.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_irrKlangTypes.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISound.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundDeviceList.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundEffectControl.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundEngine.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundMixedOutputReceiver.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundSource.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundStopEventReceiver.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IVirtualRefCounted.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_SAudioStreamFormat.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_vec3d.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\irrKlang.h" />
     <ClInclude Include="RenderGL.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

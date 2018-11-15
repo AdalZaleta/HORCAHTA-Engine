@@ -9,3 +9,8 @@ Horchata::Horchata()
 Horchata::~Horchata()
 {
 }
+
+void Horchata::Iniciar()
+{
+	SonidosManager.InitEngine();
+}
