@@ -129,8 +129,6 @@ int main(int argc, char* args[])
 		//Se activa deteccion de teclado
 		SDL_StartTextInput();
 
-		float tiempo = 0;
-
 		//GameLoop
 		while (!GameLoop)
 		{
@@ -159,8 +157,7 @@ int main(int argc, char* args[])
 
 			//Update
 			g_renderGL.update();
-			//Calculamos el deltaTime
-			hoTime::CalcularDeltaTime();
+			
 
 			
 
@@ -170,11 +167,8 @@ int main(int argc, char* args[])
 			//Actualizamos pantalla
 			SDL_GL_SwapWindow(gWindow);
 			
-			//PRUEBA PARA deltaTime
-			tiempo += hoTime::deltaTime;
-			cout << tiempo << endl;
-			
-			
+			//Calculamos el deltaTime
+			hoTime::CalcularDeltaTime();			
 		
 		}
 
