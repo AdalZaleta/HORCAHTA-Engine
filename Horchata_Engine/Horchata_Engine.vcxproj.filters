@@ -28,6 +28,12 @@
     <ClCompile Include="Horchata\hoTime.cpp">
       <Filter>Horchata</Filter>
     </ClCompile>
+    <ClCompile Include="Horchata\hoPrimitives.cpp">
+      <Filter>Horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\hoVector.cpp">
+      <Filter>Horchata</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderGL.h">
@@ -35,6 +41,15 @@
     </ClInclude>
     <ClInclude Include="Horchata\Horchata.h">
     <ClInclude Include="Horchata\hoTime.h">
+      <Filter>Horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\hoPrimitives.h">
+      <Filter>Horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\hoVector.h">
+      <Filter>Horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\hoColor.h">
       <Filter>Horchata</Filter>
     </ClInclude>
   </ItemGroup>

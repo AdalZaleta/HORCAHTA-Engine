@@ -125,14 +125,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Horchata\hoPrimitives.cpp" />
     <ClCompile Include="Horchata\Horchata.cpp" />
     <ClCompile Include="Horchata\hoTime.cpp" />
+    <ClCompile Include="Horchata\hoVector.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderGL.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Horchata\hoColor.h" />
+    <ClInclude Include="Horchata\hoPrimitives.h" />
     <ClInclude Include="Horchata\Horchata.h" />
     <ClInclude Include="Horchata\hoTime.h" />
+    <ClInclude Include="Horchata\hoVector.h" />
     <ClInclude Include="RenderGL.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
