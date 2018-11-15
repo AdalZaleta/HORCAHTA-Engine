@@ -126,11 +126,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Horchata\Horchata.cpp" />
+    <ClCompile Include="Horchata\hoTime.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderGL.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Horchata\Horchata.h" />
+    <ClInclude Include="Horchata\hoTime.h" />
     <ClInclude Include="RenderGL.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

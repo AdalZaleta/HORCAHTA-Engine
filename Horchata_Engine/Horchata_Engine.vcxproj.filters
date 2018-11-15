@@ -25,6 +25,7 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Horchata\Horchata.cpp">
+    <ClCompile Include="Horchata\hoTime.cpp">
       <Filter>Horchata</Filter>
     </ClCompile>
   </ItemGroup>
@@ -33,6 +34,7 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Horchata\Horchata.h">
+    <ClInclude Include="Horchata\hoTime.h">
       <Filter>Horchata</Filter>
     </ClInclude>
   </ItemGroup>
