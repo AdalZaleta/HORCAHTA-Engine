@@ -1,47 +1,129 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Horchata\hoAudioManager.cpp" />
-    <ClCompile Include="Horchata\hoPrimitives.cpp" />
-    <ClCompile Include="Horchata\Horchata.cpp" />
-    <ClCompile Include="Horchata\hoTime.cpp" />
-    <ClCompile Include="Horchata\hoVector.cpp" />
-    <ClCompile Include="Horchata\hoImages.cpp" />
-    <ClCompile Include="Horchata\hoText2.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderGL.cpp" />
+    <ClCompile Include="Horchata\hoAudioManager.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\hoImages.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\hoPrimitives.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\Horchata.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\hoText2.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\hoTime.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\hoVector.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Horchata\hoAudioManager.h" />
-    <ClInclude Include="Horchata\hoColor.h" />
-    <ClInclude Include="Horchata\hoPrimitives.h" />
-    <ClInclude Include="Horchata\Horchata.h" />
-    <ClInclude Include="Horchata\hoTime.h" />
-    <ClInclude Include="Horchata\hoVector.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ESoundEngineOptions.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ESoundOutputDrivers.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_EStreamModes.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioRecorder.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioStream.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioStreamLoader.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IFileFactory.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IFileReader.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IRefCounted.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_irrKlangTypes.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISound.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundDeviceList.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundEffectControl.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundEngine.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundMixedOutputReceiver.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundSource.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundStopEventReceiver.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IVirtualRefCounted.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_SAudioStreamFormat.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_vec3d.h" />
-    <ClInclude Include="Horchata\Sonidos\irrKlang\irrKlang.h" />
-    <ClInclude Include="Horchata\hoImages.h" />
-    <ClInclude Include="Horchata\hoText2.h" />
-    <ClInclude Include="Horchata\Shader.h" />
     <ClInclude Include="RenderGL.h" />
+    <ClInclude Include="Horchata\hoAudioManager.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\hoColor.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\hoImages.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\hoPrimitives.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Horchata.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\hoText2.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\hoTime.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\hoVector.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Shader.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ESoundEngineOptions.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ESoundOutputDrivers.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_EStreamModes.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioRecorder.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioStream.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioStreamLoader.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IFileFactory.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IFileReader.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IRefCounted.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_irrKlangTypes.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISound.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundDeviceList.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundEffectControl.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundEngine.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundMixedOutputReceiver.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundSource.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundStopEventReceiver.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IVirtualRefCounted.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_SAudioStreamFormat.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_vec3d.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\Sonidos\irrKlang\irrKlang.h">
+      <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="horchata">
+      <UniqueIdentifier>{b1b78ee5-299a-4b85-8d9c-d86e6e6e3072}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="horchata\irrKlang">
+      <UniqueIdentifier>{75bbd7dd-ddac-4a6e-a991-90b60b09132a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
