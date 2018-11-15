@@ -1,5 +1,6 @@
 #include "SDL.h"
 #include "RenderGL.h"
+#include "hoImages.h"
 #include <stdio.h>
 #include <string>
 #include <iostream>
@@ -61,6 +62,14 @@ bool init()
 	}
 	else
 	{
+		int flags = IMG_INIT_JPG | IMG_INIT_PNG;
+		int initted = IMG_Init(flags);
+		if ((initted&flags) != flags) {
+			printf("IMG_Init: Failed to init required jpg and png support!\n");
+			printf("IMG_Init: %s\n", IMG_GetError());
+			// handle error
+		}
+
 		//Indicamos que usaremos OPenGL
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
@@ -101,7 +110,6 @@ bool init()
 
 	
 	
-	
 	return success;
 }
 
@@ -112,6 +120,7 @@ void close()
 	//Destruimos ventana
 	SDL_DestroyWindow(gWindow);
 	gWindow = NULL;
+	IMG_Quit();
 	//Cerramos SDL
 	SDL_Quit();
 }

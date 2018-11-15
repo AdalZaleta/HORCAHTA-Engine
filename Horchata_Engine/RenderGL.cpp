@@ -1,6 +1,9 @@
 #include "RenderGL.h"
 #include "SDL_opengl.h"
 #include <GL\GLU.h>
+#include "hoImages.h"
+#include <iostream>
+
 
 RenderGL g_renderGL; //Singleton
 
@@ -43,9 +46,12 @@ void RenderGL::inicializar()
 	}
 
 	gluOrtho2D(clipAreaXLeft, clipAreaXRightt, clipAreaYBottom, clipAreaYTop);
+
+	glEnable(GL_TEXTURE_2D);
 	//Initialize clear color
 	glClearColor(0.f, 0.f, 0.f, 1.f);
-
+	bool cargoOk = testImage.LoadImage_("GABO.jpg");
+	std::cout << (cargoOk ? "" : "No se ha podido cargar la imagen") << std::endl;
 }
 
 void RenderGL::liberar()
@@ -60,6 +66,10 @@ void RenderGL::update()
 
 void RenderGL::render()
 {
+
+	testImage.DrawImage(1, 1, 50, 50);
+
+	
 	//Limpiamos pantalla
 	glClear(GL_COLOR_BUFFER_BIT);
 
