@@ -83,7 +83,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>irrKlang.lib;opengl32.lib;glu32.lib;SDL2_image.lib;SDL2.lib;SDL2main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>irrKlang.lib;glew32s.lib;glew32.lib;freetype.lib;opengl32.lib;glu32.lib;SDL2_image.lib;SDL2.lib;SDL2main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)Horchata_Engine\Horchata\Sonidos\irrKlang\lib;$(SolutionDir)Horchata_Engine\SDL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
     </Link>
@@ -131,6 +131,7 @@
     <ClCompile Include="Horchata\hoTime.cpp" />
     <ClCompile Include="Horchata\hoVector.cpp" />
     <ClCompile Include="Horchata\hoImages.cpp" />
+    <ClCompile Include="Horchata\hoText2.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderGL.cpp" />
   </ItemGroup>
@@ -163,6 +164,8 @@
     <ClInclude Include="Horchata\Sonidos\irrKlang\ik_vec3d.h" />
     <ClInclude Include="Horchata\Sonidos\irrKlang\irrKlang.h" />
     <ClInclude Include="Horchata\hoImages.h" />
+    <ClInclude Include="Horchata\hoText2.h" />
+    <ClInclude Include="Horchata\Shader.h" />
     <ClInclude Include="RenderGL.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

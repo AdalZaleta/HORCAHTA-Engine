@@ -4,10 +4,16 @@
 #include <iostream>
 
 
+#include <windows.h>			// standard Windows app include
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
 RenderGL g_renderGL; //Singleton
 
 RenderGL::RenderGL()
 {
+
 }
 RenderGL::~RenderGL()
 {
@@ -23,10 +29,6 @@ void RenderGL::inicializar()
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	//Model view Matrix
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	
 	float aspect =(float)w / (float)h;
 
 	if (w >= h)
@@ -46,19 +48,34 @@ void RenderGL::inicializar()
 
 	gluOrtho2D(clipAreaXLeft, clipAreaXRightt, clipAreaYBottom, clipAreaYTop);
 
+	//Model view Matrix
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
 	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	//Initialize clear color
-	glClearColor(0.f, 0.f, 0.f, 1.f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+
+	// Compilar el shader para el texto
+	// Definicion del shader global
+	g_ho.shader.LoadShader("Resources/shaders/text.vs", "Resources/shaders/text.frag");
+	glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(WIDTH), 0.0f, static_cast<GLfloat>(HEIGHT));
+	g_ho.shader.Use();
+	//glUniformMatrix4fv(glGetUniformLocation(g_ho.shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+
 }
 
 void RenderGL::liberar()
 {
 	//delete this
+	//myFont.TEMP_ReleaseFont();
 }
 
 void RenderGL::update()
 {
-	
+
 }
 
 void RenderGL::render()
@@ -72,5 +89,3 @@ void RenderGL::render()
 	//Esto tiene que estar siempre
 	g_ho.primitives.DrawAll();
 }
-
-

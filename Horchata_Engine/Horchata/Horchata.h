@@ -1,8 +1,9 @@
 #pragma once
+#include "hoText2.h"
+#include "hoAudioManager.h"
 #include "hoPrimitives.h"
 #include "hoColor.h"
 #include "hoImages.h"
-#include "hoAudioManager.h"
 
 
 class Horchata {
@@ -15,6 +16,7 @@ public:
 	hoPrimitives primitives;
 	hoColor colorchata;
 	hoAudioManager SonidosManager;
+	Shader shader;
 private:
 
 };

@@ -5,10 +5,10 @@
 #include <iostream>
 #include "Horchata/hoTime.h"
 
-
 #include <windows.h>
 
 using namespace std;
+
 
 //Dimensiones de la ventana
 const int SCREEN_WIDTH = 800;
@@ -82,9 +82,12 @@ bool init()
 		}
 		else
 		{
+
 			//SDL_GetRendererOutputSize(gWindow, &g_renderGL.w, &g_renderGL.h);
+			
 			g_renderGL.w= SDL_GetWindowSurface(gWindow)->w;
 			g_renderGL.h = SDL_GetWindowSurface(gWindow)->h;
+
 			//Creamos COntexto de OpenGL
 			gContext = SDL_GL_CreateContext(gWindow);
 			if (gContext == NULL)
@@ -93,7 +96,8 @@ bool init()
 				success = false;
 			}
 			else
-			{
+			{			
+
 				//Activamos VSync
 				if (SDL_GL_SetSwapInterval(1) < 0)
 				{
@@ -142,6 +146,8 @@ int main(int argc, char* args[])
 		//Se activa deteccion de teclado
 		SDL_StartTextInput();
 
+		SDL_Surface* pantalla = SDL_GetWindowSurface(gWindow);
+
 		//GameLoop
 		while (!GameLoop)
 		{
@@ -176,6 +182,8 @@ int main(int argc, char* args[])
 
 			//Dibujamos
 			g_renderGL.render();
+
+			//SDL_BlitSurface(texto, NULL, pantalla, &dest);
 			
 			//Actualizamos pantalla
 			SDL_GL_SwapWindow(gWindow);
