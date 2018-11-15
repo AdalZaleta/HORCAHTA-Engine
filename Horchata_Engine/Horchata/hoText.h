@@ -42,12 +42,6 @@ public:
 	SDL_Surface * TTF_RenderUTF8_Blended(TTF_Font *font, const char *text, SDL_Color fg, SDL_Color bg);
 	SDL_Surface * TTF_RenderUNICODE_Blended(TTF_Font *font, const Uint16 *text, SDL_Color fg, SDL_Color bg);*/
 
-	void TEMP_CreateBitmapFont(const char *_fontName, int _fontSize);
-	void TEMP_DrawText(const char *_str);
-	void TEMP_ReleaseFont();
-
-	HDC hDC;
-
 private:
 
 	unsigned int base;

@@ -2,7 +2,6 @@
 #include "RenderGL.h"
 #include <stdio.h>
 #include <string>
-#include "hoText.h"
 
 
 //Dimensiones de la ventana
@@ -60,14 +59,14 @@ bool init()
 	}
 	else
 	{
-		
+		/*
 		if (TTF_Init() == -1)
 		{
 			printf("SDL could not initialize! SDL Error: %s\n", TTF_GetError());
 			success = false;
 			return success;
 		}
-		
+		*/
 
 		//Indicamos que usaremos OPenGL
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
@@ -100,7 +99,7 @@ bool init()
 			}
 			else
 			{
-				hoText::fuente = TTF_OpenFont("Resources/Fonts/bgothm.ttf", 16);
+				//hoText::fuente = TTF_OpenFont("Resources/Fonts/bgothm.ttf", 16);
 				
 
 				//Activamos VSync
@@ -149,7 +148,7 @@ int main(int argc, char* args[])
 		SDL_StartTextInput();
 
 
-		TTF_SizeUTF8(hoText::fuente, "Hola Mundo", &g_renderGL.w, &g_renderGL.h);
+		/*TTF_SizeUTF8(hoText::fuente, "Hola Mundo", &g_renderGL.w, &g_renderGL.h);
 
 		SDL_Surface *texto;
 		SDL_Color color;
@@ -164,7 +163,7 @@ int main(int argc, char* args[])
 		dest.x = 150;
 		dest.y = 100;
 		dest.h = texto->h;
-		dest.w = texto->w;
+		dest.w = texto->w;*/
 
 		SDL_Surface* pantalla = SDL_GetWindowSurface(gWindow);
 
@@ -198,7 +197,7 @@ int main(int argc, char* args[])
 			//Dibujamos
 			g_renderGL.render();
 
-			SDL_BlitSurface(texto, NULL, pantalla, &dest);
+			//SDL_BlitSurface(texto, NULL, pantalla, &dest);
 			
 			//Actualizamos pantalla
 			SDL_GL_SwapWindow(gWindow);

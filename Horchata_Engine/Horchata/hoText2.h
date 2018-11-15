@@ -24,16 +24,14 @@
 
 class hoText2 {
 public:
-	void LoadFont();
-	void RenderText(std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color);
-
-	const GLuint WIDTH = 800, HEIGHT = 600;
+	void LoadFont(const char* path, FT_UInt w, FT_UInt h);
+	void RenderText(Shader shader, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color);
 
 	struct Character {
-		GLuint TextureID;   // ID handle of the glyph texture
-		glm::ivec2 Size;    // Size of glyph
-		glm::ivec2 Bearing;  // Offset from baseline to left/top of glyph
-		GLuint Advance;    // Horizontal offset to advance to next glyph
+		GLuint TextureID;   // ID del glyph texture
+		glm::ivec2 Size;    // Tamaño del glyph
+		glm::ivec2 Bearing;  // Offset desde la base a izquierda/arriba del glyph
+		GLuint Advance;    // Offset horizontal para avanzar al siguiente glyph
 	};
 	std::map<GLchar, Character> Characters;
 	GLuint VAO, VBO;

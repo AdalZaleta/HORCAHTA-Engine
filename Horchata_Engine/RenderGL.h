@@ -25,8 +25,21 @@ class RenderGL
 		//Funcion encargado de dibujar
 		void render();
 
-		hoText2 fontBoi;
+		const GLuint WIDTH = 1500, HEIGHT = 1000;
 
+		Shader shader;
+
+		hoText2 DTMfont;
+		hoText2 SAOfont;
+		hoText2 OPTfont;
+		hoText2 GRSfont;
+		hoText2 GSTfont;
+		hoText2 CNTfont;
+		hoText2 DOMfont;
+		hoText2 NJAfont;
+		hoText2 SPKfont;
+		hoText2 MEXfont;
+		hoText2 SGNfont;
 
 		unsigned int texture;
 };

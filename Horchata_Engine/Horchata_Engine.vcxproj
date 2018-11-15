@@ -125,13 +125,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Horchata\hoText.cpp" />
     <ClCompile Include="Horchata\hoText2.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderGL.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Horchata\hoText.h" />
     <ClInclude Include="Horchata\hoText2.h" />
     <ClInclude Include="Horchata\Shader.h" />
     <ClInclude Include="RenderGL.h" />
