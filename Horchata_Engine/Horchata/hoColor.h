@@ -10,7 +10,7 @@ public:
 	//Fluorescent 
 	float radicalRed[4] = {1, 0.2078f, 0.3686f}; 
 	float wildWatermelon[4] = { 0.9921f, 0.3569f, 0.4706f, 1 };
-	float outrageoudOrange[4] = {1, 0.3765f, 0.2157f, 1};
+	float outrageousOrange[4] = {1, 0.3765f, 0.2157f, 1};
 	float atomicTangerine[4] = {1, 0.6f, 0.4f, 1};
 	float neonCarrot[4] = {1, 0.6f, 0.2f, 1};
 	float sunglow[4] = {1, 0.8f, 0.2f, 1};
