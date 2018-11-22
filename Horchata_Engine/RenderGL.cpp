@@ -3,7 +3,6 @@
 #include <GL\GLU.h>
 #include <iostream>
 
-
 #include <windows.h>			// standard Windows app include
 #include <stdio.h>
 #include <stdlib.h>
@@ -34,8 +33,8 @@ void RenderGL::inicializar()
 
 	if (w >= h)
 	{
-		clipAreaXLeft=-10.0*aspect;
-		clipAreaXRightt = 10.0*aspect;
+		clipAreaXLeft=-10*aspect;
+		clipAreaXRightt = 10*aspect;
 		clipAreaYBottom = -10.0;
 		clipAreaYTop = 10.0;
 	}
@@ -46,7 +45,7 @@ void RenderGL::inicializar()
 		clipAreaYBottom = -10.0/aspect;
 		clipAreaYTop = 10.0/aspect;
 	}
-
+	g_ho.raycast2D.SetScreenDimentions(w, h, 10);
 	gluOrtho2D(clipAreaXLeft, clipAreaXRightt, clipAreaYBottom, clipAreaYTop);
 
 	//Model view Matrix
@@ -89,10 +88,9 @@ void RenderGL::render()
 	glVertex2f(0, 0);
 	glEnd();*/
 
-	g_ho.primitives.DrawCircle(0.0f, 0.0f, 100, 16, g_ho.colorchata.white);
-
 	for (int i = 0; i < clicks.size(); i++) {
-		g_ho.primitives.DrawCircle(clicks[i], 20, 16, g_ho.colorchata.blizzardBlue);
+		g_ho.primitives.FillCircle(clicks[i], 1.1, 16, g_ho.colorchata.amethyst);
+		g_ho.primitives.FillCircle(clicks[i], 1, 16, g_ho.colorchata.blizzardBlue);
 	}
 
 	//Esto tiene que estar siempre

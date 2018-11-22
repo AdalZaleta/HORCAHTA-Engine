@@ -8,9 +8,20 @@ hoRaycast2D::~hoRaycast2D()
 {
 }
 
+void hoRaycast2D::SetScreenDimentions(float _w, float _h, float _zoom)
+{
+	screenWidth = _w;
+	screenHeight = _h;
+	zoom = _zoom;
+}
+
 hoVector2f hoRaycast2D::ScreenToWorldPoint(hoVector2f _screen)
 {
-	return hoVector2f(0, 0);
+	float chosen = screenWidth > screenHeight ? screenWidth : screenHeight;
+	float aspect = screenWidth / screenHeight;
+	float x1 = (_screen.x / (chosen / (2 * aspect))) - aspect;
+	float y1 = (-_screen.y / (chosen / (2 * aspect))) + 1;
+	return hoVector2f(x1, y1) * zoom; //Cambiar cuando se le haga cambio a renderGL
 }
 
 hoVector2f hoRaycast2D::ScreenToWorldPoint(int _x, int _y)
@@ -21,4 +32,9 @@ hoVector2f hoRaycast2D::ScreenToWorldPoint(int _x, int _y)
 hoVector2f hoRaycast2D::WorldToScreenPoint(hoVector2f _world)
 {
 	return hoVector2f();
+}
+
+hoVector2f hoRaycast2D::WorldToScreenPoint(int _x, int _y)
+{
+	return WorldToScreenPoint(hoVector2f(_x, _y));
 }
