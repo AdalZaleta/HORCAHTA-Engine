@@ -67,7 +67,7 @@ void RenderGL::inicializar()
 	//g_ho.shader.Use();
 	//glUniformMatrix4fv(glGetUniformLocation(g_ho.shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 
-	testFont.LoadFont("Resources/Fonts/naruto.ttf", 32, 0);
+	//testFont.LoadFont("Resources/Fonts/naruto.ttf", 32, 0);
 }
 
 void RenderGL::liberar()
