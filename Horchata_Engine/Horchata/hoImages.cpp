@@ -20,7 +20,6 @@ hoImages::hoImages(const char* _dirImages)
 
 bool hoImages::LoadImage_(const char *_dirImages)
 {
-	//glOrtho(0, 720, 480, 0, -1, 1); //Set the matrix
 	//This const char will be the prefix of the image
 	const char *prefix = "Resources/";
 	//This char array will be concatenate the path
@@ -56,8 +55,8 @@ bool hoImages::LoadImage_(const char *_dirImages)
 
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	/*glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);*/
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
 	int mode = GL_RGB;
 
@@ -76,28 +75,17 @@ bool hoImages::LoadImage_(const char *_dirImages)
 
 void hoImages::DrawImage(int _x, int _y, int _width, int _height)
 {
-	/*glBindTexture(GL_TEXTURE_2D, textureID);
+	glPushMatrix(); //Se hace un PushMatrix() para poder trasladarnos en las 4 esquinas de la imagen
+
+	//Renderear el quad
 	glBegin(GL_QUADS);
-		glTexCoord2f(0, 0); glVertex3f(_x, _y, 0);
-		glTexCoord2f(1, 0); glVertex3f(_x + _width, _y, 0);
-		glTexCoord2f(1, 1); glVertex3f(_x + _width, _y + _height, 0);
-		glTexCoord2f(0, 1); glVertex3f(_x,_y + _height, 0);
-	glEnd();*/
-	
-	glPushMatrix();
-
-	
-
-	//Render texture quad
-	glBegin(GL_QUADS);
-	glTexCoord2f(0.f, 1.f); glVertex2f(_x, _y); //Bottom left
-	glTexCoord2f(1.f, 1.f); glVertex2f(_x + _width, _y); //Bottom right
-	glTexCoord2f(1.f, 0.f); glVertex2f(_x + _width, _y + _height); //Top right
-	glTexCoord2f(0.f, 0.f); glVertex2f(_x, _y + _height); //Top left
-	glEnd();
-
-	//glDisable(GL_TEXTURE_2D);
+	glTexCoord2f(0.f, 1.f); glVertex2f(_x, _y); //Arriba a la izquierda
+	glTexCoord2f(1.f, 1.f); glVertex2f(_x + _width, _y); //Arriba a la derecha
+	glTexCoord2f(1.f, 0.f); glVertex2f(_x + _width, _y + _height); //Abajo a la derecha
+	glTexCoord2f(0.f, 0.f); glVertex2f(_x, _y + _height); //Abajo a la izquierda
+	/* Se modificó la convencion de dibujo, para que la imagen no saliera invertida */
+	glEnd(); // Le paramos el render del quad
 
 
-	glPopMatrix(); //End rendering phase
+	glPopMatrix(); //Termina la fase de render
 }
