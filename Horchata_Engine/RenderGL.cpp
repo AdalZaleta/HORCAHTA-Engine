@@ -34,17 +34,17 @@ void RenderGL::inicializar()
 
 	if (w >= h)
 	{
-		clipAreaXLeft=-10.0*aspect;
-		clipAreaXRightt = 10.0*aspect;
-		clipAreaYBottom = -10.0;
-		clipAreaYTop = 10.0;
+		clipAreaXLeft=-100.0*aspect;
+		clipAreaXRightt = 100.0*aspect;
+		clipAreaYBottom = -100.0;
+		clipAreaYTop = 100.0;
 	}
 	else
 	{
-		clipAreaXLeft = -10.0;
-		clipAreaXRightt = 10.0;
-		clipAreaYBottom = -10.0/aspect;
-		clipAreaYTop = 10.0/aspect;
+		clipAreaXLeft = -100.0;
+		clipAreaXRightt = 100.0;
+		clipAreaYBottom = -100.0/aspect;
+		clipAreaYTop = 100.0/aspect;
 	}
 
 	gluOrtho2D(clipAreaXLeft, clipAreaXRightt, clipAreaYBottom, clipAreaYTop);
@@ -55,8 +55,8 @@ void RenderGL::inicializar()
 
 	//glEnable(GL_DEPTH_TEST);
 	glEnable(GL_TEXTURE_2D);
-	//glEnable(GL_BLEND);
-	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	//Initialize clear color
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
@@ -67,7 +67,11 @@ void RenderGL::inicializar()
 	//g_ho.shader.Use();
 	//glUniformMatrix4fv(glGetUniformLocation(g_ho.shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 
-	testFont.LoadFont("Resources/Fonts/naruto.ttf", 32, 0);
+	//testFont.LoadFont("Resources/Fonts/naruto.ttf", 32, 0);
+	if (imagen.LoadImage_("GABO.jpg"))
+	{
+		std::cout << "Se cargo correctamente" << std::endl;
+	}
 }
 
 void RenderGL::liberar()
@@ -88,4 +92,6 @@ void RenderGL::render()
 	
 	//Esto tiene que estar siempre
 	g_ho.primitives.DrawAll();
+
+	imagen.DrawImage(-10, -10, 100, 100);
 }

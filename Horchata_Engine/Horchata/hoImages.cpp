@@ -20,7 +20,7 @@ hoImages::hoImages(const char* _dirImages)
 
 bool hoImages::LoadImage_(const char *_dirImages)
 {
-	glOrtho(0, 720, 480, 0, -1, 1); //Set the matrix
+	//glOrtho(0, 720, 480, 0, -1, 1); //Set the matrix
 	//This const char will be the prefix of the image
 	const char *prefix = "Resources/";
 	//This char array will be concatenate the path
@@ -56,8 +56,8 @@ bool hoImages::LoadImage_(const char *_dirImages)
 
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	/*glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);*/
 
 	int mode = GL_RGB;
 
@@ -66,7 +66,7 @@ bool hoImages::LoadImage_(const char *_dirImages)
 	}
 
 	// Map the surface to the texture in video memory
-	glTexImage2D(GL_TEXTURE_2D, 0, mode, 124, 124, 0, mode, GL_UNSIGNED_BYTE, imageSurface->pixels); //GL_BITMAP
+	glTexImage2D(GL_TEXTURE_2D, 0, mode, imageSurface->w, imageSurface->h, 0, mode, GL_UNSIGNED_BYTE, imageSurface->pixels); //GL_BITMAP
 	//SDL_FreeSurface(imageSurface);
 
 
@@ -90,10 +90,10 @@ void hoImages::DrawImage(int _x, int _y, int _width, int _height)
 
 	//Render texture quad
 	glBegin(GL_QUADS);
-	glTexCoord2f(0.f, 0.f); glVertex2f(_x, _y); //Bottom left
-	glTexCoord2f(1.f, 0.f); glVertex2f(_x + _width, _y); //Bottom right
-	glTexCoord2f(1.f, 1.f); glVertex2f(_x + _width, _y + _height); //Top right
-	glTexCoord2f(0.f, 1.f); glVertex2f(_x, _y + _height); //Top left
+	glTexCoord2f(0.f, 1.f); glVertex2f(_x, _y); //Bottom left
+	glTexCoord2f(1.f, 1.f); glVertex2f(_x + _width, _y); //Bottom right
+	glTexCoord2f(1.f, 0.f); glVertex2f(_x + _width, _y + _height); //Top right
+	glTexCoord2f(0.f, 0.f); glVertex2f(_x, _y + _height); //Top left
 	glEnd();
 
 	//glDisable(GL_TEXTURE_2D);
