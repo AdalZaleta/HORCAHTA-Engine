@@ -28,13 +28,3 @@ hoVector2f hoRaycast2D::ScreenToWorldPoint(int _x, int _y)
 {
 	return ScreenToWorldPoint(hoVector2f(_x, _y));
 }
-
-hoVector2f hoRaycast2D::WorldToScreenPoint(hoVector2f _world)
-{
-	return hoVector2f();
-}
-
-hoVector2f hoRaycast2D::WorldToScreenPoint(int _x, int _y)
-{
-	return WorldToScreenPoint(hoVector2f(_x, _y));
-}
