@@ -36,6 +36,9 @@ public:
 	std::map<GLchar, Character> Characters;
 	GLuint VAO, VBO;
 
+	int W;
+	int H;
+
 private:
 
 };

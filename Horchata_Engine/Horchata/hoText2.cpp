@@ -97,6 +97,7 @@ void hoText2::RenderText(Shader shader, std::string text, GLfloat x, GLfloat y, 
 {
 	// Activar el render state correspondiente
 	shader.Use();
+
 	glUniform3f(glGetUniformLocation(shader.Program, "textColor"), color.x, color.y, color.z);
 	glActiveTexture(GL_TEXTURE0);
 	glBindVertexArray(VAO);
@@ -136,5 +137,7 @@ void hoText2::RenderText(Shader shader, std::string text, GLfloat x, GLfloat y, 
 	}
 	glBindVertexArray(0);
 	glBindTexture(GL_TEXTURE_2D, 0);
+
+
 }
 

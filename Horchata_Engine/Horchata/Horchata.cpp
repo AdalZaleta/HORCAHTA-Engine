@@ -14,3 +14,11 @@ void Horchata::Iniciar()
 {
 	SonidosManager.InitEngine();
 }
+
+void Horchata::EnableTextShader() {
+	g_ho.shader.Use();
+}
+
+void Horchata::DisableTextShader() {
+	glUseProgram(0);
+}
