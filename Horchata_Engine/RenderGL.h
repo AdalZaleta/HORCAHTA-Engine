@@ -23,10 +23,6 @@ class RenderGL
 		void update();
 		//Funcion encargado de dibujar
 		void render();
-
-		const GLuint WIDTH = 1500, HEIGHT = 1000;
-
-		hoText2 testFont;
 };
 
 extern RenderGL g_renderGL; //Singleton
