@@ -1,7 +1,7 @@
 #include "hoAudioManager.h"
 #include <iostream>
 #include <windows.h>
-
+#include <sstream> 
 
 
 hoAudioManager::hoAudioManager()
@@ -34,8 +34,21 @@ ISound* hoAudioManager::Play(const char* _clip)
 	// Variable para guardar el sonido a reproducir
 	ISound* sonido;
 
+	// Variable que guarda el string de la carpeta resources
+	std::string Recursos;
+
+	Recursos = "Resources/";
+
+	// Juntamos ambas variables para hacer un solo texto
+	std::string Texto = Recursos + _clip;
+
+	// Las usamos como constante char para que irrklang lo pueda usar
+	const char* clip;
+
+	clip = Texto.c_str();
+
 	// Reproducimos el clip recibido y lo guardamos
-	sonido = engineSonido->play2D(_clip, false, false, true);
+	sonido = engineSonido->play2D(clip, false, false, true);
 
 	return sonido;
 }
@@ -58,15 +71,42 @@ void hoAudioManager::PlayBackgroundMusic(const char* _BackgroundMusic)
 	// Si no hay musica de background
 	if (background == NULL)
 	{
+		// Variable que guarda el string de la carpeta resources
+		std::string Recursos;
+
+		Recursos = "Resources/";
+
+		// Juntamos ambas variables para hacer un solo texto
+		std::string Texto = Recursos + _BackgroundMusic;
+
+		// Las usamos como constante char para que irrklang lo pueda usar
+		const char* clip;
+
+		clip = Texto.c_str();
+
 		// Reproduciminos el nuevo
-		background = engineSonido->play2D(_BackgroundMusic, true, false, true);
+		background = engineSonido->play2D(clip, true, false, true);
 	}
 	else
 	{
 		// Detenemos el anterior
 		background->stop();
+
+		// Variable que guarda el string de la carpeta resources
+		std::string Recursos;
+
+		Recursos = "Resources/";
+
+		// Juntamos ambas variables para hacer un solo texto
+		std::string Texto = Recursos + _BackgroundMusic;
+
+		// Las usamos como constante char para que irrklang lo pueda usar
+		const char* clip;
+
+		clip = Texto.c_str();
+
 		// Reproducimos el nuevo sonido
-		background = engineSonido->play2D(_BackgroundMusic, true,false,true);
+		background = engineSonido->play2D(clip, true,false,true);
 	}
 }
 
