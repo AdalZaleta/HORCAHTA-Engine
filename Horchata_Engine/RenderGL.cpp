@@ -61,7 +61,7 @@ void RenderGL::inicializar()
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 	// Setup para el shader de texto
-	g_ho.shader.LoadShader("Resources/shaders/text.vs", "Resources/shaders/text.frag");
+	g_ho.shader.LoadShader("Resources/Shaders/text.vs", "Resources/shaders/text.frag");
 }
 
 void RenderGL::liberar()
@@ -70,7 +70,7 @@ void RenderGL::liberar()
 
 void RenderGL::update()
 {
-
+	
 }
 
 void RenderGL::render()

@@ -5,7 +5,6 @@
 #include "hoColor.h"
 #include "hoImages.h"
 
-
 class Horchata {
 public:
 	Horchata();
