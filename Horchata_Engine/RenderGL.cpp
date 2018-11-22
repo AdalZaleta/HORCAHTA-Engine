@@ -67,7 +67,7 @@ void RenderGL::inicializar()
 	//g_ho.shader.Use();
 	//glUniformMatrix4fv(glGetUniformLocation(g_ho.shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 
-	testFont.LoadFont("Resources/Fonts/naruto.ttf", 32, 0);
+	//testFont.LoadFont("Resources/Fonts/naruto.ttf", 32, 0);
 }
 
 void RenderGL::liberar()
@@ -85,7 +85,16 @@ void RenderGL::render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 
-	
+	/*glBegin(GL_POINTS);
+	glVertex2f(0, 0);
+	glEnd();*/
+
+	g_ho.primitives.DrawCircle(0.0f, 0.0f, 100, 16, g_ho.colorchata.white);
+
+	for (int i = 0; i < clicks.size(); i++) {
+		g_ho.primitives.DrawCircle(clicks[i], 20, 16, g_ho.colorchata.blizzardBlue);
+	}
+
 	//Esto tiene que estar siempre
 	g_ho.primitives.DrawAll();
 }

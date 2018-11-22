@@ -26,6 +26,9 @@ class RenderGL
 
 		const GLuint WIDTH = 1500, HEIGHT = 1000;
 
+		//Borrar esto
+		std::vector<hoVector2f> clicks;
+
 		
 };
 

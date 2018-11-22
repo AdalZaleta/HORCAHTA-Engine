@@ -24,6 +24,9 @@
     <ClCompile Include="Horchata\hoVector.cpp">
       <Filter>horchata</Filter>
     </ClCompile>
+    <ClCompile Include="Horchata\hoRaycast2D.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderGL.h" />
@@ -116,6 +119,9 @@
     </ClInclude>
     <ClInclude Include="Horchata\Sonidos\irrKlang\irrKlang.h">
       <Filter>horchata\irrKlang</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\hoRaycast2D.h">
+      <Filter>horchata</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

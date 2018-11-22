@@ -127,6 +127,7 @@
   <ItemGroup>
     <ClCompile Include="Horchata\hoAudioManager.cpp" />
     <ClCompile Include="Horchata\hoPrimitives.cpp" />
+    <ClCompile Include="Horchata\hoRaycast2D.cpp" />
     <ClCompile Include="Horchata\Horchata.cpp" />
     <ClCompile Include="Horchata\hoTime.cpp" />
     <ClCompile Include="Horchata\hoVector.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="Horchata\hoAudioManager.h" />
     <ClInclude Include="Horchata\hoColor.h" />
     <ClInclude Include="Horchata\hoPrimitives.h" />
+    <ClInclude Include="Horchata\hoRaycast2D.h" />
     <ClInclude Include="Horchata\Horchata.h" />
     <ClInclude Include="Horchata\hoTime.h" />
     <ClInclude Include="Horchata\hoVector.h" />

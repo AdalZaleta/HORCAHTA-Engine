@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string>
 #include <iostream>
+#include "Horchata/Horchata.h"
 #include "Horchata/hoTime.h"
 
 #include <windows.h>
@@ -41,15 +42,16 @@ void handleKeys(unsigned char _key, int _x, int _y)
 void handleMouse(SDL_Event* _evt, int _x, int _y)
 {
 	//Click mouse izq
-	if (_evt->button.button == SDL_BUTTON_LEFT)
+	if (_evt->button.button == SDL_BUTTON_LEFT && _evt->button.state == SDL_PRESSED)
 	{
+		std::cout << "Left click" << std::endl;
+		g_renderGL.clicks.push_back(g_ho.raycast2D.ScreenToWorldPoint(_x, _y));
 	}
 }
 
 //------ FIN CORE -------------------------------------------------------------------------------
 bool init()
 {
-
 	//Initialization flag
 	bool success = true;
 
