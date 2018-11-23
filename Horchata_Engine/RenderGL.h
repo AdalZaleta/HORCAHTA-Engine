@@ -13,7 +13,6 @@ class RenderGL
 		float clipAreaYBottom;
 		int h;
 		int w;
-		hoImages imagen = hoImages();
 		//Funcion encarga de inicializar OpenGL
 		//Regresa True si se inicio correctamente o false en caso cotrario
 		void inicializar();

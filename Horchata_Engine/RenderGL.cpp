@@ -68,10 +68,6 @@ void RenderGL::inicializar()
 	//glUniformMatrix4fv(glGetUniformLocation(g_ho.shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 
 	//testFont.LoadFont("Resources/Fonts/naruto.ttf", 32, 0);
-	if (imagen.LoadImage_("GABO.jpg"))
-	{
-		std::cout << "Se cargo correctamente" << std::endl;
-	}
 }
 
 void RenderGL::liberar()
@@ -92,6 +88,4 @@ void RenderGL::render()
 	
 	//Esto tiene que estar siempre
 	g_ho.primitives.DrawAll();
-
-	imagen.DrawImage(-10, -10, 100, 100);
 }
