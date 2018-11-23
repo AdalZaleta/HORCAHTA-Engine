@@ -24,12 +24,6 @@ class RenderGL
 		void update();
 		//Funcion encargado de dibujar
 		void render();
-
-		float currentTime;
-
-		bool textBoiToggle = false;
-		std::string textBoi = "this is a nice test";
-		hoText2 testFont;
 };
 
 extern RenderGL g_renderGL; //Singleton
