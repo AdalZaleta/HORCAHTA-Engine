@@ -167,6 +167,14 @@
     <ClInclude Include="Horchata\hoText2.h" />
     <ClInclude Include="Horchata\Shader.h" />
     <ClInclude Include="RenderGL.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="horchata.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

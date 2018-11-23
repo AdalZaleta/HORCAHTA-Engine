@@ -117,6 +117,8 @@
     <ClInclude Include="Horchata\Sonidos\irrKlang\irrKlang.h">
       <Filter>horchata\irrKlang</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="horchata">
@@ -125,5 +127,11 @@
     <Filter Include="horchata\irrKlang">
       <UniqueIdentifier>{75bbd7dd-ddac-4a6e-a991-90b60b09132a}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="horchata.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
 </Project>
