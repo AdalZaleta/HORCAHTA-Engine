@@ -1,5 +1,6 @@
 #pragma once
 #include "hoVector.h"
+#include "Chipmunk/include/chipmunk/chipmunk.h"
 
 class hoRaycast2D {
 public:

@@ -5,7 +5,7 @@
 #include "hoColor.h"
 #include "hoImages.h"
 #include "hoRaycast2D.h"
-
+#include "Chipmunk/include/chipmunk.hpp"
 
 class Horchata {
 public:
@@ -19,6 +19,9 @@ public:
 	hoAudioManager SonidosManager;
 	hoRaycast2D raycast2D;
 	Shader shader;
+	
+	cp::Space space;
+
 private:
 
 };
