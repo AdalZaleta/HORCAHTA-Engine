@@ -4,6 +4,7 @@
 #include "hoPrimitives.h"
 #include "hoColor.h"
 #include "hoImages.h"
+#include "hoBotones.h"
 
 
 class Horchata {
@@ -17,6 +18,8 @@ public:
 	hoColor colorchata;
 	hoAudioManager SonidosManager;
 	Shader shader;
+	hoBotones Boton;
+
 private:
 
 };

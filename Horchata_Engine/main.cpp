@@ -4,12 +4,13 @@
 #include <string>
 #include <iostream>
 #include "Horchata/hoTime.h"
-
 #include <windows.h>
+#include "Horchata/hoBotones.h"
 
 using namespace std;
 
 
+hoBotones Boton;
 //Dimensiones de la ventana
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
@@ -43,6 +44,7 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 	//Click mouse izq
 	if (_evt->button.button == SDL_BUTTON_LEFT)
 	{
+		Boton.CreateButton(0, 0, 0, 0);
 	}
 }
 

@@ -24,7 +24,9 @@
     <ClCompile Include="Horchata\hoVector.cpp">
       <Filter>horchata</Filter>
     </ClCompile>
-    <ClCompile Include="hoBotones.cpp" />
+    <ClCompile Include="Horchata\hoBotones.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderGL.h" />
@@ -118,7 +120,9 @@
     <ClInclude Include="Horchata\Sonidos\irrKlang\irrKlang.h">
       <Filter>horchata\irrKlang</Filter>
     </ClInclude>
-    <ClInclude Include="hoBotones.h" />
+    <ClInclude Include="Horchata\hoBotones.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="horchata">
