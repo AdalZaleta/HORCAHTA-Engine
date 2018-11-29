@@ -44,7 +44,7 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 	//Click mouse izq
 	if (_evt->button.button == SDL_BUTTON_LEFT)
 	{
-		Boton.CreateButton(0, 0, 0, 0);
+		
 	}
 }
 
@@ -113,6 +113,7 @@ bool init()
 		}
 	}
 
+	
 	
 	
 	return success;
@@ -184,6 +185,8 @@ int main(int argc, char* args[])
 
 			//Dibujamos
 			g_renderGL.render();
+
+			Boton.CreateButton(0, 0, 5, 1);
 
 			//SDL_BlitSurface(texto, NULL, pantalla, &dest);
 			

@@ -7,13 +7,17 @@ class hoBotones
 		hoBotones();
 		~hoBotones();
 
-		float x, y,h,w;
+		double x, y,h,w;
+
+		double x2;
+		double y2;
+
 		bool onClick;
 
 		void OnClickDown();
 		void OnClickUp();
 
-		void CreateButton(float _x, float _y, float _w, float _h);
+		void CreateButton(double _x1, double _y1, double _x2, double _y2);
 
 };
 

@@ -11,22 +11,22 @@ hoBotones::~hoBotones()
 {
 }
 
-void hoBotones::CreateButton(float _x, float _y, float _w, float _h)
+void hoBotones::CreateButton(double _x1, double _y1, double _x2, double _y2)
 {
 	//Coordenadas
-	x = _x;
-	y = _y;
+	x = _x1;
+	y = _y1;
 	//Tamaño
-	w = _w;
-	h = _h;
+	y2 = _y2;
+	x2 = _x2;
 
 
 	glBegin(GL_POLYGON);
-	glColor3f(0.0f, 0.0f, 1.0f);
-	glVertex2d(0,0);
-	glVertex2d(0, 5);
-	glVertex2d(5, 5);
-	glVertex2d(5, 0);
+	glColor3f(1.0f, 0.0f, 1.0f);
+	glVertex2d(x, y);
+	glVertex2d(x, y2);
+	glVertex2d(x2, y2);
+	glVertex2d(x2, y);
 	glEnd();
 	
 }
