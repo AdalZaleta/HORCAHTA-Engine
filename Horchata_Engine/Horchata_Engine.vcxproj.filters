@@ -24,6 +24,7 @@
     <ClCompile Include="Horchata\hoVector.cpp">
       <Filter>horchata</Filter>
     </ClCompile>
+    <ClCompile Include="Horchata\hoSprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderGL.h" />
@@ -119,6 +120,7 @@
     </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="resource1.h" />
+    <ClInclude Include="Horchata\hoSprite.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="horchata">

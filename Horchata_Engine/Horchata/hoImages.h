@@ -13,6 +13,10 @@ public:
 	hoImages(const char* _dirImages);
 	~hoImages();
 
+	//This variables contains the width and height
+	int width;
+	int height;
+
 	//This function Draws the pre-loaded Image
 	void DrawImage(int _x, int _y, int _width, int _height);
 

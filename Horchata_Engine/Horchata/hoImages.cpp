@@ -1,5 +1,4 @@
 #include "hoImages.h"
-#include "SDL_image.h"
 #include <iostream>
 
 hoImages::hoImages()
@@ -67,6 +66,8 @@ bool hoImages::LoadImage_(const char *_dirImages)
 	// Map the surface to the texture in video memory
 	glTexImage2D(GL_TEXTURE_2D, 0, mode, imageSurface->w, imageSurface->h, 0, mode, GL_UNSIGNED_BYTE, imageSurface->pixels); //GL_BITMAP
 	//SDL_FreeSurface(imageSurface);
+	width = imageSurface->w;
+	height = imageSurface->h;
 
 
 	glBindTexture(GL_TEXTURE_2D, textures);
@@ -79,10 +80,10 @@ void hoImages::DrawImage(int _x, int _y, int _width, int _height)
 
 	//Renderear el quad
 	glBegin(GL_QUADS);
-	glTexCoord2f(0.f, 1.f); glVertex2f(_x, _y); //Arriba a la izquierda
-	glTexCoord2f(1.f, 1.f); glVertex2f(_x + _width, _y); //Arriba a la derecha
-	glTexCoord2f(1.f, 0.f); glVertex2f(_x + _width, _y + _height); //Abajo a la derecha
-	glTexCoord2f(0.f, 0.f); glVertex2f(_x, _y + _height); //Abajo a la izquierda
+	glTexCoord2f(0.0f, 1.0f); glVertex2f(_x + (_width/2.0f), _y - (_height/2.0f)); //Arriba a la izquierda
+	glTexCoord2f(1.0f, 1.0f); glVertex2f(_x - (_width/2.0f), _y - (_height/2.0f)); //Arriba a la derecha
+	glTexCoord2f(1.0f, 0.0f); glVertex2f(_x - (_width/2.0f), _y + (_height/2.0f)); //Abajo a la derecha
+	glTexCoord2f(0.0f, 0.0f); glVertex2f(_x + (_width/2.0f), _y + (_height/2.0f)); //Abajo a la izquierda
 	/* Se modificó la convencion de dibujo, para que la imagen no saliera invertida */
 	glEnd(); // Le paramos el render del quad
 
