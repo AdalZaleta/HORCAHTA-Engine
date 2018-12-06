@@ -24,6 +24,9 @@ class RenderGL
 		void update();
 		//Funcion encargado de dibujar
 		void render();
+
+		// TEMP
+		hoText2 testFont;
 };
 
 extern RenderGL g_renderGL; //Singleton

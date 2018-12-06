@@ -11,7 +11,7 @@ public:
 	~Horchata();
 
 	void Iniciar();
-	void EnableTextShader(int _h, int _w);
+	void EnableTextShader();
 	void DisableTextShader();
 
 	hoPrimitives primitives;
