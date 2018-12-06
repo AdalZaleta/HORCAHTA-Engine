@@ -56,25 +56,17 @@ float hoPrimitives::GetWindowHeight()
 
 void hoPrimitives::DrawLine(float _x1, float _y1, float _x2, float _y2)
 {
-	
-	int index = GetFirstInactive(HO_LINE);	
-	if (index != -1) {
-		*drawables[index] = hoLine(hoVector2f(_x1, _y1), hoVector2f(_x2, _y2));		
-		drawables[index]->isActive = true;
-		drawables[index]->fill = false;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_LINE);				
-		drawables.push_back(new hoLine(hoVector2f(_x1, _y1), hoVector2f(_x2, _y2)));
-	}
+	DrawLine(hoVector2f(_x1, _y1), hoVector2f(_x2, _y2));
 }
 
 void hoPrimitives::DrawLine(hoVector2f _pos1, hoVector2f _pos2)
 {
 	int index = GetFirstInactive(HO_LINE);
 	if (index != -1) {
-		*drawables[index] = hoLine(_pos1, _pos2);
+		hoLine* temp = dynamic_cast<hoLine*>(drawables[index]);
+		if(temp)
+			*temp = hoLine(_pos1, _pos2);
+
 		drawables[index]->isActive = true;
 		drawables[index]->fill = false;
 	}
@@ -87,24 +79,16 @@ void hoPrimitives::DrawLine(hoVector2f _pos1, hoVector2f _pos2)
 
 void hoPrimitives::DrawCircle(float _x, float _y, float _r, int _seg)				//Explicacion de Draws y Fills mas arriba
 {
-	int index = GetFirstInactive(HO_CIRCLE);
-	if (index != -1) {
-		*drawables[index] = hoCircle(hoVector2f(_x, _y), _r, _seg);
-		drawables[index]->isActive = true;
-		drawables[index]->fill = false;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_CIRCLE);
-		drawables.push_back(new hoCircle(hoVector2f(_x, _y), _r, _seg));
-	}
+	DrawCircle(hoVector2f(_x, _y), _r, _seg);
 }
 
 void hoPrimitives::DrawCircle(hoVector2f _pos, float _r, int _seg)
 {
 	int index = GetFirstInactive(HO_CIRCLE);
 	if (index != -1) {
-		*drawables[index] = hoCircle(_pos, _r, _seg);
+		hoCircle* temp = dynamic_cast<hoCircle*>(drawables[index]);
+		if (temp)
+			*temp = hoCircle(_pos, _r, _seg);
 		drawables[index]->isActive = true;
 		drawables[index]->fill = false;
 	}
@@ -117,24 +101,16 @@ void hoPrimitives::DrawCircle(hoVector2f _pos, float _r, int _seg)
 
 void hoPrimitives::DrawPoint(float _x, float _y, float _size)				//Explicacion de Draws y Fills mas arriba
 {
-	int index = GetFirstInactive(HO_POINT);
-	if (index != -1) {
-		*drawables[index] = hoPoint(hoVector2f(_x, _y), _size);
-		drawables[index]->isActive = true;
-		drawables[index]->fill = false;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_POINT);
-		drawables.push_back(new hoPoint(hoVector2f(_x, _y), _size));
-	}
+	DrawPoint(hoVector2f(_x, _y), _size);
 }
 
 void hoPrimitives::DrawPoint(hoVector2f _pos, float _size)
 {
 	int index = GetFirstInactive(HO_POINT);
 	if (index != -1) {
-		*drawables[index] = hoPoint(_pos, _size);
+		hoPoint* temp = dynamic_cast<hoPoint*>(drawables[index]);
+		if (temp)
+			*temp = hoPoint(_pos, _size);
 		drawables[index]->isActive = true;
 		drawables[index]->fill = false;
 	}
@@ -147,39 +123,21 @@ void hoPrimitives::DrawPoint(hoVector2f _pos, float _size)
 
 void hoPrimitives::DrawRect(float _x, float _y, float _w, float _h)
 {
-	int index = GetFirstInactive(HO_RECT);
-	if (index != -1) {
-		*drawables[index] = hoRect(hoVector2f(_x, _y), hoVector2f(_w, _h));
-		drawables[index]->isActive = true;
-		drawables[index]->fill = false;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_RECT);
-		drawables.push_back(new hoRect(hoVector2f(_x, _y), hoVector2f(_w, _h)));
-	}
+	DrawRect(hoVector2f(_x, _y), hoVector2f(_w, _h));
 }
 
 void hoPrimitives::DrawRect(hoVector2f _pos, float _w, float _h)					//Explicacion de Draws y Fills mas arriba
 {
-	int index = GetFirstInactive(HO_RECT);
-	if (index != -1) {
-		*drawables[index] = hoRect(_pos, hoVector2f(_w, _h));
-		drawables[index]->isActive = true;
-		drawables[index]->fill = false;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_RECT);
-		drawables.push_back(new hoRect(_pos, hoVector2f(_w, _h)));
-	}
+	DrawRect(_pos, hoVector2f(_w, _h));
 }
 
 void hoPrimitives::DrawRect(hoVector2f _pos, hoVector2f _sizes)
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
-		*drawables[index] = hoRect(_pos, _sizes);
+		hoRect* temp = dynamic_cast<hoRect*>(drawables[index]);
+		if (temp)
+			*temp = hoRect(_pos, _sizes);
 		drawables[index]->isActive = true;
 		drawables[index]->fill = false;
 	}
@@ -192,24 +150,16 @@ void hoPrimitives::DrawRect(hoVector2f _pos, hoVector2f _sizes)
 
 void hoPrimitives::DrawEllipse(float _x, float _y, float _w, float _h, int _seg)
 {
-	int index = GetFirstInactive(HO_ELLIPSE);
-	if (index != -1) {
-		*drawables[index] = hoEllipse(hoVector2f(_x, _y), hoVector2f(_w, _h), _seg);
-		drawables[index]->isActive = true;
-		drawables[index]->fill = false;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_ELLIPSE);
-		drawables.push_back(new hoEllipse(hoVector2f(_x, _y), hoVector2f(_w, _h), _seg));
-	}
+	DrawEllipse(hoVector2f(_x, _y), _w, _h, _seg);
 }
 
 void hoPrimitives::DrawEllipse(hoVector2f _pos, float _w, float _h, int _seg)					//Explicacion de Draws y Fills mas arriba
 {
 	int index = GetFirstInactive(HO_ELLIPSE);
 	if (index != -1) {
-		*drawables[index] = hoEllipse(_pos, hoVector2f(_w, _h), _seg);
+		hoEllipse* temp = dynamic_cast<hoEllipse*>(drawables[index]);
+		if (temp)
+			*temp = hoEllipse(_pos, hoVector2f(_w, _h), _seg);
 		drawables[index]->isActive = true;
 		drawables[index]->fill = false;
 	}
@@ -222,25 +172,16 @@ void hoPrimitives::DrawEllipse(hoVector2f _pos, float _w, float _h, int _seg)			
 
 void hoPrimitives::FillCircle(float _x, float _y, float _r, int _seg)
 {
-	int index = GetFirstInactive(HO_CIRCLE);
-	if (index != -1) {
-		*drawables[index] = hoCircle(hoVector2f(_x, _y), _r, _seg);
-		drawables[index]->isActive = true;
-		drawables[index]->fill = true;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_CIRCLE);
-		drawables.push_back(new hoCircle(hoVector2f(_x, _y), _r, _seg));
-		drawables[drawables.size() - 1]->fill = true;
-	}
+	FillCircle(hoVector2f(_x, _y), _r, _seg);
 }
 
 void hoPrimitives::FillCircle(hoVector2f _pos, float _r, int _seg)			
 {
 	int index = GetFirstInactive(HO_CIRCLE);
 	if (index != -1) {
-		*drawables[index] = hoCircle(_pos, _r, _seg);
+		hoCircle* temp = dynamic_cast<hoCircle*>(drawables[index]);
+		if (temp)
+			*temp = hoCircle(_pos, _r, _seg);
 		drawables[index]->isActive = true;
 		drawables[index]->fill = true;
 	}
@@ -254,41 +195,21 @@ void hoPrimitives::FillCircle(hoVector2f _pos, float _r, int _seg)
 
 void hoPrimitives::FillRect(float _x, float _y, float _w, float _h)			////Explicacion de Draws y Fills mas arriba
 {
-	int index = GetFirstInactive(HO_RECT);
-	if (index != -1) {
-		*drawables[index] = hoRect(hoVector2f(_x, _y), hoVector2f(_w, _h));
-		drawables[index]->isActive = true;
-		drawables[index]->fill = true;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_RECT);
-		drawables.push_back(new hoRect(hoVector2f(_x, _y), hoVector2f(_w, _h)));
-		drawables[drawables.size() - 1]->fill = true;
-	}
+	FillRect(hoVector2f(_x, _y), hoVector2f(_w, _h));
 }
 
 void hoPrimitives::FillRect(hoVector2f _pos, float _w, float _h)
 {
-	int index = GetFirstInactive(HO_RECT);
-	if (index != -1) {
-		*drawables[index] = hoRect(_pos, hoVector2f(_w, _h));
-		drawables[index]->isActive = true;
-		drawables[index]->fill = true;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_RECT);
-		drawables.push_back(new hoRect(_pos, hoVector2f(_w, _h)));
-		drawables[drawables.size() - 1]->fill = true;
-	}
+	FillRect(_pos, hoVector2f(_w, _h));
 }
 
 void hoPrimitives::FillRect(hoVector2f _pos, hoVector2f _sizes)
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
-		*drawables[index] = hoRect(_pos, _sizes);
+		hoRect* temp = dynamic_cast<hoRect*>(drawables[index]);
+		if (temp)
+			*temp = hoRect(_pos, _sizes);
 		drawables[index]->isActive = true;
 		drawables[index]->fill = true;
 	}
@@ -302,25 +223,16 @@ void hoPrimitives::FillRect(hoVector2f _pos, hoVector2f _sizes)
 
 void hoPrimitives::FillEllipse(float _x, float _y, float _w, float _h, int _seg)				//Explicacion de Draws y Fills mas arriba
 {
-	int index = GetFirstInactive(HO_ELLIPSE);
-	if (index != -1) {
-		*drawables[index] = hoEllipse(hoVector2f(_x, _y), hoVector2f(_w, _h), _seg);
-		drawables[index]->isActive = true;
-		drawables[index]->fill = true;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_ELLIPSE);
-		drawables.push_back(new hoEllipse(hoVector2f(_x, _y), hoVector2f(_w, _h), _seg));
-		drawables[drawables.size() - 1]->fill = true;
-	}
+	FillEllipse(hoVector2f(_x, _y), _w, _h, _seg);
 }
 
 void hoPrimitives::FillEllipse(hoVector2f _pos, float _w, float _h, int _seg)
 {
 	int index = GetFirstInactive(HO_ELLIPSE);
 	if (index != -1) {
-		*drawables[index] = hoEllipse(_pos, hoVector2f(_w, _h), _seg);
+		hoEllipse* temp = dynamic_cast<hoEllipse*>(drawables[index]);
+		if (temp)
+			*temp = hoEllipse(_pos, hoVector2f(_w, _h), _seg);
 		drawables[index]->isActive = true;
 		drawables[index]->fill = true;
 	}
@@ -336,23 +248,16 @@ void hoPrimitives::FillEllipse(hoVector2f _pos, float _w, float _h, int _seg)
 
 void hoPrimitives::DrawLine(float _x1, float _y1, float _x2, float _y2, float _rgba[4])			//Explicacion de Draws y Fills mas arriba
 {
-	int index = GetFirstInactive(HO_LINE);
-	if (index != -1) {
-		*drawables[index] = hoLine(hoVector2f(_x1, _y1), hoVector2f(_x2, _y2), _rgba);
-		drawables[index]->isActive = true;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_LINE);
-		drawables.push_back(new hoLine(hoVector2f(_x1, _y1), hoVector2f(_x2, _y2), _rgba));
-	}
+	DrawLine(hoVector2f(_x1, _y1), hoVector2f(_x2, _y2), _rgba);
 }
 
 void hoPrimitives::DrawLine(hoVector2f _pos1, hoVector2f _pos2, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_LINE);
 	if (index != -1) {
-		*drawables[index] = hoLine(_pos1, _pos2, _rgba);
+		hoLine* temp = dynamic_cast<hoLine*>(drawables[index]);
+		if (temp)
+			*temp = hoLine(_pos1, _pos2, _rgba);
 		drawables[index]->isActive = true;
 	}
 	else
@@ -364,23 +269,16 @@ void hoPrimitives::DrawLine(hoVector2f _pos1, hoVector2f _pos2, float _rgba[4])
 
 void hoPrimitives::DrawCircle(float _x, float _y, float _r, int _seg, float _rgba[4])
 {
-	int index = GetFirstInactive(HO_CIRCLE);
-	if (index != -1) {
-		*drawables[index] = hoCircle(hoVector2f(_x, _y), _r, _seg, _rgba);
-		drawables[index]->isActive = true;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_CIRCLE);
-		drawables.push_back(new hoCircle(hoVector2f(_x, _y), _r, _seg, _rgba));
-	}
+	DrawCircle(hoVector2f(_x, _y), _r, _seg, _rgba);
 }
 
 void hoPrimitives::DrawCircle(hoVector2f _pos, float _r, int _seg, float _rgba[4])				//Explicacion de Draws y Fills mas arriba
 {
 	int index = GetFirstInactive(HO_CIRCLE);
 	if (index != -1) {
-		*drawables[index] = hoCircle(_pos, _r, _seg, _rgba);
+		hoCircle* temp = dynamic_cast<hoCircle*>(drawables[index]);
+		if (temp)
+			*temp = hoCircle(_pos, _r, _seg, _rgba);
 		drawables[index]->isActive = true;
 	}
 	else
@@ -392,23 +290,16 @@ void hoPrimitives::DrawCircle(hoVector2f _pos, float _r, int _seg, float _rgba[4
 
 void hoPrimitives::DrawPoint(float _x, float _y, float _size, float _rgba[4])
 {
-	int index = GetFirstInactive(HO_POINT);
-	if (index != -1) {
-		*drawables[index] = hoPoint(hoVector2f(_x, _y), _size, _rgba);
-		drawables[index]->isActive = true;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_POINT);
-		drawables.push_back(new hoPoint(hoVector2f(_x, _y), _size, _rgba));
-	}
+	DrawPoint(hoVector2f(_x, _y), _size, _rgba);
 }
 
 void hoPrimitives::DrawPoint(hoVector2f _pos, float _size, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_POINT);
 	if (index != -1) {
-		*drawables[index] = hoPoint(_pos, _size, _rgba);
+		hoPoint* temp = dynamic_cast<hoPoint*>(drawables[index]);
+		if (temp)
+			*temp = hoPoint(_pos, _size, _rgba);
 		drawables[index]->isActive = true;
 	}
 	else
@@ -420,37 +311,21 @@ void hoPrimitives::DrawPoint(hoVector2f _pos, float _size, float _rgba[4])
 
 void hoPrimitives::DrawRect(float _x, float _y, float _w, float _h, float _rgba[4])				//Explicacion de Draws y Fills mas arriba
 {
-	int index = GetFirstInactive(HO_RECT);
-	if (index != -1) {
-		*drawables[index] = hoRect(hoVector2f(_x, _y), hoVector2f(_w, _h), _rgba);
-		drawables[index]->isActive = true;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_RECT);
-		drawables.push_back(new hoRect(hoVector2f(_x, _y), hoVector2f(_w, _h), _rgba));
-	}
+	DrawRect(hoVector2f(_x, _y), hoVector2f(_w, _h), _rgba);
 }
 
 void hoPrimitives::DrawRect(hoVector2f _pos, float _w, float _h, float _rgba[4])
 {
-	int index = GetFirstInactive(HO_RECT);
-	if (index != -1) {
-		*drawables[index] = hoRect(_pos, hoVector2f(_w, _h), _rgba);
-		drawables[index]->isActive = true;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_RECT);
-		drawables.push_back(new hoRect(_pos, hoVector2f(_w, _h), _rgba));
-	}
+	DrawRect(_pos, hoVector2f(_w, _h), _rgba);
 }
 
 void hoPrimitives::DrawRect(hoVector2f _pos, hoVector2f _sizes, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
-		*drawables[index] = hoRect(_pos, _sizes, _rgba);
+		hoRect* temp = dynamic_cast<hoRect*>(drawables[index]);
+		if (temp)
+			*temp = hoRect(_pos, _sizes, _rgba);
 		drawables[index]->isActive = true;
 	}
 	else
@@ -462,23 +337,16 @@ void hoPrimitives::DrawRect(hoVector2f _pos, hoVector2f _sizes, float _rgba[4])
 
 void hoPrimitives::DrawEllipse(float _x, float _y, float _w, float _h, int _seg, float _rgba[4])			//Explicacion de Draws y Fills mas arriba
 {
-	int index = GetFirstInactive(HO_ELLIPSE);
-	if (index != -1) {
-		*drawables[index] = hoEllipse(hoVector2f(_x, _y), hoVector2f(_w, _h), _seg, _rgba);
-		drawables[index]->isActive = true;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_ELLIPSE);
-		drawables.push_back(new hoEllipse(hoVector2f(_x, _y), hoVector2f(_w, _h), _seg, _rgba));
-	}
+	DrawEllipse(hoVector2f(_x, _y), _w, _h, _seg, _rgba);
 }
 
 void hoPrimitives::DrawEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_ELLIPSE);
 	if (index != -1) {
-		*drawables[index] = hoEllipse(_pos, hoVector2f(_w, _h), _seg, _rgba);
+		hoEllipse* temp = dynamic_cast<hoEllipse*>(drawables[index]);
+		if (temp)
+			*temp = hoEllipse(_pos, hoVector2f(_w, _h), _seg, _rgba);
 		drawables[index]->isActive = true;
 	}
 	else
@@ -490,25 +358,16 @@ void hoPrimitives::DrawEllipse(hoVector2f _pos, float _w, float _h, int _seg, fl
 	
 void hoPrimitives::FillCircle(float _x, float _y, float _r, int _seg, float _rgba[4])				//Explicacion de Draws y Fills mas arriba
 {
-	int index = GetFirstInactive(HO_CIRCLE);
-	if (index != -1) {
-		*drawables[index] = hoCircle(hoVector2f(_x, _y), _r, _seg, _rgba);
-		drawables[index]->isActive = true;
-		drawables[index]->fill = true;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_CIRCLE);
-		drawables.push_back(new hoCircle(hoVector2f(_x, _y), _r, _seg, _rgba));
-		drawables[drawables.size() - 1]->fill = true;
-	}
+	FillCircle(hoVector2f(_x, _y), _r, _seg, _rgba);
 }
 
 void hoPrimitives::FillCircle(hoVector2f _pos, float _r, int _seg, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_CIRCLE);
 	if (index != -1) {
-		*drawables[index] = hoCircle(_pos, _r, _seg, _rgba);
+		hoCircle* temp = dynamic_cast<hoCircle*>(drawables[index]);
+		if (temp)
+			*temp = hoCircle(_pos, _r, _seg, _rgba);
 		drawables[index]->isActive = true;
 		drawables[index]->fill = true;
 	}
@@ -522,41 +381,21 @@ void hoPrimitives::FillCircle(hoVector2f _pos, float _r, int _seg, float _rgba[4
 
 void hoPrimitives::FillRectColor(float _x, float _y, float _w, float _h, float _rgba[4])				//Explicacion de Draws y Fills mas arriba
 {
-	int index = GetFirstInactive(HO_RECT);
-	if (index != -1) {
-		*drawables[index] = hoRect(hoVector2f(_x, _y), hoVector2f(_w, _h), _rgba);
-		drawables[index]->isActive = true;
-		drawables[index]->fill = true;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_RECT);
-		drawables.push_back(new hoRect(hoVector2f(_x, _y), hoVector2f(_w, _h), _rgba));
-		drawables[drawables.size() - 1]->fill = true;
-	}
+	FillRectColor(hoVector2f(_x, _y), hoVector2f(_w, _h), _rgba);
 }
 
 void hoPrimitives::FillRectColor(hoVector2f _pos, float _w, float _h, float _rgba[4])
 {
-	int index = GetFirstInactive(HO_RECT);
-	if (index != -1) {
-		*drawables[index] = hoRect(_pos, hoVector2f(_w, _h), _rgba);
-		drawables[index]->isActive = true;
-		drawables[index]->fill = true;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_RECT);
-		drawables.push_back(new hoRect(_pos, hoVector2f(_w, _h), _rgba));
-		drawables[drawables.size() - 1]->fill = true;
-	}
+	FillRectColor(_pos, hoVector2f(_w, _h), _rgba);
 }
 
 void hoPrimitives::FillRectColor(hoVector2f _pos, hoVector2f _sizes, float _rgba[4])			//Explicacion de Draws y Fills mas arriba
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
-		*drawables[index] = hoRect(_pos, _sizes, _rgba);
+		hoRect* temp = dynamic_cast<hoRect*>(drawables[index]);
+		if (temp)
+			*temp = hoRect(_pos, _sizes, _rgba);
 		drawables[index]->isActive = true;
 		drawables[index]->fill = true;
 	}
@@ -570,25 +409,16 @@ void hoPrimitives::FillRectColor(hoVector2f _pos, hoVector2f _sizes, float _rgba
 
 void hoPrimitives::FillEllipse(float _x, float _y, float _w, float _h, int _seg, float _rgba[4])
 {
-	int index = GetFirstInactive(HO_ELLIPSE);
-	if (index != -1) {
-		*drawables[index] = hoEllipse(hoVector2f(_x, _y), hoVector2f(_w, _h), _seg, _rgba);
-		drawables[index]->isActive = true;
-		drawables[index]->fill = true;
-	}
-	else
-	{
-		drawableTypes.push_back(HO_ELLIPSE);
-		drawables.push_back(new hoEllipse(hoVector2f(_x, _y), hoVector2f(_w, _h), _seg, _rgba));
-		drawables[drawables.size() - 1]->fill = true;
-	}
+	FillEllipse(hoVector2f(_x, _y), _w, _h, _seg, _rgba);
 }
 
 void hoPrimitives::FillEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rgba[4])			//Explicacion de Draws y Fills mas arriba
 {
 	int index = GetFirstInactive(HO_ELLIPSE);
 	if (index != -1) {
-		*drawables[index] = hoEllipse(_pos, hoVector2f(_w, _h), _seg, _rgba);
+		hoEllipse* temp = dynamic_cast<hoEllipse*>(drawables[index]);
+		if (temp)
+			*temp = hoEllipse(_pos, hoVector2f(_w, _h), _seg, _rgba);
 		drawables[index]->isActive = true;
 		drawables[index]->fill = true;
 	}

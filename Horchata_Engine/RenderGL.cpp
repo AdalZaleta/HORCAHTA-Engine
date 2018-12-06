@@ -79,7 +79,7 @@ void RenderGL::render()
 	g_ho.primitives.DrawEllipse(hoVector2f(-3, 3), 3.0f, 6.0f, 64);
 	g_ho.primitives.FillCircle(hoVector2f(4, 4), 3, 32, g_ho.colorchata.sepia);
 	g_ho.primitives.FillRect(hoVector2f(-2, 2), hoVector2f(2, 3));*/
-	g_ho.primitives.DrawPoint(hoVector2f(0, -hue), 10);
+	g_ho.primitives.DrawLine(hoVector2f(0, -hue), hoVector2f(3, -hue));
 
 	glPointSize(10);
 	glBegin(GL_POINTS);
