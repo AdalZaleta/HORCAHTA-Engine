@@ -6,6 +6,7 @@
 #include "Horchata/hoTime.h"
 #include <windows.h>
 #include "Horchata/hoBotones.h"
+#include <GL/GL.h>
 
 using namespace std;
 
@@ -31,6 +32,7 @@ SDL_Window* gWindow = NULL;
 SDL_GLContext gContext;
 
 //------CORE ------------------------------------------------------------------------------------
+//use OPENGL
 
 //Teclado
 void handleKeys(unsigned char _key, int _x, int _y)

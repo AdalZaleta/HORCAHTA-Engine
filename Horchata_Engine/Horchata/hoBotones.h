@@ -14,7 +14,7 @@ class hoBotones
 
 		bool onClick;
 
-		void OnClickDown();
+		void OnClickDown(int x, int y);
 		void OnClickUp();
 
 		void CreateButton(double _x1, double _y1, double _x2, double _y2);
