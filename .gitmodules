@@ -1,0 +1,3 @@
+[submodule "chipmunkpp"]
+	path = chipmunkpp
+	url = https://github.com/jhasse/chipmunkpp

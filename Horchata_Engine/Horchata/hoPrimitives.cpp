@@ -616,6 +616,7 @@ void hoPoint::Draw()
 	glPointSize(size);	//Cambio el tamaño del punto
 	glBegin(GL_POINTS);
 		glVertex2f(position.x, position.y);
+		std::cout << "Position on y is: " << position.y << std::endl;
 	glEnd();
 }
 
