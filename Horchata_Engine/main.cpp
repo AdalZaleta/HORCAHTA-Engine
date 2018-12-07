@@ -37,16 +37,29 @@ SDL_GLContext gContext;
 //Teclado
 void handleKeys(unsigned char _key, int _x, int _y)
 {
-	
+
 }
 
 //Mouse
 void handleMouse(SDL_Event* _evt, int _x, int _y)
 {
+
 	//Click mouse izq
-	if (_evt->button.button == SDL_BUTTON_LEFT)
+
+	if (_evt->type == SDL_MOUSEBUTTONDOWN)
 	{
-		
+		if (_evt->button.button == SDL_BUTTON_LEFT)
+		{
+			_x = _evt->button.x;
+			_y = _evt->button.y;
+
+			if (_x > Boton.x && _x <Boton.x + Boton.x2 && _y >Boton.y && _y < Boton.y + Boton.y2 ) 
+				{
+				cout << "click" << endl;
+				}
+
+
+		}
 	}
 }
 
@@ -170,7 +183,7 @@ int main(int argc, char* args[])
 					SDL_GetMouseState(&x, &y);
 					handleKeys(e.text.text[0], x, y);
 				}
-				else if (e.type = SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP || e.type == SDL_MOUSEMOTION)
+				else if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP || e.type == SDL_MOUSEMOTION)
 				{
 					//obtenemos mouse
 					int x = 0, y = 0;

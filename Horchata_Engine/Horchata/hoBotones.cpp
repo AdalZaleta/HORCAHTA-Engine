@@ -1,6 +1,6 @@
 #include "hoBotones.h"
 #include <GL/glew.h>
-
+#include <stdio.h>
 
 hoBotones::hoBotones()
 {
@@ -30,7 +30,11 @@ void hoBotones::CreateButton(double _x1, double _y1, double _x2, double _y2)
 	glEnd();
 	
 }
-void hoBotones::OnClickDown(int x, int y) {
+void hoBotones::OnClickDown(int MouseX, int MouseY) {
 
+	if (MouseX == x && MouseX <= x2 && MouseY== y && MouseY <= y2)
+	{
+		printf("CLICK" );
+	}
 	
 }
