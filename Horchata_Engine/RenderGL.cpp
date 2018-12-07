@@ -118,9 +118,11 @@ void RenderGL::liberar()
 	cpSpaceFree(g_ho.space);
 }
 
+float hue = 0;
+
 void RenderGL::update()
 {
-	cpSpaceStep(g_ho.space, hoTime::deltaTime);
+	hue += 0.01f;
 }
 
 void RenderGL::render()
@@ -136,7 +138,17 @@ void RenderGL::render()
 	glEnd();
 
 
-	//g_ho.primitives.FillCircle(g_ho.circulo->p.x, g_ho.circulo->p.y, 15.0f, 16, g_ho.colorchata.tigersEye);
+	//------------ PRIMITIVAS EJEMPLOS ------------
+	//Esto puede estar en cualquier parte de codigo, no es necesario ponerlo entre glBegin ni glEnd
+	g_ho.primitives.DrawLine(hoVector2f(hue, 1), hoVector2f(1, 1));
+	g_ho.primitives.DrawLine(hoVector2f(0, hue), hoVector2f(1, 1), g_ho.colorchata.adal);
+	g_ho.primitives.DrawCircle(hoVector2f(hue, 0), 3, 64);
+	g_ho.primitives.DrawPoint(hoVector2f(2, hue), 1);
+	g_ho.primitives.DrawRect(hoVector2f(0, hue), hoVector2f(hue, 4));
+	g_ho.primitives.DrawEllipse(hoVector2f(-hue, 3), 3.0f, 6.0f, 64);
+	g_ho.primitives.FillCircle(hoVector2f(-hue, 4), 3, 32, g_ho.colorchata.sepia);
+	g_ho.primitives.FillRect(hoVector2f(-hue, 2), hoVector2f(2, 3));
+	g_ho.primitives.DrawLine(hoVector2f(0, -hue), hoVector2f(3, -hue));
 
 	
 	//Esto tiene que estar siempre
