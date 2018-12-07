@@ -158,6 +158,7 @@
     <ClCompile Include="Chipmunk\src\cpSpaceStep.cpp" />
     <ClCompile Include="Chipmunk\src\cpSpatialIndex.cpp" />
     <ClCompile Include="Chipmunk\src\cpSweep1D.cpp" />
+    <ClCompile Include="hoBody.cpp" />
     <ClCompile Include="Horchata\hoAudioManager.cpp" />
     <ClCompile Include="Horchata\hoPrimitives.cpp" />
     <ClCompile Include="Horchata\Horchata.cpp" />
@@ -165,11 +166,13 @@
     <ClCompile Include="Horchata\hoVector.cpp" />
     <ClCompile Include="Horchata\hoImages.cpp" />
     <ClCompile Include="Horchata\hoText2.cpp" />
+    <ClCompile Include="hoRigidBody.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderGL.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chipmunk\src\prime.h" />
+    <ClInclude Include="hoBody.h" />
     <ClInclude Include="Horchata\hoAudioManager.h" />
     <ClInclude Include="Horchata\hoColor.h" />
     <ClInclude Include="Horchata\hoPrimitives.h" />
@@ -200,6 +203,7 @@
     <ClInclude Include="Horchata\hoImages.h" />
     <ClInclude Include="Horchata\hoText2.h" />
     <ClInclude Include="Horchata\Shader.h" />
+    <ClInclude Include="hoRigidBody.h" />
     <ClInclude Include="RenderGL.h" />
   </ItemGroup>
   <ItemGroup>

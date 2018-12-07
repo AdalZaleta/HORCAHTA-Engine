@@ -120,6 +120,12 @@
     <ClCompile Include="Chipmunk\src\cpSweep1D.cpp">
       <Filter>horchata\chipmunk</Filter>
     </ClCompile>
+    <ClCompile Include="hoBody.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="hoRigidBody.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderGL.h" />
@@ -215,6 +221,12 @@
     </ClInclude>
     <ClInclude Include="Chipmunk\src\prime.h">
       <Filter>horchata\chipmunk</Filter>
+    </ClInclude>
+    <ClInclude Include="hoBody.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="hoRigidBody.h">
+      <Filter>horchata</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
