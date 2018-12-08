@@ -50,13 +50,33 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 	{
 		if (_evt->button.button == SDL_BUTTON_LEFT)
 		{
-			_x = _evt->button.x;
-			_y = _evt->button.y;
+			cout << "click" << endl;
+			cout << _x << endl;
+			cout << _y << endl;
 
-			if (_x > Boton.x && _x <Boton.x + Boton.x2 && _y >Boton.y && _y < Boton.y + Boton.y2 ) 
-				{
-				cout << "click" << endl;
-				}
+			
+			//Boton.OnClickDown(, );
+			
+			float xtemp= _x/(float)g_renderGL.w;
+			cout << "mi xTemp= "<< xtemp << endl;
+
+			float OpGLw = abs(g_renderGL.clipAreaXRightt - g_renderGL.clipAreaXLeft);
+
+			float leftPorcentaje = OpGLw * xtemp;
+			float Xgl=g_renderGL.clipAreaXLeft + leftPorcentaje;
+
+			cout <<"Mi coordenada en X de opgl es: "<< Xgl << endl;
+			//EN Y
+			float ytemp = _y / (float)g_renderGL.h;
+			cout << " mi yTemp= " << ytemp << endl;
+
+			float OpGLh = abs(g_renderGL.clipAreaYTop - g_renderGL.clipAreaYBottom);
+
+			float TopPercent = OpGLh * ytemp;
+			float Ygl = g_renderGL.clipAreaYBottom + TopPercent;
+
+			cout << "Mi coordenada en Y de openGL es " << Ygl << endl;
+
 
 
 		}

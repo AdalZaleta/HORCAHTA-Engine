@@ -24,8 +24,7 @@ class RenderGL
 		//Funcion encargado de dibujar
 		void render();
 
-		const GLuint WIDTH = 1500, HEIGHT = 1000;
-
+		
 		
 };
 
