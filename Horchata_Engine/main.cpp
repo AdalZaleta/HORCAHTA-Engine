@@ -66,14 +66,15 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 			float Xgl=g_renderGL.clipAreaXLeft + leftPorcentaje;
 
 			cout <<"Mi coordenada en X de opgl es: "<< Xgl << endl;
-			//EN Y
+
+			//////////////EN Y
 			float ytemp = _y / (float)g_renderGL.h;
 			cout << " mi yTemp= " << ytemp << endl;
 
 			float OpGLh = abs(g_renderGL.clipAreaYTop - g_renderGL.clipAreaYBottom);
 
-			float TopPercent = OpGLh * ytemp;
-			float Ygl = g_renderGL.clipAreaYBottom + TopPercent;
+			float BotPercent = OpGLh * ytemp;
+			float Ygl = g_renderGL.clipAreaYTop - BotPercent;
 
 			cout << "Mi coordenada en Y de openGL es " << Ygl << endl;
 
