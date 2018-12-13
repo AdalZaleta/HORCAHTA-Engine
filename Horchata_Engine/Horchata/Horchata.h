@@ -3,7 +3,7 @@
 #include "hoAudioManager.h"
 #include "hoPrimitives.h"
 #include "hoColor.h"
-#include "hoImages.h"
+#include "hoSprite.h"
 
 
 class Horchata {
