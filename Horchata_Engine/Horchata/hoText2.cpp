@@ -1,6 +1,14 @@
 #include "hoText2.h"
+#include "Horchata.h"
 
-void hoText2::LoadFont(const char* path, FT_UInt w, FT_UInt h) {
+void hoText2::LoadFont(int _w, int _h, const char* path, FT_UInt w, FT_UInt h, Shader _shader) {
+	
+	// Set Window's W and H
+	screenW = _w;
+	screenH = _h;
+
+	shader = _shader;
+	
 	// FreeType
 	FT_Library ft;
 
@@ -93,10 +101,63 @@ void hoText2::LoadFont(const char* path, FT_UInt w, FT_UInt h) {
 	escala,
 	color
 */
-void hoText2::RenderText(Shader shader, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)
+void hoText2::RenderText(std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)
 {
-	// Activar el render state correspondiente
-	shader.Use();
+	glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(screenW), 0.0f, static_cast<GLfloat>(screenH));
+	glUniformMatrix4fv(glGetUniformLocation(shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+
+	glUniform3f(glGetUniformLocation(shader.Program, "textColor"), color.x, color.y, color.z);
+	glActiveTexture(GL_TEXTURE0);
+	glBindVertexArray(VAO);
+
+	// Iterar a traves de todos los caracteres
+	std::string::const_iterator c;
+	for (c = text.begin(); c != text.end(); c++)
+	{
+		Character ch = Characters[*c];
+
+		GLfloat xpos = x + ch.Bearing.x * scale;
+		GLfloat ypos = y - (ch.Size.y - ch.Bearing.y) * scale;
+
+		GLfloat w = ch.Size.x * scale;
+		GLfloat h = ch.Size.y * scale;
+		// Actualizar VBO para cada caracter
+		glRotatef(45, 0, 0, 1);
+		GLfloat vertices[6][4] = {
+			{ xpos,     ypos + h,   0.0, 0.0 },
+			{ xpos,     ypos,       0.0, 1.0 },
+			{ xpos + w, ypos,       1.0, 1.0 },
+
+			{ xpos,     ypos + h,   0.0, 0.0 },
+			{ xpos + w, ypos,       1.0, 1.0 },
+			{ xpos + w, ypos + h,   1.0, 0.0 }
+		};
+		// Renderizar glyph sobre la textura
+		glBindTexture(GL_TEXTURE_2D, ch.TextureID);
+		// Actualizar contenido de la memoria VBO
+		glBindBuffer(GL_ARRAY_BUFFER, VBO);
+		glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices); // Asegurarse de utilizar glBufferSubData y no glBufferData
+
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
+		// Renderizar quad
+		glDrawArrays(GL_TRIANGLES, 0, 6);
+		// Avanzar el cursor para el siguente glyph
+		x += (ch.Advance >> 6) * scale; // Bitshift por 6 para conseguir el valor en pixeles
+	}
+	glBindVertexArray(0);
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+
+}
+
+void hoText2::RenderText(std::string text, GLfloat x, GLfloat y, GLfloat scale, float angle ,glm::vec3 color)
+{
+	glm::vec3 pivot = glm::vec3((float)x, 0.0f, (float)y);
+	glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(screenW), 0.0f, static_cast<GLfloat>(screenH));
+	projection = glm::translate(projection, pivot);
+	projection = glm::rotate(projection, glm::radians(angle), glm::vec3(0.0f, 0.0f, 1.0f));
+	glUniformMatrix4fv(glGetUniformLocation(shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+
 	glUniform3f(glGetUniformLocation(shader.Program, "textColor"), color.x, color.y, color.z);
 	glActiveTexture(GL_TEXTURE0);
 	glBindVertexArray(VAO);
@@ -122,6 +183,7 @@ void hoText2::RenderText(Shader shader, std::string text, GLfloat x, GLfloat y, 
 			{ xpos + w, ypos,       1.0, 1.0 },
 			{ xpos + w, ypos + h,   1.0, 0.0 }
 		};
+
 		// Renderizar glyph sobre la textura
 		glBindTexture(GL_TEXTURE_2D, ch.TextureID);
 		// Actualizar contenido de la memoria VBO
@@ -136,5 +198,6 @@ void hoText2::RenderText(Shader shader, std::string text, GLfloat x, GLfloat y, 
 	}
 	glBindVertexArray(0);
 	glBindTexture(GL_TEXTURE_2D, 0);
+	
 }
 

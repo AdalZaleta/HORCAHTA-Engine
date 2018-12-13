@@ -24,8 +24,11 @@
 
 class hoText2 {
 public:
-	void LoadFont(const char* path, FT_UInt w, FT_UInt h);
-	void RenderText(Shader shader, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color);
+	void LoadFont(int _w, int _h, const char* path, FT_UInt w, FT_UInt h, Shader _shader);
+	void RenderText(std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color);
+	void RenderText(std::string text, GLfloat x, GLfloat y, GLfloat scale, float angle, glm::vec3 color);
+
+	Shader shader;
 
 	struct Character {
 		GLuint TextureID;   // ID del glyph texture
@@ -35,6 +38,8 @@ public:
 	};
 	std::map<GLchar, Character> Characters;
 	GLuint VAO, VBO;
+
+	int screenW, screenH;
 
 private:
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "Horchata/Horchata.h"
+#include <stdlib.h>
 
 class RenderGL
 {
@@ -24,12 +25,6 @@ class RenderGL
 		//Funcion encargado de dibujar
 		void render();
 
-		const GLuint WIDTH = 1500, HEIGHT = 1000;
-
-		hoSprite sprite;
-		hoImages image;
-
-		
 };
 
 extern RenderGL g_renderGL; //Singleton

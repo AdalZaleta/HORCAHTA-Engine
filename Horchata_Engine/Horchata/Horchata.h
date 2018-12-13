@@ -5,13 +5,14 @@
 #include "hoColor.h"
 #include "hoSprite.h"
 
-
 class Horchata {
 public:
 	Horchata();
 	~Horchata();
 
 	void Iniciar();
+	void EnableTextShader();
+	void DisableTextShader();
 
 	hoPrimitives primitives;
 	hoColor colorchata;
