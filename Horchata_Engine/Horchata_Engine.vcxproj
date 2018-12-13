@@ -72,6 +72,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -79,7 +80,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Horchata_Engine\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Horchata_Engine\Chipmunk\include;$(SolutionDir)Horchata_Engine\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -125,6 +126,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Chipmunk\src\chipmunk.cpp" />
+    <ClCompile Include="Chipmunk\src\cpArbiter.cpp" />
+    <ClCompile Include="Chipmunk\src\cpArray.cpp" />
+    <ClCompile Include="Chipmunk\src\cpBBTree.cpp" />
+    <ClCompile Include="Chipmunk\src\cpBody.cpp" />
+    <ClCompile Include="Chipmunk\src\cpCollision.cpp" />
+    <ClCompile Include="Chipmunk\src\cpConstraint.cpp" />
+    <ClCompile Include="Chipmunk\src\cpDampedRotarySpring.cpp" />
+    <ClCompile Include="Chipmunk\src\cpDampedSpring.cpp" />
+    <ClCompile Include="Chipmunk\src\cpGearJoint.cpp" />
+    <ClCompile Include="Chipmunk\src\cpGrooveJoint.cpp" />
+    <ClCompile Include="Chipmunk\src\cpHashSet.cpp" />
+    <ClCompile Include="Chipmunk\src\cpHastySpace.cpp" />
+    <ClCompile Include="Chipmunk\src\cpMarch.cpp" />
+    <ClCompile Include="Chipmunk\src\cpPinJoint.cpp" />
+    <ClCompile Include="Chipmunk\src\cpPivotJoint.cpp" />
+    <ClCompile Include="Chipmunk\src\cpPolyline.cpp" />
+    <ClCompile Include="Chipmunk\src\cpPolyShape.cpp" />
+    <ClCompile Include="Chipmunk\src\cpRatchetJoint.cpp" />
+    <ClCompile Include="Chipmunk\src\cpRobust.cpp" />
+    <ClCompile Include="Chipmunk\src\cpRotaryLimitJoint.cpp" />
+    <ClCompile Include="Chipmunk\src\cpShape.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSimpleMotor.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSlideJoint.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSpace.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSpaceComponent.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSpaceDebug.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSpaceHash.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSpaceQuery.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSpaceStep.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSpatialIndex.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSweep1D.cpp" />
+    <ClCompile Include="hoBody.cpp" />
     <ClCompile Include="Horchata\hoAudioManager.cpp" />
     <ClCompile Include="Horchata\hoPrimitives.cpp" />
     <ClCompile Include="Horchata\Horchata.cpp" />
@@ -133,10 +167,13 @@
     <ClCompile Include="Horchata\hoVector.cpp" />
     <ClCompile Include="Horchata\hoImages.cpp" />
     <ClCompile Include="Horchata\hoText2.cpp" />
+    <ClCompile Include="hoRigidBody.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderGL.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Chipmunk\src\prime.h" />
+    <ClInclude Include="hoBody.h" />
     <ClInclude Include="Horchata\hoAudioManager.h" />
     <ClInclude Include="Horchata\hoColor.h" />
     <ClInclude Include="Horchata\hoPrimitives.h" />
@@ -168,6 +205,7 @@
     <ClInclude Include="Horchata\hoImages.h" />
     <ClInclude Include="Horchata\hoText2.h" />
     <ClInclude Include="Horchata\Shader.h" />
+    <ClInclude Include="hoRigidBody.h" />
     <ClInclude Include="RenderGL.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="resource1.h" />
@@ -177,6 +215,9 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Chipmunk\src\CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
