@@ -58,7 +58,7 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 			//Boton.OnClickDown(, );
 			
 			float xtemp= _x/(float)g_renderGL.w;
-			cout << "mi xTemp= "<< xtemp << endl;
+			//cout << "mi xTemp= "<< xtemp << endl;
 
 			float OpGLw = abs(g_renderGL.clipAreaXRightt - g_renderGL.clipAreaXLeft);
 
@@ -69,7 +69,7 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 
 			//////////////EN Y
 			float ytemp = _y / (float)g_renderGL.h;
-			cout << " mi yTemp= " << ytemp << endl;
+			//cout << " mi yTemp= " << ytemp << endl;
 
 			float OpGLh = abs(g_renderGL.clipAreaYTop - g_renderGL.clipAreaYBottom);
 
