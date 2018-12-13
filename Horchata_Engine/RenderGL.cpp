@@ -77,9 +77,10 @@ void RenderGL::liberar()
 {
 }
 
+float hue = 0;
+
 void RenderGL::update()
 {
-
 }
 
 void RenderGL::render()
@@ -87,15 +88,7 @@ void RenderGL::render()
 	//Limpiamos pantalla
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
-
 	
 	//Esto tiene que estar siempre
 	g_ho.primitives.DrawAll();
-
-
-	//image.DrawImage(0, 0, 100, 100);
-	sprite.SetScaleSprite(15);
-	sprite.SetColorSprite(g_ho.colorchata.sapphire);
-	sprite.SetAlphaSprite(0.5f);
-	sprite.DrawSprite(0, 0, 45);
 }
