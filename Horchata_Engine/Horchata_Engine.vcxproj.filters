@@ -27,7 +27,9 @@
     <ClCompile Include="Horchata\hoBotones.cpp">
       <Filter>horchata</Filter>
     </ClCompile>
-    <ClCompile Include="Horchata\hoSprite.cpp" />
+    <ClCompile Include="Horchata\hoSprite.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderGL.h" />
@@ -126,7 +128,9 @@
     </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="resource1.h" />
-    <ClInclude Include="Horchata\hoSprite.h" />
+    <ClInclude Include="Horchata\hoSprite.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="horchata">
