@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "Metastuff/Meta.h"
 
 RenderGL g_renderGL; //Singleton
 
@@ -94,8 +95,8 @@ void RenderGL::render()
 
 
 	//image.DrawImage(0, 0, 100, 100);
-	sprite.SetScaleSprite(15);
-	sprite.SetColorSprite(g_ho.colorchata.sapphire);
-	sprite.SetAlphaSprite(0.5f);
-	sprite.DrawSprite(0, 0, 45);
+	sprite.SetScale(15);
+	sprite.SetColor(g_ho.colorchata.sapphire);
+	sprite.SetAlpha(0.5f);
+	sprite.Draw(0, 0, 45);
 }
