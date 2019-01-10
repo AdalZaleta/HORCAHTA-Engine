@@ -50,35 +50,25 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 	{
 		if (_evt->button.button == SDL_BUTTON_LEFT)
 		{
-			cout << "click" << endl;
-			cout << _x << endl;
-			cout << _y << endl;
-
-			
-			//Boton.OnClickDown(, );
-			
 			float xtemp= _x/(float)g_renderGL.w;
-			cout << "mi xTemp= "<< xtemp << endl;
 
 			float OpGLw = abs(g_renderGL.clipAreaXRightt - g_renderGL.clipAreaXLeft);
 
 			float leftPorcentaje = OpGLw * xtemp;
 			float Xgl=g_renderGL.clipAreaXLeft + leftPorcentaje;
 
-			cout <<"Mi coordenada en X de opgl es: "<< Xgl << endl;
+			//cout <<"Mi coordenada en X de opgl es: "<< Xgl << endl;
 
-			//////////////EN Y
 			float ytemp = _y / (float)g_renderGL.h;
-			cout << " mi yTemp= " << ytemp << endl;
 
 			float OpGLh = abs(g_renderGL.clipAreaYTop - g_renderGL.clipAreaYBottom);
 
 			float BotPercent = OpGLh * ytemp;
 			float Ygl = g_renderGL.clipAreaYTop - BotPercent;
 
-			cout << "Mi coordenada en Y de openGL es " << Ygl << endl;
+			//cout << "Mi coordenada en Y de openGL es " << Ygl << endl;
 
-
+			Boton.OnClickDown(Xgl, Ygl);
 
 		}
 	}
@@ -222,7 +212,8 @@ int main(int argc, char* args[])
 			//Dibujamos
 			g_renderGL.render();
 
-			Boton.CreateButton(0, 0, 5, 1);
+
+			Boton.CreateButton(0.0f, 0.0f, 5.0f, 1.0f, 1.0f, 1.0f, 1.0f);
 
 			//SDL_BlitSurface(texto, NULL, pantalla, &dest);
 			

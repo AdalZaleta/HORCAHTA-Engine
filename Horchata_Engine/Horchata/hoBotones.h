@@ -1,4 +1,9 @@
 #pragma once
+#include <stdio.h>
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 
 class hoBotones
@@ -14,10 +19,10 @@ class hoBotones
 
 		bool onClick;
 
-		void OnClickDown(int x, int y);
+		void OnClickDown(float x, float y);
 		void OnClickUp();
 
-		void CreateButton(double _x1, double _y1, double _x2, double _y2);
+		void CreateButton(double _x1, double _y1, double _x2, double _y2, float Rojo, float Verde, float Azul);
 
 };
 
