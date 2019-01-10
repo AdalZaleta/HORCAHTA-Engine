@@ -129,6 +129,7 @@
     <ClCompile Include="Horchata\hoBotones.cpp" />
     <ClCompile Include="Horchata\hoPrimitives.cpp" />
     <ClCompile Include="Horchata\Horchata.cpp" />
+    <ClCompile Include="Horchata\hoSprite.cpp" />
     <ClCompile Include="Horchata\hoTime.cpp" />
     <ClCompile Include="Horchata\hoVector.cpp" />
     <ClCompile Include="Horchata\hoImages.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="Horchata\hoColor.h" />
     <ClInclude Include="Horchata\hoPrimitives.h" />
     <ClInclude Include="Horchata\Horchata.h" />
+    <ClInclude Include="Horchata\hoSprite.h" />
     <ClInclude Include="Horchata\hoTime.h" />
     <ClInclude Include="Horchata\hoVector.h" />
     <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ESoundEngineOptions.h" />
@@ -169,6 +171,14 @@
     <ClInclude Include="Horchata\hoText2.h" />
     <ClInclude Include="Horchata\Shader.h" />
     <ClInclude Include="RenderGL.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="horchata.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
