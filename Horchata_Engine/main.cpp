@@ -51,6 +51,7 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 	{
 		if (_evt->button.button == SDL_BUTTON_LEFT)
 		{
+			//Conversion de coordenadas SDL a OpenGL en el eje X
 			float xtemp= _x/(float)g_renderGL.w;
 
 			float OpGLw = abs(g_renderGL.clipAreaXRightt - g_renderGL.clipAreaXLeft);
@@ -60,6 +61,7 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 
 			//cout <<"Mi coordenada en X de opgl es: "<< Xgl << endl;
 
+			//Conversion de coordenadas SDL a OpenGL en el eje Y
 			float ytemp = _y / (float)g_renderGL.h;
 
 			float OpGLh = abs(g_renderGL.clipAreaYTop - g_renderGL.clipAreaYBottom);
