@@ -93,9 +93,7 @@ void RenderGL::render()
 	g_ho.primitives.DrawAll();
 
 
-	//image.DrawImage(0, 0, 100, 100);
-	sprite.SetScaleSprite(15);
-	sprite.SetColorSprite(g_ho.colorchata.sapphire);
-	sprite.SetAlphaSprite(0.5f);
-	sprite.DrawSprite(0, 0, 45);
+	image.DrawImage(0, 0, 50, 50);
+	//sprite.SetScale(10);
+	//sprite.Draw(0, 0);
 }

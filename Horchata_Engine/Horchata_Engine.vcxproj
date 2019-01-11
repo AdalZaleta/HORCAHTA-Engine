@@ -129,6 +129,7 @@
     <ClCompile Include="Horchata\hoPrimitives.cpp" />
     <ClCompile Include="Horchata\Horchata.cpp" />
     <ClCompile Include="Horchata\hoSprite.cpp" />
+    <ClCompile Include="Horchata\hoSpriteSheet.cpp" />
     <ClCompile Include="Horchata\hoTime.cpp" />
     <ClCompile Include="Horchata\hoVector.cpp" />
     <ClCompile Include="Horchata\hoImages.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="Horchata\hoPrimitives.h" />
     <ClInclude Include="Horchata\Horchata.h" />
     <ClInclude Include="Horchata\hoSprite.h" />
+    <ClInclude Include="Horchata\hoSpriteSheet.h" />
     <ClInclude Include="Horchata\hoTime.h" />
     <ClInclude Include="Horchata\hoVector.h" />
     <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ESoundEngineOptions.h" />

@@ -80,6 +80,7 @@ void hoImages::DrawImage(int _x, int _y, int _width, int _height)
 
 	//Renderear el quad
 	glBegin(GL_QUADS);
+	//maneja las porciones de la img			//maneja el tamaño
 	glTexCoord2f(0.0f, 1.0f); glVertex2f(_x + (_width/2.0f), _y - (_height/2.0f)); //Arriba a la izquierda
 	glTexCoord2f(1.0f, 1.0f); glVertex2f(_x - (_width/2.0f), _y - (_height/2.0f)); //Arriba a la derecha
 	glTexCoord2f(1.0f, 0.0f); glVertex2f(_x - (_width/2.0f), _y + (_height/2.0f)); //Abajo a la derecha

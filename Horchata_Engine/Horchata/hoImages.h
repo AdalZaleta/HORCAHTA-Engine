@@ -18,7 +18,7 @@ public:
 	int height;
 
 	//This function Draws the pre-loaded Image
-	void DrawImage(int _x, int _y, int _width, int _height);
+	virtual void DrawImage(int _x, int _y, int _width, int _height);
 
 	//This function Loads the Image from the path
 	//The path starts in the folder 'Resources'
