@@ -111,6 +111,21 @@ void RenderGL::inicializar()
 	cpShapeSetFriction(shape, 0.9f);
 	cpShapeSetCollisionType(shape, 2);
 
+	// Plataforma TEMP
+	/*
+	
+	CreatePlatform(position, sprite, dimensions, color, direccion);
+	
+	CreateCircle(position, radius, mass);
+		CreateBox(position, dimensions, mass);
+		CreateLine(...);
+		CreateElipse(...);
+		CreatePolygon(...);
+
+	LinkSpriteToBody();
+
+	*/
+
 }
 
 void RenderGL::liberar()
