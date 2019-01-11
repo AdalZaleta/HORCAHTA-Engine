@@ -1,5 +1,4 @@
 #include "hoBotones.h"
-#include <GL/glew.h>
 #include <stdio.h>
 
 hoBotones::hoBotones()
