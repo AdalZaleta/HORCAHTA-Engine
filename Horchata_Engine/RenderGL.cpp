@@ -20,9 +20,10 @@ RenderGL::~RenderGL()
 
 }
 
+//Esta funcion es una prueba para implementar funciones en los botones
 void Click()
 {
-	//cout << "Click" << endl;
+	cout << "Hola soy un boton y puedo tener funciones" << endl;
 }
 
 void RenderGL::inicializar()
@@ -76,9 +77,8 @@ void RenderGL::inicializar()
 	sprite.LoadImage_("GABO.jpg");
 	image.LoadImage_("GABO.jpg");
 
-	// Ejemplo Botones
-	Boton.CreateButton(0.0f, 0.0f, 5.0f, 5.0f, "GABO.jpg", Click);
-	//Boton_2.CreateButton(15.0f, 15.0f, 30.0f, 30.0f, 1.0f, 0.0f, 0.0f, Click);
+	
+	
 }
 
 void RenderGL::liberar()
@@ -108,6 +108,6 @@ void RenderGL::render()
 	sprite.Draw(0, 0, 45);
 
 	// Botones
-	Boton.DrawButton();
+	//Boton.DrawButton();
 	//Boton_2.DrawButton();
 }

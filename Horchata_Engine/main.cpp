@@ -48,6 +48,7 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 	{
 		if (_evt->button.button == SDL_BUTTON_LEFT)
 		{
+			//NO TOCAR
 			//Conversion de coordenadas SDL a OpenGL en el eje X
 			float xtemp= _x/(float)g_renderGL.w;
 
