@@ -1,10 +1,18 @@
 #include "hoBody.h"
 
+hoBody::hoBody()
+{
+	///body = cpSpaceAddBody(g_ho.space, cpBodyNew(1.0f, cpMomentForCircle(1.0f, 0.0f, 0.0f, cpvzero)));
+}
+
 hoBody::hoBody(hoVector2f _pos, float _angle, bool _isStatic) {
 	position = _pos;
 	rotation = _angle;
 	isStatic = _isStatic; 
 	velocity = hoVector2f();
+
+	body = cpSpaceAddBody(g_ho.space, cpBodyNew(1.0f, cpMomentForCircle(1.0f, 0.0f, 0.0f, cpvzero)));
+
 }
 
 hoBody::hoBody(hoVector2f _pos, float _angle, bool _isStatic, hoVector2f _vel) {
@@ -12,6 +20,9 @@ hoBody::hoBody(hoVector2f _pos, float _angle, bool _isStatic, hoVector2f _vel) {
 	rotation = _angle;
 	isStatic = _isStatic;
 	velocity = _vel;
+
+	body = cpSpaceAddBody(g_ho.space, cpBodyNew(1.0f, cpMomentForCircle(1.0f, 0.0f, 1.0f, cpvzero)));
+	cpBodySetVelocity(body, CCPV(_vel.x, _vel.y));
 }
 
 hoBody::~hoBody() {
@@ -45,6 +56,7 @@ void hoBody::DeleteShape(int _index) {
 void hoBody::SetPosition(hoVector2f _position)
 {
 	position = _position;
+	cpBodySetPosition(body, CCPV(_position.x, _position.y));
 }
 
 hoVector2f hoBody::GetPosition()
@@ -55,16 +67,12 @@ hoVector2f hoBody::GetPosition()
 void hoBody::SetVelocity(hoVector2f _velocity)
 {
 	velocity = _velocity;
+	cpBodySetVelocity(body, CCPV(_velocity.x, _velocity.y));
 }
 
 hoVector2f hoBody::GetVelocity()
 {
 	return velocity;
-}
-
-void hoBody::SetAcceleration(hoVector2f _acceleration)
-{
-	acceleration = _acceleration;
 }
 
 hoVector2f hoBody::GetAcceleration()
@@ -75,16 +83,12 @@ hoVector2f hoBody::GetAcceleration()
 void hoBody::SetAgularVelocity(float _angularVelocity)
 {
 	angularVelocity = _angularVelocity;
+	cpBodySetAngularVelocity(body, _angularVelocity);
 }
 
 float hoBody::GetAngularVelocity()
 {
 	return angularVelocity;
-}
-
-void hoBody::SetAngularAcceleration(float _angularAcceleration)
-{
-	angularAcceleration = _angularAcceleration;
 }
 
 float hoBody::GetAngularAcceleration()
@@ -132,6 +136,7 @@ void hoBody::SetCollisionCallback(void(*_callback)(void))
 void hoBody::SetMass(float _mass)
 {
 	mass = _mass;
+	cpBodySetMass(body, _mass);
 }
 
 float hoBody::GetMass()
@@ -142,6 +147,7 @@ float hoBody::GetMass()
 void hoBody::SetCenterOfMass(hoVector2f _center)
 {
 	centerOfMass = _center;
+	cpBodySetCenterOfGravity(body, CCPV(_center.x, _center.y));
 }
 
 hoVector2f hoBody::GetCenterOfMass()
@@ -165,10 +171,25 @@ void hoBody::SetPhysics(int _index, float _elasticity, float _friction)
 
 void hoBody::Update()
 {
+	UpdateBodyData();
 }
 
 void hoBody::Draw()
 {
+}
+
+void hoBody::UpdateBodyData()
+{
+	cpVect temp = cpBodyGetPosition(body);
+	position = hoVector2f(temp.x, temp.y);
+}
+
+cpVect hoBody::CCPV(float _x, float _y)
+{
+	cpVect temp;
+	temp.x = _x;
+	temp.y = _y;
+	return temp;
 }
 
 

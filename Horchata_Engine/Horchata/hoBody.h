@@ -24,7 +24,7 @@ struct hoShape{
 class hoBody {
 public:
 
-	hoBody() {};
+	hoBody();
 	hoBody(hoVector2f _pos, float _angle, bool _isStatic);
 	hoBody(hoVector2f _pos, float _angle, bool _isStatic, hoVector2f _vel);
 	~hoBody();
@@ -38,11 +38,9 @@ public:
 	hoVector2f GetPosition();
 	void SetVelocity(hoVector2f _velocity);
 	hoVector2f GetVelocity();
-	void SetAcceleration(hoVector2f _acceleration);
 	hoVector2f GetAcceleration();
 	void SetAgularVelocity(float _angularVelocity);
 	float GetAngularVelocity();
-	void SetAngularAcceleration(float _angularAcceleration);
 	float GetAngularAcceleration();
 	void SetEnabled(bool _enabled);
 	bool IsEnabled();
@@ -114,6 +112,9 @@ public:
 	*/
 
 private:
+
+	void UpdateBodyData();
+	cpVect CCPV(float _x, float _y);
 
 	cpBody *body;
 	float mass;

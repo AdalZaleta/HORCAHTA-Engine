@@ -126,10 +126,10 @@ void RenderGL::inicializar()
 
 	*/
 
-	/*test = hoBody(hoVector2f(0, 0), 0, false, hoVector2f(0, 5.0f));
+	test = hoBody(hoVector2f(0, 0), 0, false, hoVector2f(5.0f, 500.0f));
 	test.AddShape(cpSpaceAddShape(g_ho.space, cpCircleShapeNew(test.GetBody(), 20.0f, cpvzero)));
 	test.SetAllCollisionTypes(2);
-	test.SetAllPhysics(1, 1);*/
+	test.SetAllPhysics(1, 1);
 }
 
 void RenderGL::liberar()
@@ -139,6 +139,7 @@ void RenderGL::liberar()
 
 void RenderGL::update()
 {
+	test.Update();
 }
 
 void RenderGL::render()
@@ -147,9 +148,16 @@ void RenderGL::render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 	
+	glBegin(GL_POINTS);
+	hoVector2f temp = test.GetPosition();
+	glVertex2f(temp.x, temp.y);
+	glEnd();
+
 	//g_ho.primitives.DrawCircle(test.GetPosition(), 15, 16);
 
 
 	//Esto tiene que estar siempre
 	g_ho.primitives.DrawAll();
 }
+
+//TODO: que se mueva
