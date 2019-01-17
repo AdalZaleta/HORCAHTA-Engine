@@ -10,7 +10,7 @@ hoBotones::~hoBotones()
 {
 }
 
-void hoBotones::CreateButton(double _x1, double _y1, double _x2, double _y2, float Rojo, float Verde, float Azul)
+void hoBotones::CreateButton(double _x1, double _y1, double _x2, double _y2, float Rojo, float Verde, float Azul, void(*Funcion)(void))
 {
 	//coordenadas
 	x =_x1;
@@ -23,34 +23,34 @@ void hoBotones::CreateButton(double _x1, double _y1, double _x2, double _y2, flo
 	g = Verde;
 	b = Azul;
 
+	funcionBoton = Funcion;
+
 	SpriteActivo = false;
 }
 
-void hoBotones::CreateButton(double _x1, double _y1, double _x2, double _y2, const char* NombreSprite)
+void hoBotones::CreateButton(double _x1, double _y1, float _ScaleX, float _ScaleY,const char* _NombreSprite, void(*Funcion)(void))
 {
-	//coordenadas
+	//coordenadas0
 	x =_x1;
 	y = _y1;
-	//tamaño
-	y2 = _y2;
-	x2 = _x2;
 
 	Sprite = new hoSprite();
 
-	Sprite->LoadImage_(NombreSprite);
+	Sprite->scalex = _ScaleX;
+	Sprite->scaley = _ScaleY;
+
+	Sprite->LoadImage_(_NombreSprite);
+
+	funcionBoton = Funcion;
+
 	SpriteActivo = true;
 }
 
 void hoBotones::DrawButton()
 {
-
 	if (SpriteActivo == true)
 	{
-		//Sprite->width / 100.0f * scalex //15    -  20
-		//PRIMERO DETERMINAMOS DIFERENCIA EN %
-		//EN EL EJEMPLO LA IMAGEN ES 25% más pequeña, por lo que
-		//AL SPIRTE LE DAREMOS UNA ESCALA DE 1.25
-		Sprite->Draw(x2 - x + x, y2 - y + y);
+		Sprite->Draw(x, y);
 	}
 	else
 	{
@@ -66,14 +66,21 @@ void hoBotones::DrawButton()
 
 void hoBotones::OnClickDown(float MouseX, float MouseY) 
 {
-	/*cout << "x: " << x << endl;
-	cout << "y: " << y << endl;
-	cout << "x2: " << x2 << endl;
-	cout << "y2: " << y2 << endl;*/
-
-	if (MouseX >= x && MouseX <= x2 && MouseY >= y && MouseY <= y2)
+	if (SpriteActivo == false)
 	{
-		cout << "CLICK" << endl;
+		if (MouseX >= x && MouseX <= x2 && MouseY >= y && MouseY <= y2)
+		{
+			cout << "CLICK" << endl;
+			funcionBoton();
+		}
+	}
+	else
+	{
+		if (MouseX >= x - Sprite->width / 100.0f * Sprite->scalex / 2 && MouseX <= Sprite->width / 100.0f * Sprite->scalex && MouseY >= y - Sprite->height / 100.0f * Sprite->scaley / 2 && MouseY <= Sprite->height / 100.0f * Sprite->scaley)
+		{
+			cout << "CLICK" << endl;
+			funcionBoton();
+		}
 	}
 	
 }

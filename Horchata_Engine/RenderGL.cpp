@@ -20,6 +20,11 @@ RenderGL::~RenderGL()
 
 }
 
+void Click()
+{
+	//cout << "Click" << endl;
+}
+
 void RenderGL::inicializar()
 {
 	GLenum error = GL_NO_ERROR;
@@ -71,8 +76,9 @@ void RenderGL::inicializar()
 	sprite.LoadImage_("GABO.jpg");
 	image.LoadImage_("GABO.jpg");
 
-	Boton.CreateButton(0.0f, 0.0f, 20.0f, 10.0f, "GABO.jpg");
-	//Boton.CreateButton(0.0f, 0.0f, 20.0f, 10.0f, 1.0f, 1.0f, 1.0f);
+	// Ejemplo Botones
+	Boton.CreateButton(0.0f, 0.0f, 5.0f, 5.0f, "GABO.jpg", Click);
+	//Boton_2.CreateButton(15.0f, 15.0f, 30.0f, 30.0f, 1.0f, 0.0f, 0.0f, Click);
 }
 
 void RenderGL::liberar()
@@ -103,4 +109,5 @@ void RenderGL::render()
 
 	// Botones
 	Boton.DrawButton();
+	//Boton_2.DrawButton();
 }
