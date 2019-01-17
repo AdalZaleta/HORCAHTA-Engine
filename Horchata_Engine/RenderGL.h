@@ -1,5 +1,6 @@
 #pragma once
 #include "Horchata/Horchata.h"
+#include "Horchata/hoSpriteSheet.h"
 
 class RenderGL
 {
@@ -28,6 +29,7 @@ class RenderGL
 
 		hoSprite sprite;
 		hoImages image, img2;
+		hoSpriteSheet ss;
 
 		
 };

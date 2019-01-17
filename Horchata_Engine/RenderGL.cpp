@@ -73,6 +73,7 @@ void RenderGL::inicializar()
 	sprite.LoadImage_("GABO.jpg");
 	image.LoadImage_("marmota.png");
 	img2.LoadImage_("gatito.jpg");
+	ss.Load("gatito.jpg", "JSON/spritesheet.json");
 }
 
 void RenderGL::liberar()

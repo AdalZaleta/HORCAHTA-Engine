@@ -131,6 +131,9 @@
     <ClInclude Include="Horchata\hoSpriteSheet.h">
       <Filter>horchata</Filter>
     </ClInclude>
+    <ClInclude Include="Horchata\hoAtlas.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="horchata">
