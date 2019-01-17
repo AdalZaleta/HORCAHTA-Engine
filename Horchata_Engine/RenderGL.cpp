@@ -70,6 +70,9 @@ void RenderGL::inicializar()
 	//testFont.LoadFont("Resources/Fonts/naruto.ttf", 32, 0);
 	sprite.LoadImage_("GABO.jpg");
 	image.LoadImage_("GABO.jpg");
+
+	Boton.CreateButton(0.0f, 0.0f, 20.0f, 10.0f, "GABO.jpg");
+	//Boton.CreateButton(0.0f, 0.0f, 20.0f, 10.0f, 1.0f, 1.0f, 1.0f);
 }
 
 void RenderGL::liberar()
@@ -97,4 +100,7 @@ void RenderGL::render()
 	sprite.SetColor(g_ho.colorchata.sapphire);
 	sprite.SetAlpha(0.5f);
 	sprite.Draw(0, 0, 45);
+
+	// Botones
+	Boton.DrawButton();
 }

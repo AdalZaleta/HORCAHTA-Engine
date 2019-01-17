@@ -10,9 +10,6 @@
 
 using namespace std;
 
-
-hoBotones Boton;
-
 //Dimensiones de la ventana
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
@@ -71,8 +68,7 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 
 			//cout << "Mi coordenada en Y de openGL es " << Ygl << endl;
 
-			Boton.OnClickDown(Xgl, Ygl);
-
+			g_renderGL.Boton.OnClickDown(Xgl, Ygl);
 		}
 	}
 }
@@ -214,9 +210,6 @@ int main(int argc, char* args[])
 
 			//Dibujamos
 			g_renderGL.render();
-
-
-			Boton.CreateButton(0.0f, 0.0f, 20.0f, 10.0f, 1.0f, 1.0f, 1.0f);
 
 			//SDL_BlitSurface(texto, NULL, pantalla, &dest);
 			

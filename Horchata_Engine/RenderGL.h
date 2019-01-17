@@ -28,7 +28,7 @@ class RenderGL
 
 		hoSprite sprite;
 		hoImages image;
-
+		hoBotones Boton;
 		
 };
 
