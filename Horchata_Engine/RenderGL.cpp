@@ -117,8 +117,11 @@ void RenderGL::update()
 {
 }
 
+float zoom = 10;
 void RenderGL::render()
 {
+
+
 	//Limpiamos pantalla
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
@@ -127,6 +130,13 @@ void RenderGL::render()
 		//ESCRIBIR TEXTOS
 	g_ho.DisableTextShader(); // Descativar Shader de texto
 
+	std::cout << hoTime::deltaTime << std::endl;
+	glPushMatrix();
+	g_ho.camara.ZoomIn(1.2f);
+	//g_ho.camara.MoveCamera(200, 200, hoTime::deltaTime);
+	//gluOrtho2D(clipAreaXLeft +20, clipAreaXRightt + 20, clipAreaYBottom + 20, clipAreaYTop + 20);
+	//g_ho.camara.MoveCameraLeft(-200 * hoTime::deltaTime);
+	//g_ho.camara.MoveCameraRight(300 * hoTime::deltaTime);
 	glPointSize(15.0f);
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glBegin(GL_POINTS);
@@ -135,4 +145,5 @@ void RenderGL::render()
 	
 	//Esto tiene que estar siempre
 	g_ho.primitives.DrawAll();
+	glPopMatrix();
 }

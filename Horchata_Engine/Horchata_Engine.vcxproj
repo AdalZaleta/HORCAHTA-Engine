@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{CAC24A62-EBCC-4E00-84CC-8DD2BC20640D}</ProjectGuid>
     <RootNamespace>HorchataEngine</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -160,6 +160,7 @@
     <ClCompile Include="Chipmunk\src\cpSweep1D.cpp" />
     <ClCompile Include="hoBody.cpp" />
     <ClCompile Include="Horchata\hoAudioManager.cpp" />
+    <ClCompile Include="Horchata\hoCamera.cpp" />
     <ClCompile Include="Horchata\hoPrimitives.cpp" />
     <ClCompile Include="Horchata\Horchata.cpp" />
     <ClCompile Include="Horchata\hoSprite.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="Chipmunk\src\prime.h" />
     <ClInclude Include="hoBody.h" />
     <ClInclude Include="Horchata\hoAudioManager.h" />
+    <ClInclude Include="Horchata\hoCamera.h" />
     <ClInclude Include="Horchata\hoColor.h" />
     <ClInclude Include="Horchata\hoPrimitives.h" />
     <ClInclude Include="Horchata\Horchata.h" />

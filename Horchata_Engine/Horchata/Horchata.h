@@ -6,8 +6,10 @@
 #include "hoColor.h"
 #include "hoSprite.h"
 #include "hoImages.h"
+#include "hoCamera.h"
 #include "chipmunk/chipmunk_private.h"
 #include "chipmunk/chipmunk.h"
+
 
 typedef cpSpace *(*ChipmunkDemoInitFunc)(void);
 typedef void(*ChipmunkDemoUpdateFunc)(cpSpace *space, double dt);
@@ -29,6 +31,7 @@ public:
 	Shader shader;
 	cpSpace *space;
 	cpBody *circulo;
+	hoCamera camara;
 
 private:
 
