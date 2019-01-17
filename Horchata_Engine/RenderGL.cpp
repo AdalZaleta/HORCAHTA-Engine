@@ -126,6 +126,10 @@ void RenderGL::inicializar()
 
 	*/
 
+	/*test = hoBody(hoVector2f(0, 0), 0, false, hoVector2f(0, 5.0f));
+	test.AddShape(cpSpaceAddShape(g_ho.space, cpCircleShapeNew(test.GetBody(), 20.0f, cpvzero)));
+	test.SetAllCollisionTypes(2);
+	test.SetAllPhysics(1, 1);*/
 }
 
 void RenderGL::liberar()
@@ -133,11 +137,8 @@ void RenderGL::liberar()
 	cpSpaceFree(g_ho.space);
 }
 
-float hue = 0;
-
 void RenderGL::update()
 {
-	hue += 0.01f;
 }
 
 void RenderGL::render()
@@ -145,27 +146,10 @@ void RenderGL::render()
 	//Limpiamos pantalla
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
-
-	glPointSize(15.0f);
-	glColor3f(1.0f, 0.0f, 0.0f);
-	glBegin(GL_POINTS);
-	glVertex2f(g_ho.circulo->p.x, g_ho.circulo->p.y);
-	glEnd();
-
-
-	//------------ PRIMITIVAS EJEMPLOS ------------
-	//Esto puede estar en cualquier parte de codigo, no es necesario ponerlo entre glBegin ni glEnd
-	g_ho.primitives.DrawLine(hoVector2f(hue, 1), hoVector2f(1, 1));
-	g_ho.primitives.DrawLine(hoVector2f(0, hue), hoVector2f(1, 1), g_ho.colorchata.adal);
-	g_ho.primitives.DrawCircle(hoVector2f(hue, 0), 3, 64);
-	g_ho.primitives.DrawPoint(hoVector2f(2, hue), 1);
-	g_ho.primitives.DrawRect(hoVector2f(0, hue), hoVector2f(hue, 4));
-	g_ho.primitives.DrawEllipse(hoVector2f(-hue, 3), 3.0f, 6.0f, 64);
-	g_ho.primitives.FillCircle(hoVector2f(-hue, 4), 3, 32, g_ho.colorchata.sepia);
-	g_ho.primitives.FillRect(hoVector2f(-hue, 2), hoVector2f(2, 3));
-	g_ho.primitives.DrawLine(hoVector2f(0, -hue), hoVector2f(3, -hue));
-
 	
+	//g_ho.primitives.DrawCircle(test.GetPosition(), 15, 16);
+
+
 	//Esto tiene que estar siempre
 	g_ho.primitives.DrawAll();
 }

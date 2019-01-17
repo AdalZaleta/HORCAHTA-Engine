@@ -120,10 +120,10 @@
     <ClCompile Include="Chipmunk\src\cpSweep1D.cpp">
       <Filter>horchata\chipmunk</Filter>
     </ClCompile>
-    <ClCompile Include="hoBody.cpp">
+    <ClCompile Include="hoRigidBody.cpp">
       <Filter>horchata</Filter>
     </ClCompile>
-    <ClCompile Include="hoRigidBody.cpp">
+    <ClCompile Include="Horchata\hoBody.cpp">
       <Filter>horchata</Filter>
     </ClCompile>
   </ItemGroup>
@@ -222,10 +222,10 @@
     <ClInclude Include="Chipmunk\src\prime.h">
       <Filter>horchata\chipmunk</Filter>
     </ClInclude>
-    <ClInclude Include="hoBody.h">
+    <ClInclude Include="hoRigidBody.h">
       <Filter>horchata</Filter>
     </ClInclude>
-    <ClInclude Include="hoRigidBody.h">
+    <ClInclude Include="Horchata\hoBody.h">
       <Filter>horchata</Filter>
     </ClInclude>
   </ItemGroup>

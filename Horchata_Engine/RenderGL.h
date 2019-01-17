@@ -24,6 +24,8 @@ class RenderGL
 		//Funcion encargado de dibujar
 		void render();
 
+		hoBody test;
+
 		const GLuint WIDTH = 1500, HEIGHT = 1000;
 
 		

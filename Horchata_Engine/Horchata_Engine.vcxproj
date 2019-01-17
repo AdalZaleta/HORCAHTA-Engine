@@ -158,8 +158,8 @@
     <ClCompile Include="Chipmunk\src\cpSpaceStep.cpp" />
     <ClCompile Include="Chipmunk\src\cpSpatialIndex.cpp" />
     <ClCompile Include="Chipmunk\src\cpSweep1D.cpp" />
-    <ClCompile Include="hoBody.cpp" />
     <ClCompile Include="Horchata\hoAudioManager.cpp" />
+    <ClCompile Include="Horchata\hoBody.cpp" />
     <ClCompile Include="Horchata\hoPrimitives.cpp" />
     <ClCompile Include="Horchata\Horchata.cpp" />
     <ClCompile Include="Horchata\hoTime.cpp" />
@@ -172,8 +172,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chipmunk\src\prime.h" />
-    <ClInclude Include="hoBody.h" />
     <ClInclude Include="Horchata\hoAudioManager.h" />
+    <ClInclude Include="Horchata\hoBody.h" />
     <ClInclude Include="Horchata\hoColor.h" />
     <ClInclude Include="Horchata\hoPrimitives.h" />
     <ClInclude Include="Horchata\Horchata.h" />

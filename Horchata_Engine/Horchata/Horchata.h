@@ -5,6 +5,7 @@
 #include "hoPrimitives.h"
 #include "hoColor.h"
 #include "hoImages.h"
+#include "hoBody.h"
 #include "chipmunk/chipmunk_private.h"
 #include "chipmunk/chipmunk.h"
 
