@@ -5,6 +5,14 @@
 #include <math.h>
 #include"hoVector.h"
 
+/*
+	En la funcion RenderGL::render() solo se tiene que poner el tipo de primitiva que quieres y por supuesto sus variables
+
+	Ejemplo:
+	g_ho.primitives.FillRectColor(hoVector2f(-300, 0), 30, 60, g_ho.colorchata.moonstone);
+
+*/
+
 class hoDrawable {		//Clase padre de un objeto que se puede dibujar
 public:
 	hoDrawable() {}

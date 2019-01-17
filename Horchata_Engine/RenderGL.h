@@ -25,6 +25,8 @@ class RenderGL
 		//Funcion encargado de dibujar
 		void render();
 
+		hoSprite pelota;
+
 };
 
 extern RenderGL g_renderGL; //Singleton
