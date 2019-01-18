@@ -123,6 +123,11 @@ void RenderGL::liberar()
 
 float hue = 0;
 
+void RenderGL::onClickDown(float _x, float _y)
+{
+	//CODIGO DE BOTONES Boton.OnClickDown(_x, _y);
+}
+
 void RenderGL::update()
 {
 }

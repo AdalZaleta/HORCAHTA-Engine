@@ -69,7 +69,7 @@ void handleMouse(SDL_Event* _evt, int _x, int _y)
 
 			//cout << "Mi coordenada en Y de openGL es " << Ygl << endl;
 
-			g_renderGL.Boton.OnClickDown(Xgl, Ygl);
+			g_renderGL.onClickDown(Xgl, Ygl);
 		}
 	}
 }
