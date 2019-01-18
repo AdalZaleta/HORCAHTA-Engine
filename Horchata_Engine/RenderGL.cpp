@@ -104,6 +104,16 @@ void RenderGL::inicializar()
 	cpShapeSetElasticity(shape, 0.0f);
 	cpShapeSetFriction(shape, 0.9f);
 	cpShapeSetCollisionType(shape, 2);
+	// Compilar el shader para el texto
+	// Definicion del shader global
+	//g_ho.shader.LoadShader("Resources/shaders/text.vs", "Resources/shaders/text.frag");
+	//glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(w), 0.0f, static_cast<GLfloat>(h));
+	//g_ho.shader.Use();
+	//glUniformMatrix4fv(glGetUniformLocation(g_ho.shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+
+	//testFont.LoadFont("Resources/Fonts/naruto.ttf", 32, 0);
+	sprite.LoadImage_("GABO.jpg");
+	image.LoadImage_("GABO.jpg");
 }
 
 void RenderGL::liberar()
@@ -111,11 +121,14 @@ void RenderGL::liberar()
 	cpSpaceFree(g_ho.space);
 }
 
-float hue = 50;
+void RenderGL::onClickDown(float _x, float _y)
+{
+	//CODIGO DE BOTONES Boton.OnClickDown(_x, _y);
+}
 
 void RenderGL::update()
 {
-	hue += 1;
+
 }
 
 void RenderGL::render()
@@ -124,12 +137,15 @@ void RenderGL::render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 
-	g_ho.primitives.DrawRect(hoVector2f(), 15, 15, hue, g_ho.colorchata.apricot);
-
 	//Esto tiene que estar siempre
 	g_ho.primitives.DrawAll();
 
 	/*g_ho.EnableTextShader(); // Activar Shader para renderizar texto
 		//ESCRIBIR TEXTOS
 	g_ho.DisableTextShader(); // Descativar Shader de texto*/
+	//image.DrawImage(0, 0, 100, 100);
+	sprite.SetScale(15);
+	sprite.SetColor(g_ho.colorchata.sapphire);
+	sprite.SetAlpha(0.5f);
+	sprite.Draw(0, 0, 45);
 }

@@ -20,10 +20,19 @@ class RenderGL
 		//Se llama al momento de libarse
 		void liberar();
 
+		//Se llama desde main en los click down, las coordenas estan en version openGL
+		void onClickDown(float _x, float _y);
+
 		//Funcion que se actualiza cada frame
 		void update();
 		//Funcion encargado de dibujar
 		void render();
+		
+		const GLuint WIDTH = 1500, HEIGHT = 1000;
+
+		hoSprite sprite;
+		hoImages image;
+		
 
 };
 
