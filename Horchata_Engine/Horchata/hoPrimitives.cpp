@@ -56,17 +56,22 @@ float hoPrimitives::GetWindowHeight()
 
 void hoPrimitives::DrawLine(float _x1, float _y1, float _x2, float _y2)
 {
-	DrawLine(hoVector2f(_x1, _y1), hoVector2f(_x2, _y2));
+	DrawLine(hoVector2f(_x1, _y1), hoVector2f(_x2, _y2), 0.0f);
 }
 
 void hoPrimitives::DrawLine(hoVector2f _pos1, hoVector2f _pos2)
 {
+	DrawLine(_pos1, _pos2, 0.0f);
+}
+
+void hoPrimitives::DrawLine(hoVector2f _pos1, hoVector2f _pos2, float _rot)
+{
 	int index = GetFirstInactive(HO_LINE);
 	if (index != -1) {
 		hoLine* temp = dynamic_cast<hoLine*>(drawables[index]);
-		if(temp)
+		if (temp)
 			*temp = hoLine(_pos1, _pos2);
-
+		temp->rotation = _rot;
 		drawables[index]->isActive = true;
 		drawables[index]->fill = false;
 	}
@@ -128,38 +133,50 @@ void hoPrimitives::DrawRect(float _x, float _y, float _w, float _h)
 
 void hoPrimitives::DrawRect(hoVector2f _pos, float _w, float _h)					//Explicacion de Draws y Fills mas arriba
 {
-	DrawRect(_pos, hoVector2f(_w, _h));
+	DrawRect(_pos, _w, _h, 0.0f);
 }
 
 void hoPrimitives::DrawRect(hoVector2f _pos, hoVector2f _sizes)
+{
+	DrawRect(_pos, _sizes.x, _sizes.y, 0.0f);
+}
+
+void hoPrimitives::DrawRect(hoVector2f _pos, float _w, float _h, float _rot)
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
 		hoRect* temp = dynamic_cast<hoRect*>(drawables[index]);
 		if (temp)
-			*temp = hoRect(_pos, _sizes);
+			*temp = hoRect(_pos, hoVector2f(_w, _h));
+		temp->rotation = _rot;
 		drawables[index]->isActive = true;
 		drawables[index]->fill = false;
 	}
 	else
 	{
 		drawableTypes.push_back(HO_RECT);
-		drawables.push_back(new hoRect(_pos, _sizes));
+		drawables.push_back(new hoRect(_pos, hoVector2f(_w, _h)));
 	}
 }
 
 void hoPrimitives::DrawEllipse(float _x, float _y, float _w, float _h, int _seg)
 {
-	DrawEllipse(hoVector2f(_x, _y), _w, _h, _seg);
+	DrawEllipse(hoVector2f(_x, _y), _w, _h, _seg, 0.0f);
 }
 
 void hoPrimitives::DrawEllipse(hoVector2f _pos, float _w, float _h, int _seg)					//Explicacion de Draws y Fills mas arriba
+{
+	DrawEllipse(_pos, _w, _h, _seg, 0.0f);
+}
+
+void hoPrimitives::DrawEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rot)
 {
 	int index = GetFirstInactive(HO_ELLIPSE);
 	if (index != -1) {
 		hoEllipse* temp = dynamic_cast<hoEllipse*>(drawables[index]);
 		if (temp)
 			*temp = hoEllipse(_pos, hoVector2f(_w, _h), _seg);
+		temp->rotation = _rot;
 		drawables[index]->isActive = true;
 		drawables[index]->fill = false;
 	}
@@ -200,39 +217,51 @@ void hoPrimitives::FillRect(float _x, float _y, float _w, float _h)			////Explic
 
 void hoPrimitives::FillRect(hoVector2f _pos, float _w, float _h)
 {
-	FillRect(_pos, hoVector2f(_w, _h));
+	FillRect(_pos, _w, _h, 0.0f);
 }
 
 void hoPrimitives::FillRect(hoVector2f _pos, hoVector2f _sizes)
+{
+	FillRect(_pos, _sizes.x, _sizes.y, 0.0f);
+}
+
+void hoPrimitives::FillRect(hoVector2f _pos, float _w, float _h, float _rot)
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
 		hoRect* temp = dynamic_cast<hoRect*>(drawables[index]);
 		if (temp)
-			*temp = hoRect(_pos, _sizes);
+			*temp = hoRect(_pos, hoVector2f(_w, _h));
+		temp->rotation = _rot;
 		drawables[index]->isActive = true;
 		drawables[index]->fill = true;
 	}
 	else
 	{
 		drawableTypes.push_back(HO_RECT);
-		drawables.push_back(new hoRect(_pos, _sizes));
+		drawables.push_back(new hoRect(_pos, hoVector2f(_w, _h)));
 		drawables[drawables.size() - 1]->fill = true;
 	}
 }
 
 void hoPrimitives::FillEllipse(float _x, float _y, float _w, float _h, int _seg)				//Explicacion de Draws y Fills mas arriba
 {
-	FillEllipse(hoVector2f(_x, _y), _w, _h, _seg);
+	FillEllipse(hoVector2f(_x, _y), _w, _h, _seg, 0.0f);
 }
 
 void hoPrimitives::FillEllipse(hoVector2f _pos, float _w, float _h, int _seg)
+{
+	FillEllipse(_pos, _w, _h, _seg, 0.0f);
+}
+
+void hoPrimitives::FillEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rot)
 {
 	int index = GetFirstInactive(HO_ELLIPSE);
 	if (index != -1) {
 		hoEllipse* temp = dynamic_cast<hoEllipse*>(drawables[index]);
 		if (temp)
 			*temp = hoEllipse(_pos, hoVector2f(_w, _h), _seg);
+		temp->rotation = _rot;
 		drawables[index]->isActive = true;
 		drawables[index]->fill = true;
 	}
@@ -240,7 +269,7 @@ void hoPrimitives::FillEllipse(hoVector2f _pos, float _w, float _h, int _seg)
 	{
 		drawableTypes.push_back(HO_ELLIPSE);
 		drawables.push_back(new hoEllipse(_pos, hoVector2f(_w, _h), _seg));
-		drawables[drawables.size()-1]->fill = true;
+		drawables[drawables.size() - 1]->fill = true;
 	}
 }
 
@@ -248,16 +277,22 @@ void hoPrimitives::FillEllipse(hoVector2f _pos, float _w, float _h, int _seg)
 
 void hoPrimitives::DrawLine(float _x1, float _y1, float _x2, float _y2, float _rgba[4])			//Explicacion de Draws y Fills mas arriba
 {
-	DrawLine(hoVector2f(_x1, _y1), hoVector2f(_x2, _y2), _rgba);
+	DrawLine(hoVector2f(_x1, _y1), hoVector2f(_x2, _y2), 0.0f, _rgba);
 }
 
 void hoPrimitives::DrawLine(hoVector2f _pos1, hoVector2f _pos2, float _rgba[4])
+{
+	DrawLine(_pos1, _pos2, 0.0f, _rgba);
+}
+
+void hoPrimitives::DrawLine(hoVector2f _pos1, hoVector2f _pos2, float _rot, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_LINE);
 	if (index != -1) {
 		hoLine* temp = dynamic_cast<hoLine*>(drawables[index]);
 		if (temp)
 			*temp = hoLine(_pos1, _pos2, _rgba);
+		temp->rotation = _rot;
 		drawables[index]->isActive = true;
 	}
 	else
@@ -316,37 +351,49 @@ void hoPrimitives::DrawRect(float _x, float _y, float _w, float _h, float _rgba[
 
 void hoPrimitives::DrawRect(hoVector2f _pos, float _w, float _h, float _rgba[4])
 {
-	DrawRect(_pos, hoVector2f(_w, _h), _rgba);
+	DrawRect(_pos, _w, _h, 0.0f, _rgba);
 }
 
 void hoPrimitives::DrawRect(hoVector2f _pos, hoVector2f _sizes, float _rgba[4])
+{
+	DrawRect(_pos, _sizes.x, _sizes.y, 0.0f, _rgba);
+}
+
+void hoPrimitives::DrawRect(hoVector2f _pos, float _w, float _h, float _rot, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
 		hoRect* temp = dynamic_cast<hoRect*>(drawables[index]);
 		if (temp)
-			*temp = hoRect(_pos, _sizes, _rgba);
+			*temp = hoRect(_pos, hoVector2f(_w, _h), _rgba);
+		temp->rotation = _rot;
 		drawables[index]->isActive = true;
 	}
 	else
 	{
 		drawableTypes.push_back(HO_RECT);
-		drawables.push_back(new hoRect(_pos, _sizes, _rgba));
+		drawables.push_back(new hoRect(_pos, hoVector2f(_w, _h), _rgba));
 	}
 }
 
 void hoPrimitives::DrawEllipse(float _x, float _y, float _w, float _h, int _seg, float _rgba[4])			//Explicacion de Draws y Fills mas arriba
 {
-	DrawEllipse(hoVector2f(_x, _y), _w, _h, _seg, _rgba);
+	DrawEllipse(hoVector2f(_x, _y), _w, _h, _seg, 0.0f, _rgba);
 }
 
 void hoPrimitives::DrawEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rgba[4])
+{
+	DrawEllipse(_pos, _w, _h, _seg, 0.0f, _rgba);
+}
+
+void hoPrimitives::DrawEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rot, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_ELLIPSE);
 	if (index != -1) {
 		hoEllipse* temp = dynamic_cast<hoEllipse*>(drawables[index]);
 		if (temp)
 			*temp = hoEllipse(_pos, hoVector2f(_w, _h), _seg, _rgba);
+		temp->rotation = _rot;
 		drawables[index]->isActive = true;
 	}
 	else
@@ -386,39 +433,51 @@ void hoPrimitives::FillRectColor(float _x, float _y, float _w, float _h, float _
 
 void hoPrimitives::FillRectColor(hoVector2f _pos, float _w, float _h, float _rgba[4])
 {
-	FillRectColor(_pos, hoVector2f(_w, _h), _rgba);
+	FillRectColor(_pos, _w, _h, 0.0f, _rgba);
 }
 
 void hoPrimitives::FillRectColor(hoVector2f _pos, hoVector2f _sizes, float _rgba[4])			//Explicacion de Draws y Fills mas arriba
+{
+	FillRectColor(_pos, _sizes.x, _sizes.y, 0.0f, _rgba);
+}
+
+void hoPrimitives::FillRectColor(hoVector2f _pos, float _w, float _h, float _rot, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_RECT);
 	if (index != -1) {
 		hoRect* temp = dynamic_cast<hoRect*>(drawables[index]);
 		if (temp)
-			*temp = hoRect(_pos, _sizes, _rgba);
+			*temp = hoRect(_pos, hoVector2f(_w, _h), _rgba);
+		temp->rotation = _rot;
 		drawables[index]->isActive = true;
 		drawables[index]->fill = true;
 	}
 	else
 	{
 		drawableTypes.push_back(HO_RECT);
-		drawables.push_back(new hoRect(_pos, _sizes, _rgba));
+		drawables.push_back(new hoRect(_pos, hoVector2f(_w, _h), _rgba));
 		drawables[drawables.size() - 1]->fill = true;
 	}
 }
 
 void hoPrimitives::FillEllipse(float _x, float _y, float _w, float _h, int _seg, float _rgba[4])
 {
-	FillEllipse(hoVector2f(_x, _y), _w, _h, _seg, _rgba);
+	FillEllipse(hoVector2f(_x, _y), _w, _h, _seg, 0.0f, _rgba);
 }
 
 void hoPrimitives::FillEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rgba[4])			//Explicacion de Draws y Fills mas arriba
+{
+	FillEllipse(_pos, _w, _h, _seg, 0.0f, _rgba);
+}
+
+void hoPrimitives::FillEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rot, float _rgba[4])
 {
 	int index = GetFirstInactive(HO_ELLIPSE);
 	if (index != -1) {
 		hoEllipse* temp = dynamic_cast<hoEllipse*>(drawables[index]);
 		if (temp)
 			*temp = hoEllipse(_pos, hoVector2f(_w, _h), _seg, _rgba);
+		temp->rotation = _rot;
 		drawables[index]->isActive = true;
 		drawables[index]->fill = true;
 	}
@@ -452,11 +511,20 @@ void hoPoint::Draw()
 
 void hoLine::Draw()
 {
+	float halfx = (point2.x + point1.x) / 2.0f;
+	float halfy = (point2.y + point1.y) / 2.0f;
 	hoDrawable::Draw();
-	glBegin(GL_LINES);						
-		glVertex2f(point1.x, point1.y);				//Dibujo linea de point1 a point2
-		glVertex2f(point2.x, point2.y);
+
+	glPushMatrix();
+	glTranslatef(halfx, halfy, 0.0f);
+	glRotatef(rotation, 0, 0, 1);
+
+	glBegin(GL_LINES);	
+		glVertex2f(point1.x - halfx, point1.y - halfy);				//Dibujo linea de point1 a point2
+		glVertex2f(point2.x - halfx, point2.y - halfy);
 	glEnd();
+
+	glPopMatrix();
 }
 
 void hoCircle::Draw()
@@ -488,12 +556,16 @@ void hoCircle::Draw()
 void hoEllipse::Draw()
 {
 	hoDrawable::Draw();
+	glPushMatrix();
+	glTranslatef(position.x, position.y, 0.0f);
+	glRotatef(rotation, 0.0f, 0.0f, 1.0f);
+	
 	if (!fill) {
 		glBegin(GL_LINE_LOOP);
 		for (int i = 0; i < segments; i++)			//Lo mismo que el circulo, solo que para asignar el valor X de los puntos uso el ancho en lugar de el radio, y para Y uso el alto.
 		{
 			float degInRad = i * (360.0f / segments) * M_PI / 180.0f;
-			glVertex2f(position.x + cos(degInRad)*sizes.x, position.y + sin(degInRad)*sizes.y);
+			glVertex2f(cos(degInRad)*sizes.x, sin(degInRad)*sizes.y);
 		}
 		glEnd();
 	}
@@ -503,12 +575,14 @@ void hoEllipse::Draw()
 		{
 			float degInRad1 = i * (360.0f / segments) * M_PI / 180.0f;
 			float degInRad2 = (i+1) * (360.0f / segments) * M_PI / 180.0f;
-			glVertex2f(position.x + cos(degInRad1)*sizes.x, position.y + sin(degInRad1)*sizes.y);
-			glVertex2f(position.x + cos(degInRad2)*sizes.x, position.y + sin(degInRad2)*sizes.y);
-			glVertex2f(position.x, position.y);
+			glVertex2f(cos(degInRad1)*sizes.x, sin(degInRad1)*sizes.y);
+			glVertex2f(cos(degInRad2)*sizes.x, sin(degInRad2)*sizes.y);
+			glVertex2f(0.0f, 0.0f);
 		}
 		glEnd();
 	}
+
+	glPopMatrix();
 }
 
 void hoDrawable::Draw()
@@ -526,20 +600,26 @@ void hoDrawable::setColor(float _rgba[4])
 void hoRect::Draw()
 {
 	hoDrawable::Draw();				//Dibujo un rect con la posicion en el centro, empezando en el pertice superior derecho y llendome en sentido horario
+	glPushMatrix();
+		glTranslatef(position.x, position.y, 0);
+		glRotatef(rotation, 0.0f, 0.0f, 1.0f);
+
 	if (!fill) {
 		glBegin(GL_LINE_LOOP);
-			glVertex2f(position.x + sizes.x / 2.0f, position.y + sizes.y / 2.0f);
-			glVertex2f(position.x + sizes.x / 2.0f, position.y - sizes.y / 2.0f);
-			glVertex2f(position.x - sizes.x / 2.0f, position.y - sizes.y / 2.0f);
-			glVertex2f(position.x - sizes.x / 2.0f, position.y + sizes.y / 2.0f);
+			glVertex2f(sizes.x / 2.0f, sizes.y / 2.0f);
+			glVertex2f(sizes.x / 2.0f, -sizes.y / 2.0f);
+			glVertex2f(-sizes.x / 2.0f, -sizes.y / 2.0f);
+			glVertex2f(-sizes.x / 2.0f, sizes.y / 2.0f);
 		glEnd();
 	}
 	else {
 		glBegin(GL_QUADS);			//Lo mismo pero con GL_QUADS
-			glVertex2f(position.x + sizes.x / 2.0f, position.y + sizes.y / 2.0f);
-			glVertex2f(position.x + sizes.x / 2.0f, position.y - sizes.y / 2.0f);
-			glVertex2f(position.x - sizes.x / 2.0f, position.y - sizes.y / 2.0f);
-			glVertex2f(position.x - sizes.x / 2.0f, position.y + sizes.y / 2.0f);
+			glVertex2f(sizes.x / 2.0f, sizes.y / 2.0f);
+			glVertex2f(sizes.x / 2.0f, -sizes.y / 2.0f);
+			glVertex2f(-sizes.x / 2.0f, -sizes.y / 2.0f);
+			glVertex2f(-sizes.x / 2.0f, sizes.y / 2.0f);
 		glEnd();
 	}
+
+	glPopMatrix();
 }

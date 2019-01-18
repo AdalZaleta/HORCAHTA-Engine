@@ -111,10 +111,11 @@ void RenderGL::liberar()
 	cpSpaceFree(g_ho.space);
 }
 
-float hue = 0;
+float hue = 50;
 
 void RenderGL::update()
 {
+	hue += 1;
 }
 
 void RenderGL::render()
@@ -123,16 +124,12 @@ void RenderGL::render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 
-	g_ho.EnableTextShader(); // Activar Shader para renderizar texto
-		//ESCRIBIR TEXTOS
-	g_ho.DisableTextShader(); // Descativar Shader de texto
+	g_ho.primitives.DrawRect(hoVector2f(), 15, 15, hue, g_ho.colorchata.apricot);
 
-	glPointSize(15.0f);
-	glColor3f(1.0f, 0.0f, 0.0f);
-	glBegin(GL_POINTS);
-	glVertex2f(g_ho.circulo->p.x, g_ho.circulo->p.y);
-	glEnd();
-	
 	//Esto tiene que estar siempre
 	g_ho.primitives.DrawAll();
+
+	/*g_ho.EnableTextShader(); // Activar Shader para renderizar texto
+		//ESCRIBIR TEXTOS
+	g_ho.DisableTextShader(); // Descativar Shader de texto*/
 }
