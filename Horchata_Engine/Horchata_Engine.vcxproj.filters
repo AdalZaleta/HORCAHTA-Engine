@@ -127,6 +127,10 @@
       <Filter>horchata</Filter>
     </ClCompile>
     <ClCompile Include="hoRigidBody.cpp">
+    <ClCompile Include="Horchata\hoBotones.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\hoSprite.cpp">
       <Filter>horchata</Filter>
     </ClCompile>
   </ItemGroup>
@@ -222,6 +226,9 @@
     <ClInclude Include="Horchata\Sonidos\irrKlang\irrKlang.h">
       <Filter>horchata\irrKlang</Filter>
     </ClInclude>
+    <ClInclude Include="Horchata\hoBotones.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="Horchata\hoSprite.h">
       <Filter>horchata</Filter>
@@ -233,6 +240,10 @@
       <Filter>horchata</Filter>
     </ClInclude>
     <ClInclude Include="hoRigidBody.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h" />
+    <ClInclude Include="Horchata\hoSprite.h">
       <Filter>horchata</Filter>
     </ClInclude>
   </ItemGroup>

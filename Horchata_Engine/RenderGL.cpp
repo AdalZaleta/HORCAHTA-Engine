@@ -104,6 +104,16 @@ void RenderGL::inicializar()
 	cpShapeSetElasticity(shape, 0.0f);
 	cpShapeSetFriction(shape, 0.9f);
 	cpShapeSetCollisionType(shape, 2);
+	// Compilar el shader para el texto
+	// Definicion del shader global
+	//g_ho.shader.LoadShader("Resources/shaders/text.vs", "Resources/shaders/text.frag");
+	//glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(w), 0.0f, static_cast<GLfloat>(h));
+	//g_ho.shader.Use();
+	//glUniformMatrix4fv(glGetUniformLocation(g_ho.shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+
+	//testFont.LoadFont("Resources/Fonts/naruto.ttf", 32, 0);
+	sprite.LoadImage_("GABO.jpg");
+	image.LoadImage_("GABO.jpg");
 }
 
 void RenderGL::liberar()
@@ -135,4 +145,10 @@ void RenderGL::render()
 	
 	//Esto tiene que estar siempre
 	g_ho.primitives.DrawAll();
+
+	//image.DrawImage(0, 0, 100, 100);
+	sprite.SetScale(15);
+	sprite.SetColor(g_ho.colorchata.sapphire);
+	sprite.SetAlpha(0.5f);
+	sprite.Draw(0, 0, 45);
 }

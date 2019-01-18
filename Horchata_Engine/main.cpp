@@ -3,10 +3,12 @@
 #include <stdio.h>
 #include <string>
 #include <iostream>
+#include "Horchata/hoTime.h"
 #include <windows.h>
+#include "Horchata/hoBotones.h"
+#include <GL/GL.h>
 
 using namespace std;
-
 
 //Dimensiones de la ventana
 const int SCREEN_WIDTH = 800;
@@ -28,19 +30,47 @@ SDL_Window* gWindow = NULL;
 SDL_GLContext gContext;
 
 //------CORE ------------------------------------------------------------------------------------
+//use OPENGL
 
 //Teclado
 void handleKeys(unsigned char _key, int _x, int _y)
 {
-	
+
 }
 
 //Mouse
 void handleMouse(SDL_Event* _evt, int _x, int _y)
 {
+
 	//Click mouse izq
-	if (_evt->button.button == SDL_BUTTON_LEFT)
+
+	if (_evt->type == SDL_MOUSEBUTTONDOWN)
 	{
+		if (_evt->button.button == SDL_BUTTON_LEFT)
+		{
+			//NO TOCAR
+			//Conversion de coordenadas SDL a OpenGL en el eje X
+			float xtemp= _x/(float)g_renderGL.w;
+
+			float OpGLw = abs(g_renderGL.clipAreaXRightt - g_renderGL.clipAreaXLeft);
+
+			float leftPorcentaje = OpGLw * xtemp;
+			float Xgl=g_renderGL.clipAreaXLeft + leftPorcentaje;
+
+			//cout <<"Mi coordenada en X de opgl es: "<< Xgl << endl;
+
+			//Conversion de coordenadas SDL a OpenGL en el eje Y
+			float ytemp = _y / (float)g_renderGL.h;
+
+			float OpGLh = abs(g_renderGL.clipAreaYTop - g_renderGL.clipAreaYBottom);
+
+			float BotPercent = OpGLh * ytemp;
+			float Ygl = g_renderGL.clipAreaYTop - BotPercent;
+
+			//cout << "Mi coordenada en Y de openGL es " << Ygl << endl;
+
+			g_renderGL.Boton.OnClickDown(Xgl, Ygl);
+		}
 	}
 }
 
@@ -111,6 +141,7 @@ bool init()
 
 	
 	
+	
 	return success;
 }
 
@@ -163,7 +194,7 @@ int main(int argc, char* args[])
 					SDL_GetMouseState(&x, &y);
 					handleKeys(e.text.text[0], x, y);
 				}
-				else if (e.type = SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP || e.type == SDL_MOUSEMOTION)
+				else if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP || e.type == SDL_MOUSEMOTION)
 				{
 					//obtenemos mouse
 					int x = 0, y = 0;
