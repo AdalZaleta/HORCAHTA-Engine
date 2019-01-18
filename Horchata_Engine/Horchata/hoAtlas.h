@@ -1,7 +1,10 @@
 #pragma once
 #include <iostream>
-#include <list>
+#include <vector>
 #include "rapidjson/document.h"
+#include <string>
+#include <fstream>
+#include <streambuf>
 
 using namespace rapidjson;
 
@@ -13,14 +16,14 @@ public:
 
 	struct SpriteItem
 	{
-		const char *name;
+		std::string name;
 		int x;
 		int y;
 		int width;
 		int height;
 	};
 
-	std::list<SpriteItem> items;
+	std::vector<SpriteItem> items;
 
 	bool loadAtlas(const char *_dirImage, const char *_json)
 	{
@@ -33,26 +36,57 @@ public:
 		//Here we add the final path
 		strcat_s(result, _json);
 
-		std::fstream f(result, std::fstream::in);
-		std::string s;
-		getline(f, s, '\0');
-		f.close();
+		std::ifstream t(result);
+		std::string str;
+
+		t.seekg(0, std::ios::end);
+		str.reserve(t.tellg());
+		t.seekg(0, std::ios::beg);
+
+		str.assign((std::istreambuf_iterator<char>(t)),
+			std::istreambuf_iterator<char>());
 
 
 		Document document;
-		document.Parse(s.c_str());
+		document.Parse(str.c_str());
 		if (document == NULL)
 		{
-			printf("KK\n");
 			return false;
 		}
 		assert(document.IsObject());
 		const Value& frames = document["frames"];
-		//assert(frames.IsArray());
+		assert(frames.IsArray());
+		SpriteItem temp;
 		for (SizeType i = 0; i < frames.Size(); i++)
 		{
-			printf("frames[%d] = %s\n", i, frames[i].GetString());
+			temp.name.assign(frames[i]["filename"].GetString());
+			temp.x = frames[i]["frame"]["x"].GetInt();
+			temp.y = frames[i]["frame"]["y"].GetInt();
+			temp.width = frames[i]["frame"]["w"].GetInt();
+			temp.height = frames[i]["frame"]["h"].GetInt();
+			items.push_back(temp);
 		}
+		for (int j = 0; j < items.size(); j++)
+		{
+			printf("El item[%d] de la lista se llama: %s, \nX: %d,\nY: %d,\nW: %d,\nH: %d\n--------------------------\n",j, items[j].name.c_str(), items[j].x, items[j].y, items[j].width, items[j].height);
+		}
+
 		return true;
+	}
+
+	SpriteItem GetSpriteDetails(const char *_name)
+	{
+		
+		for (int i = 0; i < items.size(); i++)
+		{
+			//printf("Intentando comparar %s con %s", items[i].name, _name);
+			int comp = items[i].name.compare(_name);
+			if (comp == 0)
+			{
+				//printf_s("Entro esta madre\n");
+				return items[i];
+			}
+		}
+		//printf_s("Valio verga esta madre\n");
 	}
 };

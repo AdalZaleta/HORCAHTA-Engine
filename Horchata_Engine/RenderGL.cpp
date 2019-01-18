@@ -70,10 +70,8 @@ void RenderGL::inicializar()
 
 	//testFont.LoadFont("Resources/Fonts/naruto.ttf", 32, 0);
 
-	sprite.LoadImage_("GABO.jpg");
-	image.LoadImage_("marmota.png");
-	img2.LoadImage_("gatito.jpg");
-	ss.Load("gatito.jpg", "JSON/spritesheet.json");
+	ss.Load("JSON/spritesheet.png", "JSON/spritesheet.json");
+	//Running1 = ss.atlas.GetSpriteDetails("RunRight02.png");
 }
 
 void RenderGL::liberar()
@@ -94,11 +92,6 @@ void RenderGL::render()
 	
 	//Esto tiene que estar siempre
 	g_ho.primitives.DrawAll();
-
-
-	//image.DrawImage(0, 0, 50, 50, 120, 0, 240, 480);
-	sprite.SetScale(10);
-	sprite.Draw(0, 0);
-	image.DrawImage(100, 100, 50, 50, 0, 0, 480, 480);
-	img2.DrawImage(-100, -100, 50, 50, 0, 0, 480, 480);
+	ss.SetScale(10.0f);
+	ss.Draw("RunRight02.png", 0, 0, 45);
 }

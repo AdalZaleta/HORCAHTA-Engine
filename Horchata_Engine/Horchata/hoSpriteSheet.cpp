@@ -14,12 +14,10 @@ bool hoSpriteSheet::Load(const char * _dirImages, const char * _dirJson)
 
 void hoSpriteSheet::Draw(const char * _nameImage, int _x, int _y)
 {
-	//TO DO: cargar datos desde el atlas
-	//Esto es provisional
+	hoAtlas::SpriteItem spriteItem = atlas.GetSpriteDetails(_nameImage);
 
-	int xi, yi, w, h;
 
-	//hoSprite::Draw(_x, _y, xi, yi, w, h);
+	hoSprite::Draw(_x, _y, spriteItem.x, spriteItem.y, spriteItem.width, spriteItem.height);
 }
 
 void hoSpriteSheet::Draw(const char * _nameImage, int _x, int _y, int _rotation)

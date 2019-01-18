@@ -27,8 +27,7 @@ class RenderGL
 
 		const GLuint WIDTH = 1500, HEIGHT = 1000;
 
-		hoSprite sprite;
-		hoImages image, img2;
+		hoAtlas::SpriteItem Running1;
 		hoSpriteSheet ss;
 
 		
