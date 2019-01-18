@@ -106,8 +106,4 @@ void RenderGL::render()
 	sprite.SetColor(g_ho.colorchata.sapphire);
 	sprite.SetAlpha(0.5f);
 	sprite.Draw(0, 0, 45);
-
-	// Botones
-	//Boton.DrawButton();
-	//Boton_2.DrawButton();
 }

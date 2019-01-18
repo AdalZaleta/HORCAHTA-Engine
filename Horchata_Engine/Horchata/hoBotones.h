@@ -18,13 +18,16 @@ class hoBotones
 		hoBotones();
 		~hoBotones();
 
-		double x, y,h,w;
+		// Variables de posicion del boton
+		double x, y;
 
 		double x2;
 		double y2;
 
+		// Sprite que el boton usara al ser creado
 		hoSprite* Sprite;
 
+		// Variable para indicarle al boton que esta usando un Sprite
 		bool SpriteActivo;
 
 		//Variables para color 
@@ -32,17 +35,17 @@ class hoBotones
 		float g;
 		float b;
 
-		//bool onClick;
-
 		void OnClickDown(float x, float y);
-		//void OnClickUp();
 
 		//Funcion del ejemplo sin sprite - Los parametros son (posx ,posy, tamañoX,TamañoY,R,G,B,Funcion) 
-		void CreateButton(double _x1, double _y1, double _x2, double _y2, float Rojo, float Verde, float Azul, void(*Funcion)(void));
+		void CreateButton(double _x1, double _y1, double _x2, double _y2, float _Rojo, float _Verde, float _Azul, void(*_Funcion)(void));
+
 		//Funcion del ejemplo con sprite - Los parametros son (x , y, tamañoX,TamañoY,Imagen,Funcion)
-		void CreateButton(double _x1, double _y1, float _ScaleX, float _ScaleY, const char* _NombreSprite, void(*Funcion)(void));
+		void CreateButton(double _x1, double _y1, float _ScaleX, float _ScaleY, const char* _NombreSprite, void(*_Funcion)(void));
+
 		// Funcion permite la implementacion de funciones dentro del boton
 		void(*funcionBoton)(void);
+
 		//Dibuja el boton
 		void DrawButton();
 };
