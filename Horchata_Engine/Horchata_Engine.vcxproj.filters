@@ -133,6 +133,9 @@
     <ClCompile Include="Horchata\hoSprite.cpp">
       <Filter>horchata</Filter>
     </ClCompile>
+    <ClCompile Include="Horchata\hoCamera.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderGL.h" />
