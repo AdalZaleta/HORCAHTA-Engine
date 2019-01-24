@@ -6,6 +6,7 @@
 hoBody::hoBody()
 {
 	///body = cpSpaceAddBody(g_ho.space, cpBodyNew(1.0f, cpMomentForCircle(1.0f, 0.0f, 0.0f, cpvzero)));
+	body = cpSpaceGetStaticBody(g_ho.space);
 }
 
 hoBody::hoBody(hoVector2f _pos, float _angle, bool _isStatic) {
