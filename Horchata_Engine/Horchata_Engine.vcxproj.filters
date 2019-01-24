@@ -47,6 +47,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderGL.cpp" />
     <ClCompile Include="Horchata\hoCamera.cpp" />
+    <ClCompile Include="Jugador.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chipmunk\src\prime.h" />
@@ -88,6 +89,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="resource1.h" />
     <ClInclude Include="Horchata\hoCamera.h" />
+    <ClInclude Include="Jugador.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />

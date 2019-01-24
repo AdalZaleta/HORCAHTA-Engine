@@ -170,6 +170,7 @@
     <ClCompile Include="Horchata\hoImages.cpp" />
     <ClCompile Include="Horchata\hoText2.cpp" />
     <ClCompile Include="hoRigidBody.cpp" />
+    <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderGL.cpp" />
   </ItemGroup>
@@ -210,6 +211,7 @@
     <ClInclude Include="Horchata\hoText2.h" />
     <ClInclude Include="Horchata\Shader.h" />
     <ClInclude Include="hoRigidBody.h" />
+    <ClInclude Include="Jugador.h" />
     <ClInclude Include="RenderGL.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="resource1.h" />
