@@ -1,4 +1,7 @@
+#include "Horchata.h"
 #include "hoBody.h"
+
+//TODO: Fix Filters' Bullshit Errors
 
 hoBody::hoBody()
 {
@@ -11,7 +14,10 @@ hoBody::hoBody(hoVector2f _pos, float _angle, bool _isStatic) {
 	isStatic = _isStatic; 
 	velocity = hoVector2f();
 
-	body = cpSpaceAddBody(g_ho.space, cpBodyNew(1.0f, cpMomentForCircle(1.0f, 0.0f, 0.0f, cpvzero)));
+	if (_isStatic)
+		body = cpSpaceGetStaticBody(g_ho.space);
+	else
+		body = cpSpaceAddBody(g_ho.space, cpBodyNew(1.0f, cpMomentForCircle(1.0f, 0.0f, 1.0f, cpvzero)));
 
 }
 
@@ -26,7 +32,11 @@ hoBody::hoBody(hoVector2f _pos, float _angle, bool _isStatic, hoVector2f _vel) {
 }
 
 hoBody::~hoBody() {
-	// delet dis
+	// Must remove these BEFORE freeing the body or you will access dangling pointers.
+	ShapeFree();
+
+	cpSpaceRemoveBody(g_ho.space, body);
+	cpBodyFree(body);
 }
 
 cpBody * hoBody::GetBody()
@@ -63,6 +73,7 @@ hoVector2f hoBody::GetPosition()
 {
 	return position;
 }
+
 
 void hoBody::SetVelocity(hoVector2f _velocity)
 {
@@ -155,6 +166,21 @@ hoVector2f hoBody::GetCenterOfMass()
 	return centerOfMass;
 }
 
+cpVect hoBody::GetSourcePosition()
+{
+	return cpBodyGetPosition(body);
+}
+
+cpVect hoBody::GetSourceVelocity()
+{
+	return cpBodyGetVelocity(body);
+}
+
+cpFloat hoBody::GetSourceAngularVelocity()
+{
+	return cpBodyGetAngularVelocity(body);
+}
+
 void hoBody::SetAllPhysics(float _elasticity, float _friction)
 {
 	for (int i = 0; i < shapes.size(); i++) {
@@ -169,9 +195,17 @@ void hoBody::SetPhysics(int _index, float _elasticity, float _friction)
 	cpShapeSetFriction(shapes[_index].shape, _friction);
 }
 
-void hoBody::Update()
+void hoBody::SetAllFilters(cpShapeFilter _filter)
+{
+	for (int i = 0; i < shapes.size(); i++) {
+		cpShapeSetFilter(shapes[i].shape, _filter);
+	}	
+}
+
+void hoBody::Update(float _dt)
 {
 	UpdateBodyData();
+	cpSpaceStep(g_ho.space, _dt);
 }
 
 void hoBody::Draw()
@@ -182,6 +216,8 @@ void hoBody::UpdateBodyData()
 {
 	cpVect temp = cpBodyGetPosition(body);
 	position = hoVector2f(temp.x, temp.y);
+	std::cout << "X Position: " << cpBodyGetPosition(body).x << "  _  ";
+	std::cout << "Y Position: " << cpBodyGetPosition(body).y << std::endl;
 }
 
 cpVect hoBody::CCPV(float _x, float _y)
@@ -192,4 +228,11 @@ cpVect hoBody::CCPV(float _x, float _y)
 	return temp;
 }
 
-
+void hoBody::ShapeFree()
+{
+	for (int i = 0; i < shapes.size(); i++) {
+		cpSpaceRemoveShape(g_ho.space, shapes[i].shape);
+		cpShapeFree(shapes[i].shape);
+	}
+	shapes.clear();
+}

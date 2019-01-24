@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Horchata.h"
 #include "chipmunk/chipmunk_private.h"
 #include "chipmunk/chipmunk.h"
 #include <stdlib.h>
@@ -57,10 +56,17 @@ public:
 	//hoSprite GetSprite(int _index);
 	//void AddSprite(hoSprite* _sprite);
 
+	// Source Transforms
+	cpVect GetSourcePosition();
+	cpVect GetSourceVelocity();
+	cpFloat GetSourceAngularVelocity();
+
 	void SetAllPhysics(float _elasticity, float _friction);
 	void SetPhysics(int _index, float _elasticity, float _friction);
 
-	virtual void Update();
+	void SetAllFilters(cpShapeFilter _filter);
+
+	virtual void Update(float _dt);
 	void Draw();
 
 
@@ -115,6 +121,7 @@ private:
 
 	void UpdateBodyData();
 	cpVect CCPV(float _x, float _y);
+	void ShapeFree();
 
 	cpBody *body;
 	float mass;

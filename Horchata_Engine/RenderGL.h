@@ -24,11 +24,12 @@ class RenderGL
 		//Funcion encargado de dibujar
 		void render();
 
-		hoBody test;
+		hoBody* test;
+		hoBody* floor;
 
 		const GLuint WIDTH = 1500, HEIGHT = 1000;
 
-		
+		cpShapeFilter testFilter;
 };
 
 extern RenderGL g_renderGL; //Singleton
