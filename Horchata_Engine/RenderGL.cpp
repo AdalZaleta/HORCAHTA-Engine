@@ -71,7 +71,7 @@ void RenderGL::inicializar()
 	floor = new hoBody(hoVector2f(0, 0), 0, true);
 	floor->AddShape(cpSpaceAddShape(g_ho.space, cpSegmentShapeNew(floor->GetBody(), cpv(-320, -240), cpv(320, -240), 0.0f)));
 	floor->SetAllPhysics(1.0f, 1.0f);
-	floor->SetAllFilters(testFilter);
+	floor->SetAllFilters(NON_GRABABLE_FILTER);
 
 	test = new hoBody(hoVector2f(0, 0), 0, false, hoVector2f(5.0f, 100.0f));
 	test->AddShape(cpSpaceAddShape(g_ho.space, cpCircleShapeNew(test->GetBody(), 20.0f, cpvzero)));
