@@ -46,9 +46,19 @@ cpBody * hoBody::GetBody()
 }
 
 void hoBody::AddShape(cpShape * _shape) {
-	hoShape newHoShape("test", _shape);
+	AddShape(_shape, GetNextDefaultName());
+}
+
+void hoBody::AddShape(cpShape * _shape, std::string _name)
+{
+	hoShape newHoShape(_name, _shape);
 	shapes.push_back(newHoShape);
 }
+
+void hoBody::AddCircle(hoVector2f _offset, float _r, std::string _name)
+{
+	AddShape(cpSpaceAddShape(g_ho.space, cpCircleShapeNew(body, _r, CCPV(_offset))));
+}///TODO: agregar user friendly shapes meth
 
 void hoBody::SetShape(cpShape * _shape, int _index, std::string _shapeName) {
 	cpSpaceRemoveShape(g_ho.space, shapes[_index].shape);
@@ -229,6 +239,14 @@ cpVect hoBody::CCPV(float _x, float _y)
 	return temp;
 }
 
+cpVect hoBody::CCPV(hoVector2f _vec)
+{
+	cpVect temp;
+	temp.x = _vec.x;
+	temp.y = _vec.y;
+	return temp;
+}
+
 void hoBody::ShapeFree()
 {
 	for (int i = 0; i < shapes.size(); i++) {
@@ -236,4 +254,11 @@ void hoBody::ShapeFree()
 		cpShapeFree(shapes[i].shape);
 	}
 	shapes.clear();
+}
+
+std::string hoBody::GetNextDefaultName()
+{
+	char temp = '0';
+	temp += shapes.size();
+	return "shape" + temp;
 }

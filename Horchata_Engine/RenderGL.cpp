@@ -74,7 +74,7 @@ void RenderGL::inicializar()
 	floor->SetAllFilters(NON_GRABABLE_FILTER);
 
 	test = new hoBody(hoVector2f(0, 0), 0, false, hoVector2f(5.0f, 0.0f));
-	test->AddShape(cpSpaceAddShape(g_ho.space, cpCircleShapeNew(test->GetBody(), 20.0f, cpvzero)));
+	test->AddCircle(hoVector2f(), 20, "namae");
 	test->SetAllCollisionTypes(2);
 	test->SetAllPhysics(1, 1);
 }

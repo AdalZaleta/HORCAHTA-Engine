@@ -30,6 +30,8 @@ public:
 
 	cpBody* GetBody();
 	void AddShape(cpShape* _shape);
+	void AddShape(cpShape* _shape, std::string _name);
+	void AddCircle(hoVector2f _offset, float _r, std::string _name);
 	void SetShape(cpShape* _shape, int _index, std::string _shapeName);
 	hoShape GetShape(int _index);
 	void DeleteShape(int _index);
@@ -121,7 +123,9 @@ private:
 
 	void UpdateBodyData();
 	cpVect CCPV(float _x, float _y);
+	cpVect CCPV(hoVector2f _vec);
 	void ShapeFree();
+	std::string GetNextDefaultName();
 
 	cpBody *body;
 	float mass;
