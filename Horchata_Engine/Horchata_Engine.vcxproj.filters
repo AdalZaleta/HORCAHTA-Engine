@@ -1,275 +1,101 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="Chipmunk\src\chipmunk.cpp" />
+    <ClCompile Include="Chipmunk\src\cpArbiter.cpp" />
+    <ClCompile Include="Chipmunk\src\cpArray.cpp" />
+    <ClCompile Include="Chipmunk\src\cpBBTree.cpp" />
+    <ClCompile Include="Chipmunk\src\cpBody.cpp" />
+    <ClCompile Include="Chipmunk\src\cpCollision.cpp" />
+    <ClCompile Include="Chipmunk\src\cpConstraint.cpp" />
+    <ClCompile Include="Chipmunk\src\cpDampedRotarySpring.cpp" />
+    <ClCompile Include="Chipmunk\src\cpDampedSpring.cpp" />
+    <ClCompile Include="Chipmunk\src\cpGearJoint.cpp" />
+    <ClCompile Include="Chipmunk\src\cpGrooveJoint.cpp" />
+    <ClCompile Include="Chipmunk\src\cpHashSet.cpp" />
+    <ClCompile Include="Chipmunk\src\cpHastySpace.cpp" />
+    <ClCompile Include="Chipmunk\src\cpMarch.cpp" />
+    <ClCompile Include="Chipmunk\src\cpPinJoint.cpp" />
+    <ClCompile Include="Chipmunk\src\cpPivotJoint.cpp" />
+    <ClCompile Include="Chipmunk\src\cpPolyline.cpp" />
+    <ClCompile Include="Chipmunk\src\cpPolyShape.cpp" />
+    <ClCompile Include="Chipmunk\src\cpRatchetJoint.cpp" />
+    <ClCompile Include="Chipmunk\src\cpRobust.cpp" />
+    <ClCompile Include="Chipmunk\src\cpRotaryLimitJoint.cpp" />
+    <ClCompile Include="Chipmunk\src\cpShape.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSimpleMotor.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSlideJoint.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSpace.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSpaceComponent.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSpaceDebug.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSpaceHash.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSpaceQuery.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSpaceStep.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSpatialIndex.cpp" />
+    <ClCompile Include="Chipmunk\src\cpSweep1D.cpp" />
+    <ClCompile Include="hoBody.cpp" />
+    <ClCompile Include="Horchata\hoAudioManager.cpp" />
+    <ClCompile Include="Horchata\hoBotones.cpp" />
+    <ClCompile Include="Horchata\hoPrimitives.cpp" />
+    <ClCompile Include="Horchata\Horchata.cpp" />
+    <ClCompile Include="Horchata\hoSprite.cpp" />
+    <ClCompile Include="Horchata\hoTime.cpp" />
+    <ClCompile Include="Horchata\hoVector.cpp" />
+    <ClCompile Include="Horchata\hoImages.cpp" />
+    <ClCompile Include="Horchata\hoText2.cpp" />
+    <ClCompile Include="hoRigidBody.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderGL.cpp" />
-    <ClCompile Include="Horchata\hoAudioManager.cpp">
-      <Filter>horchata</Filter>
-    </ClCompile>
-    <ClCompile Include="Horchata\hoImages.cpp">
-      <Filter>horchata</Filter>
-    </ClCompile>
-    <ClCompile Include="Horchata\hoPrimitives.cpp">
-      <Filter>horchata</Filter>
-    </ClCompile>
-    <ClCompile Include="Horchata\Horchata.cpp">
-      <Filter>horchata</Filter>
-    </ClCompile>
-    <ClCompile Include="Horchata\hoText2.cpp">
-      <Filter>horchata</Filter>
-    </ClCompile>
-    <ClCompile Include="Horchata\hoTime.cpp">
-      <Filter>horchata</Filter>
-    </ClCompile>
-    <ClCompile Include="Horchata\hoVector.cpp">
-      <Filter>horchata</Filter>
-    </ClCompile>
-    <ClCompile Include="Horchata\hoSprite.cpp">
-      <Filter>horchata</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\chipmunk.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpArbiter.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpArray.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpBBTree.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpBody.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpCollision.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpConstraint.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpDampedRotarySpring.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpDampedSpring.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpGearJoint.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpGrooveJoint.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpHashSet.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpHastySpace.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpMarch.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpPinJoint.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpPivotJoint.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpPolyline.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpPolyShape.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpRatchetJoint.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpRobust.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpRotaryLimitJoint.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpShape.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpSimpleMotor.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpSlideJoint.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpSpace.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpSpaceComponent.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpSpaceDebug.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpSpaceHash.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpSpaceQuery.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpSpaceStep.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpSpatialIndex.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="Chipmunk\src\cpSweep1D.cpp">
-      <Filter>horchata\chipmunk</Filter>
-    </ClCompile>
-    <ClCompile Include="hoBody.cpp">
-      <Filter>horchata</Filter>
-    </ClCompile>
-    <ClCompile Include="hoRigidBody.cpp">
-    <ClCompile Include="Horchata\hoBotones.cpp">
-      <Filter>horchata</Filter>
-    </ClCompile>
-    <ClCompile Include="Horchata\hoSprite.cpp">
-      <Filter>horchata</Filter>
-    </ClCompile>
-    <ClCompile Include="Horchata\hoCamera.cpp">
-      <Filter>horchata</Filter>
-    </ClCompile>
+    <ClCompile Include="Horchata\hoCamera.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Chipmunk\src\prime.h" />
+    <ClInclude Include="hoBody.h" />
+    <ClInclude Include="Horchata\hoAudioManager.h" />
+    <ClInclude Include="Horchata\hoBotones.h" />
+    <ClInclude Include="Horchata\hoColor.h" />
+    <ClInclude Include="Horchata\hoPrimitives.h" />
+    <ClInclude Include="Horchata\Horchata.h" />
+    <ClInclude Include="Horchata\hoSprite.h" />
+    <ClInclude Include="Horchata\hoTime.h" />
+    <ClInclude Include="Horchata\hoVector.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ESoundEngineOptions.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ESoundOutputDrivers.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_EStreamModes.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioRecorder.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioStream.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioStreamLoader.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IFileFactory.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IFileReader.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IRefCounted.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_irrKlangTypes.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISound.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundDeviceList.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundEffectControl.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundEngine.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundMixedOutputReceiver.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundSource.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundStopEventReceiver.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IVirtualRefCounted.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_SAudioStreamFormat.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_vec3d.h" />
+    <ClInclude Include="Horchata\Sonidos\irrKlang\irrKlang.h" />
+    <ClInclude Include="Horchata\hoImages.h" />
+    <ClInclude Include="Horchata\hoText2.h" />
+    <ClInclude Include="Horchata\Shader.h" />
+    <ClInclude Include="hoRigidBody.h" />
     <ClInclude Include="RenderGL.h" />
-    <ClInclude Include="Horchata\hoAudioManager.h">
-      <Filter>horchata</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\hoColor.h">
-      <Filter>horchata</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\hoImages.h">
-      <Filter>horchata</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\hoPrimitives.h">
-      <Filter>horchata</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Horchata.h">
-      <Filter>horchata</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\hoText2.h">
-      <Filter>horchata</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\hoTime.h">
-      <Filter>horchata</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\hoVector.h">
-      <Filter>horchata</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Shader.h">
-      <Filter>horchata</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ESoundEngineOptions.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ESoundOutputDrivers.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_EStreamModes.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioRecorder.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioStream.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IAudioStreamLoader.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IFileFactory.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IFileReader.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IRefCounted.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_irrKlangTypes.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISound.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundDeviceList.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundEffectControl.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundEngine.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundMixedOutputReceiver.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundSource.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_ISoundStopEventReceiver.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_IVirtualRefCounted.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_SAudioStreamFormat.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\ik_vec3d.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\Sonidos\irrKlang\irrKlang.h">
-      <Filter>horchata\irrKlang</Filter>
-    </ClInclude>
-    <ClInclude Include="Horchata\hoBotones.h">
-      <Filter>horchata</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Horchata\hoSprite.h">
-      <Filter>horchata</Filter>
-    </ClInclude>
-    <ClInclude Include="Chipmunk\src\prime.h">
-      <Filter>horchata\chipmunk</Filter>
-    </ClInclude>
-    <ClInclude Include="hoBody.h">
-      <Filter>horchata</Filter>
-    </ClInclude>
-    <ClInclude Include="hoRigidBody.h">
-      <Filter>horchata</Filter>
-    </ClInclude>
     <ClInclude Include="resource1.h" />
-    <ClInclude Include="Horchata\hoSprite.h">
-      <Filter>horchata</Filter>
-    </ClInclude>
+    <ClInclude Include="Horchata\hoCamera.h" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="horchata">
-      <UniqueIdentifier>{b1b78ee5-299a-4b85-8d9c-d86e6e6e3072}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="horchata\irrKlang">
-      <UniqueIdentifier>{75bbd7dd-ddac-4a6e-a991-90b60b09132a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="horchata\chipmunk">
-      <UniqueIdentifier>{797e4146-d59a-452c-8824-4402f8ac1584}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Chipmunk\src\CMakeLists.txt">
-      <Filter>horchata\chipmunk</Filter>
-    </Text>
+    <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="horchata.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Resource.rc" />
+    <Text Include="Chipmunk\src\CMakeLists.txt" />
   </ItemGroup>
 </Project>
