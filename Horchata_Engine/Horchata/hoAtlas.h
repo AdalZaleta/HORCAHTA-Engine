@@ -14,7 +14,7 @@ public:
 	hoAtlas() {}
 	~hoAtlas() {}
 
-	struct SpriteItem
+	struct SpriteItem //estructura para la informacion de cada sprite
 	{
 		std::string name;
 		int x;
@@ -23,7 +23,7 @@ public:
 		int height;
 	};
 
-	std::vector<SpriteItem> items;
+	std::vector<SpriteItem> items; //vector contenedor de todos los frames
 
 	bool loadAtlas(const char *_dirImage, const char *_json)
 	{
@@ -40,24 +40,25 @@ public:
 		std::string str;
 
 		t.seekg(0, std::ios::end);
-		str.reserve(t.tellg());
+		str.reserve(t.tellg()); //magia del internet
 		t.seekg(0, std::ios::beg);
 
 		str.assign((std::istreambuf_iterator<char>(t)),
 			std::istreambuf_iterator<char>());
 
+		
 
 		Document document;
 		document.Parse(str.c_str());
-		if (document == NULL)
+		if (document == NULL) //seguridad
 		{
 			return false;
 		}
-		assert(document.IsObject());
+		assert(document.IsObject()); //asegurarse que es objeto 
 		const Value& frames = document["frames"];
-		assert(frames.IsArray());
+		assert(frames.IsArray()); //asegurarse que es arreglo
 		SpriteItem temp;
-		for (SizeType i = 0; i < frames.Size(); i++)
+		for (SizeType i = 0; i < frames.Size(); i++) //mete a un vector cada sprite de la spritesheet
 		{
 			temp.name.assign(frames[i]["filename"].GetString());
 			temp.x = frames[i]["frame"]["x"].GetInt();
@@ -74,7 +75,7 @@ public:
 		return true;
 	}
 
-	SpriteItem GetSpriteDetails(const char *_name)
+	SpriteItem GetSpriteDetails(const char *_name) //te da la informacion de el frame que pides en el argumento
 	{
 		
 		for (int i = 0; i < items.size(); i++)
@@ -87,6 +88,6 @@ public:
 				return items[i];
 			}
 		}
-		//printf_s("Valio verga esta madre\n");
+
 	}
 };
