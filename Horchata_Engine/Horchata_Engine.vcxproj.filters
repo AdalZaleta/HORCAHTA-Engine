@@ -47,6 +47,33 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderGL.cpp" />
     <ClCompile Include="Horchata\hoCamera.cpp" />
+    <ClCompile Include="Horchata\hoAudioManager.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\hoImages.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\hoPrimitives.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\Horchata.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\hoText2.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\hoTime.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\hoVector.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\hoSprite.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\hoSpriteSheet.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Chipmunk\src\prime.h" />
@@ -88,6 +115,15 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="resource1.h" />
     <ClInclude Include="Horchata\hoCamera.h" />
+    <ClInclude Include="Horchata\hoSprite.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\hoSpriteSheet.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
+    <ClInclude Include="Horchata\hoAtlas.h">
+      <Filter>horchata</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />

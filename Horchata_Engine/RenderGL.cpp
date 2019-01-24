@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "Metastuff/Meta.h"
 
 
 #define GRABBABLE_MASK_BIT (1<<31)
@@ -112,8 +113,6 @@ void RenderGL::inicializar()
 	//glUniformMatrix4fv(glGetUniformLocation(g_ho.shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 
 	//testFont.LoadFont("Resources/Fonts/naruto.ttf", 32, 0);
-	sprite.LoadImage_("GABO.jpg");
-	image.LoadImage_("GABO.jpg");
 }
 
 void RenderGL::liberar()
@@ -146,28 +145,8 @@ void RenderGL::render()
 	/*g_ho.EnableTextShader(); // Activar Shader para renderizar texto
 		//ESCRIBIR TEXTOS
 	g_ho.DisableTextShader(); // Descativar Shader de texto*/
-	//image.DrawImage(0, 0, 100, 100);
-	sprite.SetScale(15);
-	sprite.SetColor(g_ho.colorchata.sapphire);
-	sprite.SetAlpha(0.5f);
-	sprite.Draw(0, 0, 45);
 
 	g_ho.EnableTextShader(); // Activar Shader para renderizar texto
 		//ESCRIBIR TEXTOS
 	g_ho.DisableTextShader(); // Descativar Shader de texto
-
-	
-	glPushMatrix();
-	//g_ho.camara.MoveCamera(200, 200, hoTime::deltaTime);
-	//gluOrtho2D(clipAreaXLeft +20, clipAreaXRightt + 20, clipAreaYBottom + 20, clipAreaYTop + 20);
-	//g_ho.camara.MoveCameraLeft(-200 * hoTime::deltaTime);
-	//g_ho.camara.MoveCameraRight(300 * hoTime::deltaTime);
-	glPointSize(15.0f);
-	glColor3f(1.0f, 0.0f, 0.0f);
-	glBegin(GL_POINTS);
-	glVertex2f(g_ho.circulo->p.x, g_ho.circulo->p.y);
-	glEnd();
-	
-
-	glPopMatrix();
 }

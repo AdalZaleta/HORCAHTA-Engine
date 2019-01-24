@@ -47,7 +47,7 @@ bool hoImages::LoadImage_(const char *_dirImages)
 	glEnable(GL_TEXTURE_2D);
 
 	//glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-	GLuint textures;
+	
 	glGenTextures(1, &textures); //Number of textures stored in array name specified
 
 	glBindTexture(GL_TEXTURE_2D, textures);
@@ -65,7 +65,7 @@ bool hoImages::LoadImage_(const char *_dirImages)
 
 	// Map the surface to the texture in video memory
 	glTexImage2D(GL_TEXTURE_2D, 0, mode, imageSurface->w, imageSurface->h, 0, mode, GL_UNSIGNED_BYTE, imageSurface->pixels); //GL_BITMAP
-	//SDL_FreeSurface(imageSurface);
+	SDL_FreeSurface(imageSurface);
 	width = imageSurface->w;
 	height = imageSurface->h;
 
@@ -74,16 +74,24 @@ bool hoImages::LoadImage_(const char *_dirImages)
 	return true;
 }
 
-void hoImages::DrawImage(int _x, int _y, int _width, int _height)
+void hoImages::DrawImage(int _x, int _y, int _width, int _height, int _XInnerCoord, int _YInnerCoord, int _WInnerCoord, int _HInnerCoord)
 {
 	glPushMatrix(); //Se hace un PushMatrix() para poder trasladarnos en las 4 esquinas de la imagen
 
+	glBindTexture(GL_TEXTURE_2D, textures);
+
+	float x = _XInnerCoord / ((float)width);
+	float y = _YInnerCoord / ((float)height);
+	float xw = (_XInnerCoord + _WInnerCoord) / ((float)width);
+	float yw = (_YInnerCoord + _HInnerCoord) / ((float)height);
+
 	//Renderear el quad
 	glBegin(GL_QUADS);
-	glTexCoord2f(0.0f, 1.0f); glVertex2f(_x + (_width/2.0f), _y - (_height/2.0f)); //Arriba a la izquierda
-	glTexCoord2f(1.0f, 1.0f); glVertex2f(_x - (_width/2.0f), _y - (_height/2.0f)); //Arriba a la derecha
-	glTexCoord2f(1.0f, 0.0f); glVertex2f(_x - (_width/2.0f), _y + (_height/2.0f)); //Abajo a la derecha
-	glTexCoord2f(0.0f, 0.0f); glVertex2f(_x + (_width/2.0f), _y + (_height/2.0f)); //Abajo a la izquierda
+	//maneja las porciones de la img			//maneja el tamaño
+	glTexCoord2f(xw, yw);						glVertex2f(_x + (_width/2.0f), _y - (_height/2.0f)); //Arriba a la izquierda
+	glTexCoord2f(x, yw);						glVertex2f(_x - (_width/2.0f), _y - (_height/2.0f)); //Arriba a la derecha
+	glTexCoord2f(x, y);							glVertex2f(_x - (_width/2.0f), _y + (_height/2.0f)); //Abajo a la derecha
+	glTexCoord2f(xw, y);						glVertex2f(_x + (_width/2.0f), _y + (_height/2.0f)); //Abajo a la izquierda
 	/* Se modificó la convencion de dibujo, para que la imagen no saliera invertida */
 	glEnd(); // Le paramos el render del quad
 

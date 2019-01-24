@@ -1,6 +1,7 @@
 #pragma once
 #include "Horchata/Horchata.h"
 #include <stdlib.h>
+#include "Horchata/hoSpriteSheet.h"
 
 class RenderGL
 {
@@ -29,11 +30,6 @@ class RenderGL
 		void render();
 		
 		const GLuint WIDTH = 1500, HEIGHT = 1000;
-
-		hoSprite sprite;
-		hoImages image;
-		
-
 };
 
 extern RenderGL g_renderGL; //Singleton

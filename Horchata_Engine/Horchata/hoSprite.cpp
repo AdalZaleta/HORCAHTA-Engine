@@ -9,13 +9,18 @@ hoSprite::~hoSprite()
 {
 }
 
-void hoSprite::Draw(int _x, int _y)
+void hoSprite::Draw(int x, int y, int xini, int yini, int xw, int yh)
 {
 	glPushMatrix(); //Se hace un PushMatrix() para poder trasladarnos en las 4 esquinas de la imagen
-		glColor4f(color[0], color[1], color[2], color[3]); //Dibujamos el color (blanco por default)
-		glRotatef(angle, 0, 0, 1); //rotamos en Z
-		DrawImage(_x, _y, width / 100.0f * scalex, height / 100.0f * scaley); //Se dibuja como imagen
+	glColor4f(color[0], color[1], color[2], color[3]); //Dibujamos el color (blanco por default)
+	glRotatef(angle, 0, 0, 1); //rotamos en Z
+	DrawImage(x, y, width / 100.0f * scalex, height / 100.0f * scaley, xini, yini, xw, yh); //Se dibuja como imagen
 	glPopMatrix(); //Termina la fase de render
+}
+
+void hoSprite::Draw(int _x, int _y)
+{
+	Draw(_x, _y, 0, 0, width, height);
 }
 
 void hoSprite::Draw(int _x, int _y, float rotation) //Sobrecarga que settea la rotacion

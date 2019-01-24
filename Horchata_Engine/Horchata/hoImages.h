@@ -16,9 +16,10 @@ public:
 	//This variables contains the width and height
 	int width;
 	int height;
+	GLuint textures;
 
 	//This function Draws the pre-loaded Image
-	void DrawImage(int _x, int _y, int _width, int _height);
+	void DrawImage(int _x, int _y, int _width, int _height, int _XInnerCoord, int _YInnerCoord, int _WInnerCoord, int _HInnerCoord);
 
 	//This function Loads the Image from the path
 	//The path starts in the folder 'Resources'
