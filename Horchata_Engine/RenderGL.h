@@ -1,6 +1,7 @@
 #pragma once
 #include "Horchata/Horchata.h"
 #include <stdlib.h>
+#include "Horchata/hoSpriteSheet.h"
 
 class RenderGL
 {
@@ -20,6 +21,9 @@ class RenderGL
 		//Se llama al momento de libarse
 		void liberar();
 
+		//Se llama desde main en los click down, las coordenas estan en version openGL
+		void onClickDown(float _x, float _y);
+
 		//Funcion que se actualiza cada frame
 		void update();
 		//Funcion encargado de dibujar
@@ -28,6 +32,8 @@ class RenderGL
 		hoSprite sprite;
 		hoText2 txt;
 
+
+		const GLuint WIDTH = 1500, HEIGHT = 1000;
 };
 
 extern RenderGL g_renderGL; //Singleton

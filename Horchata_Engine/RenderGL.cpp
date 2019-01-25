@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "Metastuff/Meta.h"
 
 #define GRABBABLE_MASK_BIT (1<<31)
 cpShapeFilter NOT_GRABBABLE_FILTER = { CP_NO_GROUP, ~GRABBABLE_MASK_BIT, ~GRABBABLE_MASK_BIT };
@@ -105,11 +106,55 @@ void RenderGL::inicializar()
 	//cpShapeSetCollisionType(shape, 2);
 
 	////-----------------------	HORCHATA SECTION	--------------------------------------
-	 
+
 	//Init Text
 	txt.LoadFont(w, h, "Resources/Fonts/DTM.otf", 0, 32, g_ho.shader);
 	//Init Font
 	sprite.LoadImage_("Bolita.png");
+	g_ho.space = cpSpaceNew();
+	cpSpaceSetIterations(g_ho.space, 10);
+	cpSpaceSetGravity(g_ho.space, cpv(0, -100));
+	cpBody *staticBody = cpSpaceGetStaticBody(g_ho.space);;
+	cpShape *shape;
+
+	//Contorno de la pantalla
+	// Create segments around the edge of the screen.
+	shape = cpSpaceAddShape(g_ho.space, cpSegmentShapeNew(staticBody, cpv(-320, -240), cpv(-320, 240), 0.0f));
+	cpShapeSetElasticity(shape, 1.0f);
+	cpShapeSetFriction(shape, 1.0f);
+	cpShapeSetFilter(shape, NOT_GRABBABLE_FILTER);
+
+	shape = cpSpaceAddShape(g_ho.space, cpSegmentShapeNew(staticBody, cpv(320, -240), cpv(320, 240), 0.0f));
+	cpShapeSetElasticity(shape, 1.0f);
+	cpShapeSetFriction(shape, 1.0f);
+	cpShapeSetFilter(shape, NOT_GRABBABLE_FILTER);
+
+	shape = cpSpaceAddShape(g_ho.space, cpSegmentShapeNew(staticBody, cpv(-320, -240), cpv(320, -240), 0.0f));
+	cpShapeSetElasticity(shape, 1.0f);
+	cpShapeSetFriction(shape, 1.0f);
+	cpShapeSetFilter(shape, NOT_GRABBABLE_FILTER);
+
+	//Pelota
+	cpFloat radius = 15.0f;
+	g_ho.circulo = cpSpaceAddBody(g_ho.space, cpBodyNew(10.0f, cpMomentForCircle(10.0f, 0.0f, radius, cpvzero)));
+	cpBodySetPosition(g_ho.circulo, cpv(0, -200));
+	cpBodySetVelocity(g_ho.circulo, cpv(0, 170));
+
+	shape = cpSpaceAddShape(g_ho.space, cpCircleShapeNew(g_ho.circulo, radius, cpvzero));
+	cpShapeSetElasticity(shape, 0.0f);
+	cpShapeSetFriction(shape, 0.9f);
+	cpShapeSetCollisionType(shape, 2);
+	// Compilar el shader para el texto
+	// Definicion del shader global
+	//g_ho.shader.LoadShader("Resources/shaders/text.vs", "Resources/shaders/text.frag");
+	//glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(w), 0.0f, static_cast<GLfloat>(h));
+	//g_ho.shader.Use();
+	//glUniformMatrix4fv(glGetUniformLocation(g_ho.shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+
+	//testFont.LoadFont("Resources/Fonts/naruto.ttf", 32, 0);
+
+	//ss.Load("JSON/spritesheet.png", "JSON/spritesheet.json");
+	//Running1 = ss.atlas.GetSpriteDetails("RunRight02.png");
 }
 
 void RenderGL::liberar()
@@ -117,12 +162,17 @@ void RenderGL::liberar()
 	cpSpaceFree(g_ho.space);
 }
 
-float hue = 0;
+void RenderGL::onClickDown(float _x, float _y)
+{
+	//CODIGO DE BOTONES Boton.OnClickDown(_x, _y);
+}
 
 void RenderGL::update()
 {
+
 }
 
+float zoom = 10;
 void RenderGL::render()
 {
 	//Limpiamos pantalla

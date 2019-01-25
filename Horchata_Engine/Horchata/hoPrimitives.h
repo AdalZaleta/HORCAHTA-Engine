@@ -22,6 +22,7 @@ public:
 
 	bool isActive = true, fill = false;		//isActive es un booleano que indica si la primitiva deberia ser dibujada o no, fill indica si deberia de ser rellenada o no
 	float rgba[4] = { 1, 1, 1, 1 };			//Valor de color que cada quien guarda
+	float rotation;							//Valor de rotación en el unico eje que puede rotar
 protected:
 	void setColor(float _rgba[4]);			//Seteo el color
 };
@@ -159,6 +160,7 @@ public:
 
 	void DrawLine(float _x1, float _y1, float _x2, float _y2);			
 	void DrawLine(hoVector2f _pos1, hoVector2f _pos2);
+	void DrawLine(hoVector2f _pos1, hoVector2f _pos2, float _rot);
 	void DrawCircle(float _x, float _y, float _r, int _seg);
 	void DrawCircle(hoVector2f _pos, float _r, int _seg);
 	void DrawPoint(float _x, float _y, float _size);
@@ -166,19 +168,24 @@ public:
 	void DrawRect(float _x, float _y, float _w, float _h);
 	void DrawRect(hoVector2f _pos, float _w, float _h);
 	void DrawRect(hoVector2f _pos, hoVector2f _sizes);
+	void DrawRect(hoVector2f _pos, float _w, float _h, float _rot);
 	void DrawEllipse(float _x, float _y, float _W, float _h, int _seg);
 	void DrawEllipse(hoVector2f _pos, float _w, float _h, int _seg);
+	void DrawEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rot);
 	//Fills
 	void FillCircle(float _x, float _y, float _r, int _seg);
 	void FillCircle(hoVector2f _pos, float _r, int _seg);
 	void FillRect(float _x, float _y, float _w, float _h);
 	void FillRect(hoVector2f _pos, float _w, float _h);
 	void FillRect(hoVector2f _pos, hoVector2f _sizes);
+	void FillRect(hoVector2f _pos, float _w, float _h, float _rot);
 	void FillEllipse(float _x, float _y, float _W, float _h, int _seg);
 	void FillEllipse(hoVector2f _pos, float _w, float _h, int _seg);
+	void FillEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rot);
 	//Same but with color
 	void DrawLine(float _x1, float _y1, float _x2, float _y2, float _rgba[4]);
 	void DrawLine(hoVector2f _pos1, hoVector2f _pos2, float _rgba[4]);
+	void DrawLine(hoVector2f _pos1, hoVector2f _pos2, float _rot, float _rgba[4]);
 	void DrawCircle(float _x, float _y, float _r, int _seg, float _rgba[4]);
 	void DrawCircle(hoVector2f _pos, float _r, int _seg, float _rgba[4]);
 	void DrawPoint(float _x, float _y, float _size, float _rgba[4]);
@@ -186,16 +193,20 @@ public:
 	void DrawRect(float _x, float _y, float _w, float _h, float _rgba[4]);
 	void DrawRect(hoVector2f _pos, float _w, float _h, float _rgba[4]);
 	void DrawRect(hoVector2f _pos, hoVector2f _sizes, float _rgba[4]);
+	void DrawRect(hoVector2f _pos, float _w, float _h, float _rot, float _rgba[4]);
 	void DrawEllipse(float _x, float _y, float _W, float _h, int _seg, float _rgba[4]);
 	void DrawEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rgba[4]);
+	void DrawEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rot, float _rgba[4]);
 	//Fills with color
 	void FillCircle(float _x, float _y, float _r, int _seg, float _rgba[4]);
 	void FillCircle(hoVector2f _pos, float _r, int _seg, float _rgba[4]);
 	void FillRectColor(float _x, float _y, float _w, float _h, float _rgba[4]);
 	void FillRectColor(hoVector2f _pos, float _w, float _h, float _rgba[4]);
 	void FillRectColor(hoVector2f _pos, hoVector2f _sizes, float _rgba[4]);
+	void FillRectColor(hoVector2f _pos, float _w, float _h, float _rot, float _rgba[4]);
 	void FillEllipse(float _x, float _y, float _W, float _h, int _seg, float _rgba[4]);
 	void FillEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rgba[4]);
+	void FillEllipse(hoVector2f _pos, float _w, float _h, int _seg, float _rot, float _rgba[4]);
 
 
 private:
