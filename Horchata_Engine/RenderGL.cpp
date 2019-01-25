@@ -71,7 +71,7 @@ void RenderGL::inicializar()
 	//testFont.LoadFont("Resources/Fonts/naruto.ttf", 32, 0);
 
 	ss.Load("JSON/spritesheet.png", "JSON/spritesheet.json");
-	//Running1 = ss.atlas.GetSpriteDetails("RunRight02.png");
+	Running1 = ss.atlas.GetSpriteDetails("RunRight02.png");
 }
 
 void RenderGL::liberar()
@@ -93,5 +93,5 @@ void RenderGL::render()
 	//Esto tiene que estar siempre
 	g_ho.primitives.DrawAll();
 	ss.SetScale(10.0f);
-	ss.Draw("RunRight02.png", 0, 0, 45);
+	ss.Draw(Running1, 0, 0, 45);
 }

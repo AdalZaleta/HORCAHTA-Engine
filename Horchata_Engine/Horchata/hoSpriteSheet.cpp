@@ -25,6 +25,17 @@ void hoSpriteSheet::Draw(const char * _nameImage, int _x, int _y, int _rotation)
 	Draw(_nameImage, _x, _y);
 }
 
+void hoSpriteSheet::Draw(hoAtlas::SpriteItem _item, int _x, int _y)
+{
+	hoSprite::Draw(_x, _y, _item.x, _item.y, _item.width, _item.height); //la dibuja acorde a los datos de la struct
+}
+
+void hoSpriteSheet::Draw(hoAtlas::SpriteItem _item, int _x, int _y, int _rotation)
+{
+	angle = _rotation; //Asignamos la rotacion de la imagen
+	hoSprite::Draw(_x, _y, _item.x, _item.y, _item.width, _item.height); //la dibuja acorde a los datos de la struct
+}
+
 hoSpriteSheet::~hoSpriteSheet()
 {
 }
