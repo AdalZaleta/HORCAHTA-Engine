@@ -25,7 +25,8 @@ class RenderGL
 		//Funcion encargado de dibujar
 		void render();
 
-		hoSprite pelota;
+		hoSprite sprite;
+		hoText2 txt;
 
 };
 

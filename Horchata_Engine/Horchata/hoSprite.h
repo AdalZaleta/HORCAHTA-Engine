@@ -1,6 +1,22 @@
 #pragma once
 #include "hoImages.h"
 
+/*
+	Para poder usar hoSprite se tiene que cargar primero la imagen en Inicializar() y ya despues en Render()
+	poner que se dibuje la imágen cargada
+
+	Ejemplo:
+	-Declarar una variable en RenderGL.h
+		hoSprite sprite;
+
+	-RenderGL::Inicializar()
+		sprite.LoadImage_("Bolita.png");
+
+	-RenderGL::Render()
+		sprite.Draw(0, 0);
+		sprite.SetScale(5);
+*/
+
 class hoSprite : public hoImages
 {
 public:

@@ -22,6 +22,26 @@
 
 #include "SDL.h"
 
+/*
+	Para poder usar hoText2 se tiene que cargar la fuente en inicializar primero y ya en render
+	se habilita el TextShader(), pones el texto que quieres renderear y después finalizas el TextShader()
+	usando DisableTextShader()
+
+	Ejemplo:
+	-Declarar variable en RenderGL.h
+		hoText2 txt;
+
+	-En "RenderGL::Inicializar()"
+		txt.LoadFont(w, h, "Resources/Fonts/DTM.otf", 0, 32, g_ho.shader);
+
+
+	-En "RenderGL::Render()"
+		g_ho.EnableTextShader();
+			txt.RenderText("00", w/2, h - 70, 1.3, glm::vec3(1, 1, 1));
+		g_ho.DisableTextShader();
+
+*/
+
 class hoText2 {
 public:
 	void LoadFont(int _w, int _h, const char* path, FT_UInt w, FT_UInt h, Shader _shader);

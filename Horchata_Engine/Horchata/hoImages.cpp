@@ -47,7 +47,7 @@ bool hoImages::LoadImage_(const char *_dirImages)
 	glEnable(GL_TEXTURE_2D);
 
 	//glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-	GLuint textures;
+	
 	glGenTextures(1, &textures); //Number of textures stored in array name specified
 
 	glBindTexture(GL_TEXTURE_2D, textures);
@@ -77,7 +77,7 @@ bool hoImages::LoadImage_(const char *_dirImages)
 void hoImages::DrawImage(int _x, int _y, int _width, int _height)
 {
 	glPushMatrix(); //Se hace un PushMatrix() para poder trasladarnos en las 4 esquinas de la imagen
-
+	glBindTexture(GL_TEXTURE_2D, textures);
 	//Renderear el quad
 	glBegin(GL_QUADS);
 	glTexCoord2f(0.0f, 1.0f); glVertex2f(_x + (_width/2.0f), _y - (_height/2.0f)); //Arriba a la izquierda

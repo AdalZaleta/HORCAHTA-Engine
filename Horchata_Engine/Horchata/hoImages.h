@@ -16,6 +16,7 @@ public:
 	//This variables contains the width and height
 	int width;
 	int height;
+	GLuint textures;
 
 	//This function Draws the pre-loaded Image
 	void DrawImage(int _x, int _y, int _width, int _height);
