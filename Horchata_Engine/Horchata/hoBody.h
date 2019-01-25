@@ -29,11 +29,21 @@ public:
 	~hoBody();
 
 	cpBody* GetBody();
+	//Add shapes
 	void AddShape(cpShape* _shape);
 	void AddShape(cpShape* _shape, std::string _name);
+	void AddCircle(hoVector2f _offset, float _r);
 	void AddCircle(hoVector2f _offset, float _r, std::string _name);
+	void AddRect(float _w, float _h, float _r = 0);
+	void AddRect(float _w, float _h, std::string _name, float _r = 0);
+	void AddPoly(int _count, cpVect* _vert, float _radius, cpTransform _transform = cpTransformIdentity);
+	void AddPoly(int _count, cpVect* _vert, float _radius, std::string _name, cpTransform _transform = cpTransformIdentity);
+	void AddSegment(hoVector2f _point1, hoVector2f _point2, float _radius);
+	void AddSegment(hoVector2f _point1, hoVector2f _point2, float _radius, std::string _name);
+	//Shape management
 	void SetShape(cpShape* _shape, int _index, std::string _shapeName);
 	hoShape GetShape(int _index);
+	hoShape GetShape(std::string _name);
 	void DeleteShape(int _index);
 	void SetPosition(hoVector2f _position);
 	hoVector2f GetPosition();

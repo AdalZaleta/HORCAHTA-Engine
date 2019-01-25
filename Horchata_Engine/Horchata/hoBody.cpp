@@ -19,7 +19,7 @@ hoBody::hoBody(hoVector2f _pos, float _angle, bool _isStatic) {
 		body = cpSpaceGetStaticBody(g_ho.space);
 	else
 		body = cpSpaceAddBody(g_ho.space, cpBodyNew(1.0f, cpMomentForCircle(1.0f, 0.0f, 1.0f, cpvzero)));
-
+	
 }
 
 hoBody::hoBody(hoVector2f _pos, float _angle, bool _isStatic, hoVector2f _vel) {
@@ -55,10 +55,45 @@ void hoBody::AddShape(cpShape * _shape, std::string _name)
 	shapes.push_back(newHoShape);
 }
 
+void hoBody::AddCircle(hoVector2f _offset, float _r)
+{
+	AddCircle(_offset, _r,  GetNextDefaultName());
+}
+
 void hoBody::AddCircle(hoVector2f _offset, float _r, std::string _name)
 {
 	AddShape(cpSpaceAddShape(g_ho.space, cpCircleShapeNew(body, _r, CCPV(_offset))));
-}///TODO: agregar user friendly shapes meth
+}
+
+void hoBody::AddRect(float _w, float _h, float _r)
+{
+	AddRect(_w, _h, GetNextDefaultName(), _r);
+}
+
+void hoBody::AddRect(float _w, float _h, std::string _name, float _r)
+{
+	AddShape(cpSpaceAddShape(g_ho.space, cpBoxShapeNew(body, _w, _h, _r)));
+}
+
+void hoBody::AddPoly(int _count, cpVect * _vert, float _radius, cpTransform _transform)
+{
+	AddPoly(_count, _vert, _radius, GetNextDefaultName(), _transform);
+}
+
+void hoBody::AddPoly(int _count, cpVect * _vert, float _radius, std::string _name, cpTransform _transform)
+{
+	AddShape(cpPolyShapeNew(body, _count, _vert, _transform, _radius), _name);
+}
+
+void hoBody::AddSegment(hoVector2f _point1, hoVector2f _point2, float _radius)
+{
+	AddSegment(_point1, _point2, _radius, GetNextDefaultName());
+}
+
+void hoBody::AddSegment(hoVector2f _point1, hoVector2f _point2, float _radius, std::string _name)
+{
+	AddShape(cpSegmentShapeNew(body, CCPV(_point1), CCPV(_point2), _radius), _name);
+}
 
 void hoBody::SetShape(cpShape * _shape, int _index, std::string _shapeName) {
 	cpSpaceRemoveShape(g_ho.space, shapes[_index].shape);
@@ -67,6 +102,15 @@ void hoBody::SetShape(cpShape * _shape, int _index, std::string _shapeName) {
 
 hoShape hoBody::GetShape(int _index) {
 	return shapes[_index];
+}
+
+hoShape hoBody::GetShape(std::string _name)
+{
+	for (int i = 0; i < shapes.size(); i++) {
+		if (shapes[i].name == _name)
+			return shapes[i];
+	}
+	return hoShape("not found", NULL);
 }
 
 void hoBody::DeleteShape(int _index) {
