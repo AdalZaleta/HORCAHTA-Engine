@@ -75,6 +75,7 @@ public:
 		return true;
 	}
 
+	//Recibe el nombre del sprite y devuelve el SpriteItem correspondiente
 	SpriteItem GetSpriteDetails(const char *_name) //te da la informacion de el frame que pides en el argumento
 	{
 		

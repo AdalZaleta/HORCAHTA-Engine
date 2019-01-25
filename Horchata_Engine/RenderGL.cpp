@@ -113,6 +113,9 @@ void RenderGL::inicializar()
 	//glUniformMatrix4fv(glGetUniformLocation(g_ho.shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 
 	//testFont.LoadFont("Resources/Fonts/naruto.ttf", 32, 0);
+
+	//ss.Load("JSON/spritesheet.png", "JSON/spritesheet.json");
+	//Running1 = ss.atlas.GetSpriteDetails("RunRight02.png");
 }
 
 void RenderGL::liberar()
@@ -149,4 +152,5 @@ void RenderGL::render()
 	g_ho.EnableTextShader(); // Activar Shader para renderizar texto
 		//ESCRIBIR TEXTOS
 	g_ho.DisableTextShader(); // Descativar Shader de texto
+
 }
