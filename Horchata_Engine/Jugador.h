@@ -4,7 +4,7 @@ class Jugador
 public:
 	Jugador();
 	
-
+	
 	bool turno;
 
 	void cambiarTurno();

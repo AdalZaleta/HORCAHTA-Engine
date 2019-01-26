@@ -112,8 +112,8 @@ void RenderGL::inicializar()
 	//glUniformMatrix4fv(glGetUniformLocation(g_ho.shader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 
 	//testFont.LoadFont("Resources/Fonts/naruto.ttf", 32, 0);
-	sprite.LoadImage_("GABO.jpg");
-	image.LoadImage_("GABO.jpg");
+	//sprite.LoadImage_("GABO.jpg");
+	//image.LoadImage_("GABO.jpg");
 }
 
 void RenderGL::liberar()
@@ -123,6 +123,7 @@ void RenderGL::liberar()
 
 void RenderGL::onClickDown(float _x, float _y)
 {
+	sprite.LoadImage_("GABO.jpg");
 	//CODIGO DE BOTONES Boton.OnClickDown(_x, _y);
 }
 
@@ -139,6 +140,15 @@ void RenderGL::render()
 	glLoadIdentity();
 
 	g_ho.camara.ZoomIn(1.2f);
+
+	g_ho.primitives.DrawRect(0.0f, 0.0f, 350.0f, 350.0f);
+	//TABLERO
+	g_ho.primitives.DrawLine(-175.0f, 60.0f,175.0f,60.0f);
+	//Lineas Horizontales
+	g_ho.primitives.DrawLine(-175.0f, -60.0f, 175.0f, -60.0f);
+	//Lineas Verticales
+	g_ho.primitives.DrawLine(-60.0f, -175.0f, -60.0f, 175.0f);
+	g_ho.primitives.DrawLine(60.0f, -175.0f, 60.0f, 175.0f);
 
 	//Esto tiene que estar siempre
 	g_ho.primitives.DrawAll();
