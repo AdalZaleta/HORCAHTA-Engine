@@ -9,7 +9,9 @@
 #include "Metastuff/Meta.h"
 
 #define GRABBABLE_MASK_BIT (1<<31)
-cpShapeFilter NOT_GRABBABLE_FILTER = { CP_NO_GROUP, ~GRABBABLE_MASK_BIT, ~GRABBABLE_MASK_BIT };
+cpShapeFilter GRAB_FILTER = { CP_NO_GROUP, GRABBABLE_MASK_BIT, GRABBABLE_MASK_BIT };
+cpShapeFilter NON_GRABABLE_FILTER = { CP_NO_GROUP, ~GRABBABLE_MASK_BIT, ~GRABBABLE_MASK_BIT };
+
 enum CollisionTypes {
 	COLLISION_TYPE_ONE_WAY = 1,
 };
@@ -24,7 +26,6 @@ RenderGL::~RenderGL()
 {
 
 }
-
 
 void RenderGL::inicializar()
 {
@@ -159,6 +160,7 @@ void RenderGL::inicializar()
 
 void RenderGL::liberar()
 {
+	delete test;
 	cpSpaceFree(g_ho.space);
 }
 
@@ -169,7 +171,7 @@ void RenderGL::onClickDown(float _x, float _y)
 
 void RenderGL::update()
 {
-
+	hoTime::CalcularDeltaTime();
 }
 
 float zoom = 10;
@@ -178,6 +180,14 @@ void RenderGL::render()
 	//Limpiamos pantalla
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
+
+	/*glBegin(GL_POINTS);
+	glPointSize(5.0f);
+	hoVector2f temp = test.GetPosition();
+	glVertex2f(temp.x, temp.y);
+	glEnd();*/
+
+	g_ho.primitives.DrawCircle(test->GetPosition(), 15, 16);
 
 	g_ho.primitives.FillRectColor(hoVector2f(-300, 0), 20, 100, g_ho.colorchata.moonstone);
 	g_ho.primitives.FillRectColor(hoVector2f(300, 0), 20, 100, g_ho.colorchata.burntSienna);
@@ -193,3 +203,5 @@ void RenderGL::render()
 	g_ho.DisableTextShader(); // Descativar Shader de texto
 
 }
+
+//TODO: que se mueva

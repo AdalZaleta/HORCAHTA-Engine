@@ -34,6 +34,9 @@ class RenderGL
 
 
 		const GLuint WIDTH = 1500, HEIGHT = 1000;
+
+
+		cpShapeFilter testFilter;
 };
 
 extern RenderGL g_renderGL; //Singleton

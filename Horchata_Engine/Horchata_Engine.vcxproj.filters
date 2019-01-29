@@ -68,7 +68,106 @@
     <ClCompile Include="Horchata\hoVector.cpp">
       <Filter>horchata</Filter>
     </ClCompile>
-    <ClCompile Include="Horchata\hoSprite.cpp">
+    <ClCompile Include="Chipmunk\src\chipmunk.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpArbiter.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpArray.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpBBTree.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpBody.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpCollision.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpConstraint.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpDampedRotarySpring.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpDampedSpring.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpGearJoint.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpGrooveJoint.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpHashSet.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpHastySpace.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpMarch.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpPinJoint.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpPivotJoint.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpPolyline.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpPolyShape.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpRatchetJoint.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpRobust.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpRotaryLimitJoint.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpShape.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpSimpleMotor.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpSlideJoint.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpSpace.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpSpaceComponent.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpSpaceDebug.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpSpaceHash.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpSpaceQuery.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpSpaceStep.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpSpatialIndex.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="Chipmunk\src\cpSweep1D.cpp">
+      <Filter>horchata\chipmunk</Filter>
+    </ClCompile>
+    <ClCompile Include="hoRigidBody.cpp">
+      <Filter>horchata</Filter>
+    </ClCompile>
+    <ClCompile Include="Horchata\hoBody.cpp">
       <Filter>horchata</Filter>
     </ClCompile>
     <ClCompile Include="Horchata\hoSpriteSheet.cpp" />

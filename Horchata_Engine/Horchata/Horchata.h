@@ -10,13 +10,13 @@
 #include "hoCamera.h"
 #include "chipmunk/chipmunk_private.h"
 #include "chipmunk/chipmunk.h"
+#include "hoBody.h"
 
 
 typedef cpSpace *(*ChipmunkDemoInitFunc)(void);
 typedef void(*ChipmunkDemoUpdateFunc)(cpSpace *space, double dt);
 typedef void(*ChipmunkDemoDrawFunc)(cpSpace *space);
 typedef void(*ChipmunkDemoDestroyFunc)(cpSpace *space);
-
 
 class Horchata {
 public:
