@@ -15,6 +15,8 @@ class RenderGL
 		float clipAreaYBottom;
 		int h;
 		int w;
+		float lPos;
+		float rPos;
 		//Funcion encarga de inicializar OpenGL
 		//Regresa True si se inicio correctamente o false en caso cotrario
 		void inicializar();
@@ -29,6 +31,10 @@ class RenderGL
 		//Funcion encargado de dibujar
 		void render();
 
+		void Ball();
+
+
+		hoBody* body;
 		hoSprite sprite;
 		hoText2 txt;
 
