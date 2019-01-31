@@ -68,15 +68,20 @@ void RenderGL::inicializar()
 	cpSpaceSetIterations(g_ho.space, 10);
 	cpSpaceSetGravity(g_ho.space, cpv(0, -100));
 
+	std::cout << "Loading floor" << std::endl;
 	floor = new hoBody();
-	floor->AddShape(cpSpaceAddShape(g_ho.space, cpSegmentShapeNew(floor->GetBody(), cpv(-320, -240), cpv(320, -240), 0.0f)));
+	//floor->AddShape(cpSpaceAddShape(g_ho.space, cpSegmentShapeNew(floor->GetBody(), cpv(-320, -240), cpv(320, -240), 0.0f)));
+	floor->AddSegment(hoVector2f(-320, -240), hoVector2f(320, -240), 0.0f);
 	floor->SetAllPhysics(1.0f, 1.0f);
 	floor->SetAllFilters(NON_GRABABLE_FILTER);
+	std::cout << "Finished floor" << std::endl;
 
+	std::cout << "Loading test" << std::endl;
 	test = new hoBody(hoVector2f(0, 0), 0, false, hoVector2f(5.0f, 0.0f));
 	test->AddCircle(hoVector2f(), 20, "namae");
 	test->SetAllCollisionTypes(2);
 	test->SetAllPhysics(1, 1);
+	std::cout << "Finished test" << std::endl;
 }
 
 void RenderGL::liberar()
