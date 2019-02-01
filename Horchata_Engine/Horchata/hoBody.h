@@ -20,12 +20,18 @@ struct hoShape{
 	cpShape *shape;
 };
 
+enum BodyType
+{
+	DYNAMIC,
+	KINEMATIC,
+	STATIC
+};
+
 class hoBody {
 public:
 
-	hoBody();
-	hoBody(hoVector2f _pos, float _angle, bool _isStatic);
-	hoBody(hoVector2f _pos, float _angle, bool _isStatic, hoVector2f _vel);
+	hoBody(BodyType _type);
+	hoBody(hoVector2f _pos, float _angle, BodyType _type, hoVector2f _vel = hoVector2f());
 	~hoBody();
 
 	cpBody* GetBody();
@@ -45,6 +51,7 @@ public:
 	hoShape GetShape(int _index);
 	hoShape GetShape(std::string _name);
 	void DeleteShape(int _index);
+	//Attribute management
 	void SetPosition(hoVector2f _position);
 	hoVector2f GetPosition();
 	void SetVelocity(hoVector2f _velocity);
@@ -53,6 +60,11 @@ public:
 	void SetAgularVelocity(float _angularVelocity);
 	float GetAngularVelocity();
 	float GetAngularAcceleration();
+	void SetMass(float _mass);
+	float GetMass();
+	void SetCenterOfMass(hoVector2f _center);
+	hoVector2f GetCenterOfMass();
+	//General management
 	void SetEnabled(bool _enabled);
 	bool IsEnabled();
 	void SetDebugDraw(bool _debugDraw);
@@ -60,10 +72,7 @@ public:
 	void SetAllCollisionTypes(int _collisionType);
 	void SetCollisionType(int _index, int _collisionType);
 	void SetCollisionCallback(void (*_callback)(void));
-	void SetMass(float _mass);
-	float GetMass();
-	void SetCenterOfMass(hoVector2f _center);
-	hoVector2f GetCenterOfMass();
+	
 	//void SetSprite(hoSprite* _sprite, int _index);
 	//hoSprite GetSprite(int _index);
 	//void AddSprite(hoSprite* _sprite);
@@ -132,8 +141,10 @@ public:
 private:
 
 	void UpdateBodyData();
+	void UpdateCpData();
 	cpVect CCPV(float _x, float _y);
 	cpVect CCPV(hoVector2f _vec);
+	hoVector2f CHOV(cpVect _vec);
 	void ShapeFree();
 	std::string GetNextDefaultName();
 
@@ -146,7 +157,7 @@ private:
 	hoVector2f acceleration;
 	float angularVelocity;
 	float angularAcceleration;
-	bool isStatic;
+	BodyType bodyType;
 	bool enabled;
 	bool debugDraw;
 	bool debbugging;
