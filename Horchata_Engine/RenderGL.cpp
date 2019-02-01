@@ -74,7 +74,7 @@ void RenderGL::inicializar()
 
 
 	////-----------------------	HORCHATA SECTION	--------------------------------------
-	
+
 	//Init Space
 	g_ho.space = cpSpaceNew();
 	cpSpaceSetIterations(g_ho.space, 10);

@@ -82,7 +82,7 @@ void hoBody::AddPoly(int _count, cpVect * _vert, float _radius, cpTransform _tra
 
 void hoBody::AddPoly(int _count, cpVect * _vert, float _radius, std::string _name, cpTransform _transform)
 {
-	AddShape(cpPolyShapeNew(body, _count, _vert, _transform, _radius), _name);
+	AddShape(cpSpaceAddShape(g_ho.space, cpPolyShapeNew(body, _count, _vert, _transform, _radius)), _name);
 }
 
 void hoBody::AddSegment(hoVector2f _point1, hoVector2f _point2, float _radius)
@@ -92,7 +92,7 @@ void hoBody::AddSegment(hoVector2f _point1, hoVector2f _point2, float _radius)
 
 void hoBody::AddSegment(hoVector2f _point1, hoVector2f _point2, float _radius, std::string _name)
 {
-	AddShape(cpSegmentShapeNew(body, CCPV(_point1), CCPV(_point2), _radius), _name);
+	AddShape(cpSpaceAddShape(g_ho.space, cpSegmentShapeNew(body, CCPV(_point1), CCPV(_point2), _radius)), _name);
 }
 
 void hoBody::SetShape(cpShape * _shape, int _index, std::string _shapeName) {
