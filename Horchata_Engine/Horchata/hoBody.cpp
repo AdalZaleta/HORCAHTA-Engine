@@ -6,7 +6,7 @@
 hoBody::hoBody()
 {
 	///body = cpSpaceAddBody(g_ho.space, cpBodyNew(1.0f, cpMomentForCircle(1.0f, 0.0f, 0.0f, cpvzero)));
-	body = cpSpaceGetStaticBody(g_ho.space);
+	body = cpBodyNewStatic();
 }
 
 hoBody::hoBody(hoVector2f _pos, float _angle, bool _isStatic) {
@@ -16,7 +16,7 @@ hoBody::hoBody(hoVector2f _pos, float _angle, bool _isStatic) {
 	velocity = hoVector2f();
 
 	if (_isStatic)
-		body = cpSpaceGetStaticBody(g_ho.space);
+		body = cpBodyNewStatic();
 	else
 		body = cpSpaceAddBody(g_ho.space, cpBodyNew(1.0f, cpMomentForCircle(1.0f, 0.0f, 1.0f, cpvzero)));
 	
@@ -28,7 +28,10 @@ hoBody::hoBody(hoVector2f _pos, float _angle, bool _isStatic, hoVector2f _vel) {
 	isStatic = _isStatic;
 	velocity = _vel;
 
-	body = cpSpaceAddBody(g_ho.space, cpBodyNew(1.0f, cpMomentForCircle(1.0f, 0.0f, 1.0f, cpvzero)));
+	if (_isStatic)
+		body = cpBodyNewStatic();
+	else
+		body = cpSpaceAddBody(g_ho.space, cpBodyNew(1.0f, cpMomentForCircle(1.0f, 0.0f, 1.0f, cpvzero)));
 	cpBodySetVelocity(body, CCPV(_vel.x, _vel.y));
 }
 
@@ -43,6 +46,57 @@ hoBody::~hoBody() {
 cpBody * hoBody::GetBody()
 {
 	return body;
+}
+
+cpSpaceDebugColor
+hoBody::ColorForShape(cpShape *shape, cpDataPointer data)
+{
+	if (cpShapeGetSensor(shape)) {
+		return LAColor(1.0f, 0.1f);
+	}
+	else {
+		cpBody *body = cpShapeGetBody(shape);
+
+		if (cpBodyIsSleeping(body)) {
+			return LAColor(0.2f, 1.0f);
+		}
+		else if (body->sleeping.idleTime > shape->space->sleepTimeThreshold) {
+			return LAColor(0.66f, 1.0f);
+		}
+		else {
+			uint32_t val = (uint32_t)shape->hashid;
+
+			// scramble the bits up using Robert Jenkins' 32 bit integer hash function
+			val = (val + 0x7ed55d16) + (val << 12);
+			val = (val ^ 0xc761c23c) ^ (val >> 19);
+			val = (val + 0x165667b1) + (val << 5);
+			val = (val + 0xd3a2646c) ^ (val << 9);
+			val = (val + 0xfd7046c5) + (val << 3);
+			val = (val ^ 0xb55a4f09) ^ (val >> 16);
+
+			GLfloat r = (GLfloat)((val >> 0) & 0xFF);
+			GLfloat g = (GLfloat)((val >> 8) & 0xFF);
+			GLfloat b = (GLfloat)((val >> 16) & 0xFF);
+
+			GLfloat max = (GLfloat)cpfmax(cpfmax(r, g), b);
+			GLfloat min = (GLfloat)cpfmin(cpfmin(r, g), b);
+			GLfloat intensity = (cpBodyGetType(body) == CP_BODY_TYPE_STATIC ? 0.15f : 0.75f);
+
+			// Saturate and scale the color
+			if (min == max) {
+				return RGBAColor(intensity, 0.0f, 0.0f, 1.0f);
+			}
+			else {
+				GLfloat coef = (GLfloat)intensity / (max - min);
+				return RGBAColor(
+					(r - min)*coef,
+					(g - min)*coef,
+					(b - min)*coef,
+					1.0f
+				);
+			}
+		}
+	}
 }
 
 void hoBody::AddShape(cpShape * _shape) {
@@ -263,8 +317,55 @@ void hoBody::Update(float _dt)
 	cpSpaceStep(g_ho.space, _dt);
 }
 
+void
+hoBody::DrawCircle(cpVect p, cpFloat a, cpFloat r, cpSpaceDebugColor outline, cpSpaceDebugColor fill, cpDataPointer data)
+{
+	ChipmunkDebugDrawCircle(p, a, r, outline, fill);
+}
+
+void
+hoBody::DrawSegment(cpVect a, cpVect b, cpSpaceDebugColor color, cpDataPointer data)
+{
+	ChipmunkDebugDrawSegment(a, b, color);
+}
+
+void
+hoBody::DrawFatSegment(cpVect a, cpVect b, cpFloat r, cpSpaceDebugColor outline, cpSpaceDebugColor fill, cpDataPointer data)
+{
+	ChipmunkDebugDrawFatSegment(a, b, r, outline, fill);
+}
+
+void
+hoBody::DrawPolygon(int count, const cpVect *verts, cpFloat r, cpSpaceDebugColor outline, cpSpaceDebugColor fill, cpDataPointer data)
+{
+	ChipmunkDebugDrawPolygon(count, verts, r, outline, fill);
+}
+
+void
+hoBody::DrawDot(cpFloat size, cpVect pos, cpSpaceDebugColor color, cpDataPointer data)
+{
+	ChipmunkDebugDrawDot(size, pos, color);
+}
+
 void hoBody::Draw()
 {
+	cpSpaceDebugDrawOptions drawOptions = {
+		DrawCircle,
+		DrawSegment,
+		DrawFatSegment,
+		DrawPolygon,
+		DrawDot,
+
+		(cpSpaceDebugDrawFlags)(CP_SPACE_DEBUG_DRAW_SHAPES | CP_SPACE_DEBUG_DRAW_CONSTRAINTS | CP_SPACE_DEBUG_DRAW_COLLISION_POINTS),
+
+		{200.0f / 255.0f, 210.0f / 255.0f, 230.0f / 255.0f, 1.0f},
+		ColorForShape,
+		{0.0f, 0.75f, 0.0f, 1.0f},
+		{1.0f, 0.0f, 0.0f, 1.0f},
+		NULL,
+	};
+
+	cpSpaceDebugDraw(g_ho.space, &drawOptions);
 }
 
 void hoBody::UpdateBodyData()

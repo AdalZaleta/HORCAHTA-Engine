@@ -2,6 +2,7 @@
 
 #include "chipmunk/chipmunk_private.h"
 #include "chipmunk/chipmunk.h"
+#include "chipmunk/ChipmunkDebugDraw.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -79,6 +80,14 @@ public:
 	void SetAllFilters(cpShapeFilter _filter);
 
 	virtual void Update(float _dt);
+
+	static cpSpaceDebugColor ColorForShape(cpShape *shape, cpDataPointer data);
+	static void DrawCircle(cpVect p, cpFloat a, cpFloat r, cpSpaceDebugColor outline, cpSpaceDebugColor fill, cpDataPointer data);
+	static void DrawSegment(cpVect a, cpVect b, cpSpaceDebugColor color, cpDataPointer data);
+	static void DrawFatSegment(cpVect a, cpVect b, cpFloat r, cpSpaceDebugColor outline, cpSpaceDebugColor fill, cpDataPointer data);
+	static void DrawPolygon(int count, const cpVect *verts, cpFloat r, cpSpaceDebugColor outline, cpSpaceDebugColor fill, cpDataPointer data);
+	static void DrawDot(cpFloat size, cpVect pos, cpSpaceDebugColor color, cpDataPointer data);
+
 	void Draw();
 
 
