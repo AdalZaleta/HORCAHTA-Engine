@@ -26,6 +26,8 @@ RenderGL::~RenderGL()
 
 }
 
+float m_x = 0;
+
 void RenderGL::inicializar()
 {
 	GLenum error = GL_NO_ERROR;
@@ -69,7 +71,7 @@ void RenderGL::inicializar()
 	cpSpaceSetGravity(g_ho.space, cpv(0, -100));
 
 	std::cout << "Loading floor" << std::endl;
-	floor = new hoBody(hoVector2f(300, 0), 0, true);
+	floor = new hoBody(STATIC);
 	//floor->AddShape(cpSpaceAddShape(g_ho.space, cpSegmentShapeNew(floor->GetBody(), cpv(-320, -240), cpv(320, -240), 0.0f)));
 	//floor->AddSegment(hoVector2f(-320, -240), hoVector2f(320, -240), 0.0f);
 	floor->AddRect(50, 50, 0.0f);
@@ -78,23 +80,30 @@ void RenderGL::inicializar()
 	std::cout << "Finished floor" << std::endl;
 
 	std::cout << "Loading test" << std::endl;
-	test = new hoBody(hoVector2f(0, 0), 0, false, hoVector2f(5.0f, 0.0f));
-	test->AddCircle(hoVector2f(), 20, "namae");
-	test->SetAllCollisionTypes(2);
-	test->SetAllPhysics(1, 1);
+	ball = new hoBody(hoVector2f(0, 0), 0, KINEMATIC, hoVector2f(5.0f, 0.0f));
+	ball->AddCircle(hoVector2f(), 20, "namae");
+	ball->SetAllCollisionTypes(2);
+	ball->SetAllPhysics(1, 1);
 	std::cout << "Finished test" << std::endl;
+
+
 }
 
 void RenderGL::liberar()
 {
-	delete test;
+	delete ball;
 	cpSpaceFree(g_ho.space);
 }
 
 void RenderGL::update()
 {
 	hoTime::CalcularDeltaTime();
-	test->Update(hoTime::deltaTime);
+
+	m_x += hoTime::deltaTime * 10;
+
+	ball->SetPosition(hoVector2f(m_x, 0));
+
+	ball->Update(hoTime::deltaTime);
 }
 
 void RenderGL::render()
@@ -102,14 +111,14 @@ void RenderGL::render()
 	//Limpiamos pantalla
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
-	
+
 	/*glBegin(GL_POINTS);
 	glPointSize(5.0f);
 	hoVector2f temp = test.GetPosition();
 	glVertex2f(temp.x, temp.y);
 	glEnd();*/
 
-	g_ho.primitives.DrawCircle(test->GetPosition(), 15, 16);
+	g_ho.primitives.DrawCircle(ball->GetPosition(), 15, 16);
 
 
 	//Esto tiene que estar siempre

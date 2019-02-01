@@ -3,36 +3,55 @@
 
 //TODO: Fix Filters' Bullshit Errors
 
-hoBody::hoBody()
+hoBody::hoBody(BodyType _type)
 {
-	///body = cpSpaceAddBody(g_ho.space, cpBodyNew(1.0f, cpMomentForCircle(1.0f, 0.0f, 0.0f, cpvzero)));
-	body = cpBodyNewStatic();
-}
-
-hoBody::hoBody(hoVector2f _pos, float _angle, bool _isStatic) {
-	position = _pos;
-	rotation = _angle;
-	isStatic = _isStatic; 
+	position = hoVector2f();
+	rotation = 0;
+	bodyType = _type;
 	velocity = hoVector2f();
+	angularVelocity = 0;
 
-	if (_isStatic)
-		body = cpBodyNewStatic();
-	else
+	switch (_type) {
+	case DYNAMIC:
 		body = cpSpaceAddBody(g_ho.space, cpBodyNew(1.0f, cpMomentForCircle(1.0f, 0.0f, 1.0f, cpvzero)));
-	
+		break;
+	case KINEMATIC:
+		body = cpBodyNewKinematic();
+		break;
+	case STATIC:
+		body = cpBodyNewStatic();
+		break;
+	default:
+		body = cpSpaceAddBody(g_ho.space, cpBodyNew(1.0f, cpMomentForCircle(1.0f, 0.0f, 1.0f, cpvzero)));
+		break;
+	}
+
+	UpdateCpData();
 }
 
-hoBody::hoBody(hoVector2f _pos, float _angle, bool _isStatic, hoVector2f _vel) {
+hoBody::hoBody(hoVector2f _pos, float _angle, BodyType _type, hoVector2f _vel) {
 	position = _pos;
 	rotation = _angle;
-	isStatic = _isStatic;
-	velocity = _vel;
+	bodyType = _type;
+	velocity = hoVector2f();
+	angularVelocity = 0;
 
-	if (_isStatic)
-		body = cpBodyNewStatic();
-	else
+	switch (_type) {
+	case DYNAMIC:
 		body = cpSpaceAddBody(g_ho.space, cpBodyNew(1.0f, cpMomentForCircle(1.0f, 0.0f, 1.0f, cpvzero)));
-	cpBodySetVelocity(body, CCPV(_vel.x, _vel.y));
+		break;
+	case KINEMATIC:
+		body = cpSpaceAddBody(g_ho.space, cpBodyNewKinematic());
+		break;
+	case STATIC:
+		body = cpSpaceAddBody(g_ho.space, cpBodyNewStatic());
+		break;
+	default:
+		body = cpSpaceAddBody(g_ho.space, cpBodyNew(1.0f, cpMomentForCircle(1.0f, 0.0f, 1.0f, cpvzero)));
+		break;
+	}
+
+	//Set al cpBody data according to the values in this constructor
 }
 
 hoBody::~hoBody() {
@@ -187,7 +206,7 @@ hoVector2f hoBody::GetPosition()
 void hoBody::SetVelocity(hoVector2f _velocity)
 {
 	velocity = _velocity;
-	cpBodySetVelocity(body, CCPV(_velocity.x, _velocity.y));
+	cpBodySetVelocity(body, CCPV(_velocity));
 }
 
 hoVector2f hoBody::GetVelocity()
@@ -236,7 +255,7 @@ bool hoBody::IsDebugDrawEnabled()
 	return debugDraw;
 }
 
-void hoBody::SetAllCollisionTypes(int _collisionType) 
+void hoBody::SetAllCollisionTypes(int _collisionType)
 {
 	for (int i = 0; i < shapes.size(); i++) {
 		cpShapeSetCollisionType(shapes[i].shape, _collisionType);
@@ -308,7 +327,7 @@ void hoBody::SetAllFilters(cpShapeFilter _filter)
 {
 	for (int i = 0; i < shapes.size(); i++) {
 		cpShapeSetFilter(shapes[i].shape, _filter);
-	}	
+	}
 }
 
 void hoBody::Update(float _dt)
@@ -370,10 +389,26 @@ void hoBody::Draw()
 
 void hoBody::UpdateBodyData()
 {
-	cpVect temp = cpBodyGetPosition(body);
-	position = hoVector2f(temp.x, temp.y);
+	position = CHOV(cpBodyGetPosition(body));
+	rotation = cpBodyGetAngle(body);
+	velocity = CHOV(cpBodyGetVelocity(body));
+	angularVelocity = cpBodyGetAngularVelocity(body);
+	//La masa ni su centro no deberian cambiar todos los frames as� que no la actualizo aqu�
+
 	std::cout << "X Position: " << cpBodyGetPosition(body).x << "  _  ";
 	std::cout << "Y Position: " << cpBodyGetPosition(body).y << std::endl;
+}
+
+void hoBody::UpdateCpData()
+{
+	SetPosition(position);
+	SetVelocity(velocity);
+	SetAgularVelocity(angularVelocity);
+	if (bodyType == DYNAMIC)
+	{
+		SetMass(mass);	//Aqui si actualizo la masa porque no se supone que se llame esta fuci�n seguido, solo los dinamicos tienen masa
+		SetCenterOfMass(centerOfMass);
+	}
 }
 
 cpVect hoBody::CCPV(float _x, float _y)
@@ -390,6 +425,11 @@ cpVect hoBody::CCPV(hoVector2f _vec)
 	temp.x = _vec.x;
 	temp.y = _vec.y;
 	return temp;
+}
+
+hoVector2f hoBody::CHOV(cpVect _vec)
+{
+	return hoVector2f(_vec.x, _vec.y);
 }
 
 void hoBody::ShapeFree()
