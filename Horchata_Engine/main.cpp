@@ -12,8 +12,6 @@ using namespace std;
 
 float speed = 3.0f;
 
-RenderGL rgl;
-
 //Dimensiones de la ventana
 const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
@@ -41,18 +39,18 @@ void handleKeys(unsigned char _key, int _x, int _y)
 {
 	//std::cout << _key << std::endl;
 	if (_key == 'w') {
-		rgl.lPos += speed;
-		std::cout << rgl.lPos << std::endl;
+		g_renderGL.lPos += speed;
+		std::cout << g_renderGL.lPos << std::endl;
 	}
 	else if (_key == 's') {
-		rgl.lPos -= speed;
+		g_renderGL.lPos -= speed;
 	}
 
 	if (_key == 'i') {
-		rgl.rPos += speed;
+		g_renderGL.rPos += speed;
 	}
 	else if (_key == 'k') {
-		rgl.rPos -= speed;
+		g_renderGL.rPos -= speed;
 	}
 }
 

@@ -80,26 +80,25 @@ void RenderGL::inicializar()
 	cpSpaceSetIterations(g_ho.space, 10);
 	cpSpaceSetGravity(g_ho.space, cpv(0,0));
 
+	circleB = new hoBody(hoVector2f(),0,false,hoVector2f(100,0));
+	circleB->AddCircle(hoVector2f(), 1.0f);
+	circleB->SetAllCollisionTypes(2);
+	circleB->SetAllPhysics(1, 1);
+
+	box1B = new hoBody();
+	box1B->AddSegment(hoVector2f(-300,-50), hoVector2f(-300, 50),0);
+	box1B->SetAllPhysics(1, 1);
+	box1B->SetAllFilters(NON_GRABABLE_FILTER);
+
+	box2B = new hoBody();
+	box2B->AddSegment(hoVector2f(300, -50), hoVector2f(300, 50), 0);
+	box2B->SetAllPhysics(1, 1);
+	box2B->SetAllFilters(NON_GRABABLE_FILTER);
+
 	//Init Text
 	txt.LoadFont(w, h, "Resources/Fonts/DTM.otf", 0, 32, g_ho.shader);
 	//Init Font
 	sprite.LoadImage_("Bolita.png");
-	g_ho.space = cpSpaceNew();
-	cpSpaceSetIterations(g_ho.space, 10);
-	cpSpaceSetGravity(g_ho.space, cpv(0, -100));
-	cpBody *staticBody = cpSpaceGetStaticBody(g_ho.space);;
-	cpShape *shape;
-
-	//Pelota
-	cpFloat radius = 15.0f;
-	g_ho.circulo = cpSpaceAddBody(g_ho.space, cpBodyNew(10.0f, cpMomentForCircle(10.0f, 0.0f, radius, cpvzero)));
-	cpBodySetPosition(g_ho.circulo, cpv(0, -200));
-	cpBodySetVelocity(g_ho.circulo, cpv(0, 170));
-
-	shape = cpSpaceAddShape(g_ho.space, cpCircleShapeNew(g_ho.circulo, radius, cpvzero));
-	cpShapeSetElasticity(shape, 0.0f);
-	cpShapeSetFriction(shape, 0.9f);
-	cpShapeSetCollisionType(shape, 2);
 }
 
 void RenderGL::liberar()
@@ -114,7 +113,10 @@ void RenderGL::onClickDown(float _x, float _y)
 
 void RenderGL::update()
 {
+	box1B->SetPosition(hoVector2f(-300, lPos));
+	box2B->SetPosition(hoVector2f(300, rPos));
 	hoTime::CalcularDeltaTime();
+	circleB->Update(hoTime::deltaTime);
 }
 
 float zoom = 10;
@@ -124,17 +126,18 @@ void RenderGL::render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 
-	g_ho.primitives.FillRectColor(hoVector2f(-300, lPos), 20, 100, g_ho.colorchata.moonstone);
-	g_ho.primitives.FillRectColor(hoVector2f(300, rPos), 20, 100, g_ho.colorchata.burntSienna);
+	g_ho.primitives.DrawCircle(circleB->GetPosition(), 20, 16);
+	g_ho.primitives.FillRectColor(box1B->GetPosition(),20, 100, g_ho.colorchata.moonstone);
+	g_ho.primitives.FillRectColor(box2B->GetPosition(), 20, 100, g_ho.colorchata.burntSienna);
 	g_ho.primitives.DrawAll();
 
 	glColor3f(1.0f, 1.0f, 1.0f);
-	sprite.Draw(0, 0);
+	sprite.Draw(circleB->GetPosition().x, circleB->GetPosition().y);
 	sprite.SetScale(5);
 
 	g_ho.EnableTextShader(); // Activar Shader para renderizar texto
 		//ESCRIBIR TEXTOS
-		txt.RenderText("00", w/2, h - 70, 1.3, glm::vec3(1, 1, 1));
+		txt.RenderText("PING HORCHATA", 100, h - 70, 1.3, glm::vec3(1, 1, 1));
 	g_ho.DisableTextShader(); // Descativar Shader de texto
 
 }

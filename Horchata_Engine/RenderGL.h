@@ -34,7 +34,7 @@ class RenderGL
 		void Ball();
 
 
-		hoBody* body;
+		hoBody* circleB, *box1B, *box2B;
 		hoSprite sprite;
 		hoText2 txt;
 
