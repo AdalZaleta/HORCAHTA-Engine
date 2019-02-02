@@ -29,6 +29,8 @@ RenderGL::~RenderGL()
 
 void RenderGL::inicializar()
 {
+	srand(time(NULL));
+
 	GLenum error = GL_NO_ERROR;
 	//Para obtener error: error = glGetError();
 
@@ -80,19 +82,21 @@ void RenderGL::inicializar()
 	cpSpaceSetIterations(g_ho.space, 10);
 	cpSpaceSetGravity(g_ho.space, cpv(0,0));
 
-	circleB = new hoBody(hoVector2f(),0,false,hoVector2f(100,0));
+	techo = new hoBody(hoVector2f(w/2, 0), 0, true, hoVector2f());
+
+	circleB = new hoBody(hoVector2f(),0,false,hoVector2f(100, /*(rand() % 200 + 0) - 100*/0));
 	circleB->AddCircle(hoVector2f(), 1.0f);
 	circleB->SetAllCollisionTypes(2);
-	circleB->SetAllPhysics(1, 1);
+	circleB->SetAllPhysics(1, 0);
 
 	box1B = new hoBody();
-	box1B->AddSegment(hoVector2f(-300,-50), hoVector2f(-300, 50),0);
-	box1B->SetAllPhysics(1, 1);
+	box1B->AddRect(20, 100, 1);
+	box1B->SetAllPhysics(1, 0);
 	box1B->SetAllFilters(NON_GRABABLE_FILTER);
 
-	box2B = new hoBody();
-	box2B->AddSegment(hoVector2f(300, -50), hoVector2f(300, 50), 0);
-	box2B->SetAllPhysics(1, 1);
+	box2B = new hoBody(hoVector2f(300, 0), 0, true, hoVector2f());
+	box2B->AddRect(20, 100, 1);
+	box2B->SetAllPhysics(1, 0);
 	box2B->SetAllFilters(NON_GRABABLE_FILTER);
 
 	//Init Text

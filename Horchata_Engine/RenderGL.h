@@ -1,6 +1,7 @@
 #pragma once
 #include "Horchata/Horchata.h"
 #include <stdlib.h>
+#include <time.h>
 #include "Horchata/hoSpriteSheet.h"
 
 class RenderGL
@@ -35,6 +36,7 @@ class RenderGL
 
 
 		hoBody* circleB, *box1B, *box2B;
+		hoBody *techo, *suelo, *paredI, *paredD;
 		hoSprite sprite;
 		hoText2 txt;
 
