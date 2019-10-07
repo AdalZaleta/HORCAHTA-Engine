@@ -48,4 +48,5 @@ public:
 	float tigersEye[4] = {0.701f, 0.4118f, 0.0901f, 1};
 	//los chidos
 	float adal[4] = { 0.69f, 0.420f, 0.1337f, 1 };
+	float adalInverse[4] = { 0.21f, 0.580f, 008663f, 1 }; 
 };
